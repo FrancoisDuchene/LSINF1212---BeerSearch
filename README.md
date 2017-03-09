@@ -1,4 +1,4 @@
-# LINSIF1212 - Beer Search
+﻿# LINSIF1212 - Beer Search
 
 ##Comment commencer à contribuer ?
 ###Pour installer git
@@ -65,3 +65,5 @@ Normalement tout est bon. Si il y a des merge conflicts, god save ourself.
 Pour ça faites gaffe de pas modifier en même temps le même fichier qu'un autre parce que c'est un coup à foutre la merde.
 
 Pour plus d'informations : https://help.github.com/articles/syncing-a-fork/
+
+test
