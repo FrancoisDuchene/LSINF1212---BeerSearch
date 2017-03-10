@@ -1,6 +1,6 @@
-import { Beer } from '../classeBeer'
-import { User } from '../classeUser'
-import { SellPlace } from '../classeSellPlace'
+import { Beer } from '../classeBeer';
+import { User } from '../classeUser';
+import { SellPlace } from '../classeSellPlace';
 
 describe('Beer', () => {
   let beer;
