@@ -112,3 +112,70 @@ describe('User', () => {
     });
   });
 });
+
+describe('SellPlace', () =>{
+  let sellPlace;
+  let orval;
+  let leffe;
+  let tk;
+  let chimay;
+
+  beforeEach(() =>{
+    sellPlace = new SellPlace();
+    orval = new Beer();
+    leffe = new Beer();
+    tk = new Beer();
+    chimay = new Beer();
+    sellPlace.position = 'Louvain-La-Neuve';
+    sellPlace.stock = [[orval, 20, 2.5], [leffe, 40, 1.5], [tk, 10, 2.0]];
+  });
+
+  describe('#getPosition', function (){
+    it('should return the position of the sell place', () =>{
+      expect(sellPlace.getPosition()).equals('Louvain-La-Neuve');
+    });
+  });
+
+  describe('#hasBeer', function (){
+    it('should return true if the sell place have the beer pasted', () =>{
+      expect(sellPlace.hasBeer(orval)).equals(true);
+      expect(sellPlace.hasBeer(chimay)).equals(false);
+    });
+  });
+
+  describe('#getPriceBeer', function (){
+    it('should return the price of the beer or -1 if the sell place doesn\'t have the beer', () =>{
+      expect(sellPlace.getPriceBeer(orval)).equals(2.5);
+      expect(sellPlace.getPriceBeer(chimay)).equals(-1);
+    });
+  });
+
+  describe('#getStock', function (){
+    it('should return the stock of the sell place', () =>{
+      expect(sellPlace.getStock()).equals('20 Orval, 40 Leffe, 10 Triples Karmeliet');
+    });
+  });
+
+  describe('#removeBeerFromStock', function () {
+    it('should remove the quntity of beer passed from the stock', () => {
+      sellPlace.removeBeerFromStock(leffe, 5);
+      expect(sellPlace.getStock()).equals('20 Orval, 35 Leffe, 10 Triples Karmeliet');
+    });
+  });
+
+  describe('#addBeerToStock', function () {
+    it('should add the quanity of beer with his price passed to the stock', () =>{
+      sellPlace.addBeerToStock(chimay, 20, 2.3);
+      expect(sellPlace.getStock()).equals('20 Orval, 35 Leffe, 10 Triples Karmeliet, 20 Chimay')
+    });
+  });
+
+  describe('#sendCommand', function () {
+    it('should verify if the command is possible, then register the command and return 1, else return -1', () =>{
+      expect(sellPlace.sendCommand(orval, 10)).equals(1);
+      expect(sellPlace.command).equals([orval, 10]);
+      expect(sellPlace.sendCommand(Leffe, 70)).equals(-1);
+      expect(sellPlace.command).equals([orval, 10]);
+    });
+  });
+});
