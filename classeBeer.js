@@ -1,6 +1,6 @@
 export class Beer
 {
-  getNom() {// renvoie le nom de la bière
+  getName() {// renvoie le nom de la bière
     throw new Error("not yet implemented");
   }
   getDegree(){//renvoie le taux d'alcohol de la bière
