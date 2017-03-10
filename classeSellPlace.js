@@ -23,3 +23,4 @@ export class SellPlace
     throw new Error("not yet implemented");   // et l'enregistre
   }
 }
+module.exports = SellPlace;

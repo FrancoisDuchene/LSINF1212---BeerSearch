@@ -21,3 +21,4 @@ export class User {
     throw new Error("not yet implemented");
   }
 }
+module.exports = User;

@@ -1,18 +1,18 @@
-import { Beer } from '../classeBeer';
-import { User } from '../classeUser';
-import { SellPlace } from '../classeSellPlace';
+Beer = require('../classeBeer');
+User = require('../classeUser');
+SellPlace = require ('../classeSellPlace');
 
 describe('Beer', () => {
-  let beer;
+  var beer;
 
-  beforeEach(( => {
+  beforeEach(() => {
     beer = new Beer();
     beer.name = 'Orval';
     beer.degree = 6.2;
     beer.SellPlace = 'Abbaye d Orval';
     beer.type = 'ambrée';
     beer.taste = 'amère';
-  }));
+  });
 
   describe('#getName', function () {
     it('should return the name of the beer', () =>{
@@ -47,7 +47,7 @@ describe('Beer', () => {
 });
 
 describe('User', () => {
-  let user;
+  var user;
 
   beforeEach(() => {
     user = new User();
@@ -114,11 +114,11 @@ describe('User', () => {
 });
 
 describe('SellPlace', () =>{
-  let sellPlace;
-  let orval;
-  let leffe;
-  let tk;
-  let chimay;
+  var sellPlace;
+  var orval;
+  var leffe;
+  var tk;
+  var chimay;
 
   beforeEach(() =>{
     sellPlace = new SellPlace();

@@ -16,3 +16,4 @@ export class Beer
     throw new Error("not yet implemented");
   }
 }
+module.exports = Beer;
