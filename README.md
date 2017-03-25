@@ -1,4 +1,15 @@
-Ce fichier reprend les commentaires sur notre project.
+# Projet LSINF1212 - BeerSearch
+
+Il s'agit du dépôt pour le projet du cours *LSINF1212 - Projet d'approfondissement en informatique* donné par le prof. Gonzalez Montesinos Sebastian Andres.
+
+## Membres du groupe
+
+- Damien Raquet
+- François Duchêne
+- Julien Bastin
+
+## Description
+Voici la description de notre projet.
 
 Tout d'abord nous avons 3 fichiers "classeBeer", "classeUser" et "classeSellPlace" qui reprennant le squelette de notre application.
 
