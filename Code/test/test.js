@@ -1,9 +1,9 @@
-Beer = require('../classeBeer');
-User = require('../classeUser');
-SellPlace = require ('../classeSellPlace');
+let Beer = require('../classeBeer');
+let User = require('../classeUser');
+let SellPlace = require ('../classeSellPlace');
 
 describe('Beer', () => {
-  var beer;
+  let beer;
 
   beforeEach(() => {
     beer = new Beer();
@@ -47,7 +47,7 @@ describe('Beer', () => {
 });
 
 describe('User', () => {
-  var user;
+  let user;
 
   beforeEach(() => {
     user = new User();
@@ -55,6 +55,13 @@ describe('User', () => {
     user.Balance = 0.0;
     user.name = 'Bastin Julien';
     user.place = 'Louvain-La-Neuve';
+    user.receivedMessage = null;
+  });
+
+  describe('#getName', function (){
+    it('should return the name of the user', () =>{
+      expect(user.getName()).equals('Bastin Julien');
+    });
   });
 
   describe('#getAccountNumber', function (){
@@ -66,12 +73,6 @@ describe('User', () => {
   describe('#getBalance', function (){
     it('should return the balance of the user', () =>{
       expect(user.getBalance()).equals(0);
-    });
-  });
-
-  describe('#getName', function (){
-    it('should return the name of the user', () =>{
-      expect(user.getName()).equals('Bastin Julien');
     });
   });
 
@@ -87,6 +88,39 @@ describe('User', () => {
       expect(user.receivedMessage).not.toBeEmpty();
       expect(user.receivedMessage).equals("a message");
     });
+    after(function () {
+      user.receivedMessage = null;
+    })
+  });
+
+  describe('#getMessages', function(){
+    before(function() {
+        user.receivedMessage = ["a message", "another one", "and again another"];
+    });
+    it('should return the messages received by the user', () => {
+      expect(user.getMessages()).to.be.a('array');
+      expect(user.getMessages()).to.not.be.empty();
+      expect(user.getMessages()).to.have.length(3);
+      expect(user.getMessages()).contain("a message");
+      expect(user.getMessages()).contain("another one");
+      expect(user.getMessages()).contain("and again another");
+    });
+    after(function() {
+      user.receivedMessage = null;
+    })
+  });
+
+  describe('#getLastMessage', function(){
+    before(function() {
+        user.receivedMessage = "a message";
+    });
+    it('should return the messages received by the user', () => {
+      expect(user.getMessages()).to.not.be.Empty();
+      expect(user.getMessages()).equals("a message");
+    });
+    after(function() {
+      user.receivedMessage = null;
+    })
   });
 
   describe('#supplyAccount', function (){
@@ -114,11 +148,11 @@ describe('User', () => {
 });
 
 describe('SellPlace', () =>{
-  var sellPlace;
-  var orval;
-  var leffe;
-  var tk;
-  var chimay;
+  let sellPlace;
+  let orval;
+  let leffe;
+  let tk;
+  let chimay;
 
   beforeEach(() =>{
     sellPlace = new SellPlace();

@@ -1,23 +1,29 @@
 export class User {
-  getAccountNumber(){// renvoie le nuéro de compte bancaire
+  getName(){// renvoie le nom de l'utilisateur
+    throw new Error("not yet implemented");
+  }
+  getAccountNumber(){// renvoie le numéro de compte bancaire
     throw new Error("not yet implemented");
   }
   getBalance(){// renvoie le solde du compte
     throw new Error("not yet implemented");
   }
-  getName(){// renvoie le nom de l'utilisateur
+  getPlace(){// renvoie le point géographique d'où la requête a été faite
     throw new Error("not yet implemented");
   }
-  getPlace(){// renvoie le poitn géographqie d'où la rêquète est faite
+  sendMessage(message){// envoie un message à l'utilisateur
     throw new Error("not yet implemented");
   }
-  sendMessage(string message){// envoie un message qqc à l'utilisateur
+  getMessages(){ // renvoie tous les messages reçu par l'utilisateur
     throw new Error("not yet implemented");
   }
-  supplyAccount(double quantity){ // ajoute une quantité d'argent au compte
+  getLastMessage(){ // renvoie le dernier message reçu
     throw new Error("not yet implemented");
   }
-  removeAccount(double quantity){// enlève une quantité d'argent au copmpte
+  supplyAccount(quantity){ // ajoute une quantité d'argent au compte
+    throw new Error("not yet implemented");
+  }
+  removeAccount(quantity){// enlève une quantité d'argent au copmpte
     throw new Error("not yet implemented");
   }
 }
