@@ -19,6 +19,7 @@
     "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {
+    "bootstrap": "3",
     "express": "^4.15.2"
   }
 }

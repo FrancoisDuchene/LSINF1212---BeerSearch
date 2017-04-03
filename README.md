@@ -27,9 +27,21 @@ Nous avons un dossier test reprennant le fichier de test sur ces différentes cl
 
 Pour lancer les tests, il suffit de se placer dans le dossier avec un invite de commande et d'avoir installer mocha au préalable et ensuite de taper la commande `yarn test`.
 
-### Modules nécessaires
-Pour notre projet, nous utilisons le gestionnaire de module *node.js* **yarn** et comme gestionnaire de tests **mocha**.
+### Côté serveur - Backend
+Pour notre projet, nous utilisons le gestionnaire de module *node.js* **yarn**.
 
-Pour faire fonctionner notre projet, il est également indispensable d'installer les paquets suivant (avec la commande `yarn add` donc) :
+#### Dependances
+Ce sont les dépendances nécessaires au fonctionnement du projet. On les installe avec la commande `yarn add` donc :
+
+* `express`
+* `bootstrap`
+#### Dependances dev
+Ce sont toutes les dépendances marquées comme nécessaires uniquement au développement, càd elles ne sont pas nécessaires au fonctionnement du projet.
+Comme gestionnaire de tests **mocha**.
+
+Pour installer les dependances, on utilise donc la commande `yarn add`
 
 * `--dev babel-register` (un traducteur de code JS récent en code plus ancien)
+
+### Côté client - FrontEnd
+On utilise le module **bootstrap** afin de nous aider dans la construction des pages *HTML*
