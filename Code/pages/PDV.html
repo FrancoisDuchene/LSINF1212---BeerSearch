@@ -3,10 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="Biere, Bière, rechercher, commander, alchool">
         <meta name="author" content="François Duchêne">
-        <meta name="description" content="Catalogue complet de bières permettant de localiser des point de vente et de commander en ligne !">
-        <title>BeerSearch</title>
+        <title>BeerSearch - Trouver un point de vente</title>
         <link href="css/bootstrap.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet"/>
     </head>
@@ -20,13 +18,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">BeerSearch</a>
+              <a class="navbar-brand" href="./index.html">BeerSearch</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Accueil</a></li>
+                <li><a href="./index.html">Accueil</a></li>
                 <li><a href="./RechercheBieres.html">Recherche bière</a></li>
-                <li><a href="./PDV.html">Trouver un point de vente de bière</a></li>
+                <li class="active"><a href="#">Trouver un point de vente de bière</a></li>
                 <li><a href="./Commander.html">Commander une bière</a></li>
               </ul>
               <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
@@ -37,12 +35,21 @@
         <header>
           <div class="container">
             <div class="starter-template">
-              <h1>BeerSearch</h1>
-              <p>C'est la page d'accueil</p>
-              <img class="img-responsive img-circle margin" src="res/Trappist_Beer.jpg" style="display:inline" alt="Bieres" width="1920" height="740">
+              <h1>Trouvez un point de vente !</h1>
             </div>
           </div>
         </header>
+      <section>
+        <div class="container">
+          <header>
+            <h3>Vous avez plusieurs choix :</h3>
+          </header>
+          <ul>
+            <li>Géolocalisez-vous !</li>
+            <li>Dites-nous une zone où chercher</li>
+          </ul>
+        </div>
+      </section>
         <footer class="footer">
           <div class="container">
             <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>

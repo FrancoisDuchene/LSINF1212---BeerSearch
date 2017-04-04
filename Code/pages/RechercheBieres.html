@@ -2,12 +2,51 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
-        <title>BeerSearch</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="François Duchêne">
+        <title>BeerSearch - Rechercher</title>
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
     </head>
     <body>
-        <p>
-          C'est la page de recherche de bieres
-        </p>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">BeerSearch</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="./index.html">Accueil</a></li>
+              <li class="active"><a href="#">Recherche bière</a></li>
+              <li><a href="./PDV.html">Trouver un point de vente de bière</a></li>
+              <li><a href="./Commander.html">Commander une bière</a></li>
+            </ul>
+            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
+            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+      <header>
+        <div class="container">
+          <div class="starter-template">
+            <h1> Recherche</h1>
+            <p>C'est la page de recherche de bieres</p>
+          </div>
+        </div>
+      </header
+      <footer class="footer">
+        <div class="container">
+          <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
+        </div>
+      </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.js"></script>
     </body>
 </html>
