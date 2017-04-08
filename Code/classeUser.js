@@ -1,24 +1,33 @@
 export class User {
+  constructor(name, accountNumber, balance, place) {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+    this.name = name;
+    this.place = place;
+    this.receivedMessage = null;
+  }
   getName(){// renvoie le nom de l'utilisateur
-    throw new Error("not yet implemented");
+    return this.name;
   }
   getAccountNumber(){// renvoie le numéro de compte bancaire
-    throw new Error("not yet implemented");
+    return this.accountNumber;
   }
   getBalance(){// renvoie le solde du compte
-    throw new Error("not yet implemented");
+    return this.balance;
   }
   getPlace(){// renvoie le point géographique d'où la requête a été faite
-    throw new Error("not yet implemented");
+    return this.place;
   }
   sendMessage(message){// envoie un message à l'utilisateur
     throw new Error("not yet implemented");
   }
   getMessages(){ // renvoie tous les messages reçu par l'utilisateur
-    throw new Error("not yet implemented");
+    return this.receivedMessage;
   }
   getLastMessage(){ // renvoie le dernier message reçu
-    throw new Error("not yet implemented");
+                    // Comme receivedMessage est un tableau, on renvoie
+                    // la derniere entree connue
+    return this.receivedMessage[(this.receivedMessage.length)-1];
   }
   supplyAccount(quantity){ // ajoute une quantité d'argent au compte
     throw new Error("not yet implemented");

@@ -39,9 +39,10 @@ Ce sont les dépendances nécessaires au fonctionnement du projet. On les instal
 Ce sont toutes les dépendances marquées comme nécessaires uniquement au développement, càd elles ne sont pas nécessaires au fonctionnement du projet.
 Comme gestionnaire de tests **mocha**.
 
-Pour installer les dependances, on utilise donc la commande `yarn add`
+Pour installer les dependances, on utilise donc la commande `yarn add --dev`
 
-* `--dev babel-register` (un traducteur de code JS récent en code plus ancien)
+* `babel-register` (un traducteur de code JS récent en code plus ancien)
+* `chai` pour les modules de test comme *expect*
 
 ### Côté client - FrontEnd
 On utilise le module **bootstrap** afin de nous aider dans la construction des pages *HTML*

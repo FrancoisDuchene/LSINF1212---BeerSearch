@@ -1,7 +1,11 @@
 export class SellPlace
 {
+  constructor(position, stock) {
+      this.position = position;
+      this.stock = stock;
+  }
   getPosition(){ // donne un lieu géographique du point de vente
-    throw new Error("not yet implemented");
+    return this.position;
   }
   hasBeer(Beer){// renvoie true si la bière est en stock, false sinon
     throw new Error("not yet implemented");
@@ -10,7 +14,7 @@ export class SellPlace
     throw new Error("not yet implemented");
   }
   getStock(){ // donne les bières et la quantité restante en stock du point de vente
-    throw new Error("not yet implemented");
+    return this.stock;
   }
   removeBeerFromStock(Beer, quantity){ // retire une quantité de bière du stock
     throw new Error("not yet implemented");

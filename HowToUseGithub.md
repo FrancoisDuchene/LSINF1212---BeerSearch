@@ -6,11 +6,11 @@
 
 Tout d'abord vous devez être sûr d'avoir le logiciel git installé sur votre machine.
 - Sur linux, généralement si vous êtes sur linux git est installé par défaut ; taper : `git version`
- dans un terminal pour être sûr.
+ dans un terminal pour être sûr. Sinon installez selon la mathode que vous préférez, préférablement un gestionnaire de paquet comme `sudo apt-get install git` sur les systèmes *Debian* par exemple. Voici un lien avec tout ce qu'il faut savoir : https://git-scm.com/download/linux
 - Sur Windows, il faut l'installer soi-même. Il existe une interface graphique sur : http://msysgit.github.io
 - Sur Mac, il faut aussi l'installer soi-même. Il existe également une interface graphique sur : http://sourceforge.net/projects/git-osx-installer/
 
-Ou alors vous pouvez carrément installer depuis les sources mais c'est à vous de voir ^^. Voici un site intéresssant pour les explications : https://git-scm.com/book/fr/v1/D%C3%A9marrage-rapide-Installation-de-Git
+Ou alors vous pouvez carrément installer depuis les sources mais c'est à vous de voir ^^. Voici un site intéressant pour les explications : https://git-scm.com/book/fr/v1/D%C3%A9marrage-rapide-Installation-de-Git
 
 ### Configurer git
 
@@ -22,7 +22,7 @@ git config --global user.email "VOTRE ADRESSE MAIL"
 ```
 Ensuite il va falloir faire plusieurs commandes techniques pour se connecter à github.
 
-Pour s'identifier à github via git, soit on utilise une connexion par HTTPS(recommandé par github) ou par SSH :
+Pour s'identifier à github via git, soit on utilise une connexion par HTTPS(recommandé par github) soit par SSH :
 
 #### Connexion par HTTPS
 
@@ -35,17 +35,26 @@ git config --global credential.helper 'cache --timeout=3600'
 
 #### Connexion par SSH
 
-Il y a plein d'étapes différentes si vous voulez plus d'info regardez au lien :p
+Il y a plein d'étapes différentes si vous voulez plus d'info regardez ce lien :p
 
-Plus d'information : https://help.github.com/articles/set-up-git/
+Plus d'informations : https://help.github.com/articles/set-up-git/
 
 ### Cloner le repo
 
-Quand tout ça est fait, il faut cloner le repository.
+Quand tout ça est fait, il faut cloner le dépôt (repository en anglais).
 
-Tout d'abord il faut que vous appuyez sur le bouton "fork" au dessus du repo.
-Ca va créer une copie du repo sur votre compte github.
+Deux choix s'offrent encore à vous.
+
+Ou vous "forkez" le dépôt principal, c'est à dire vous créez une copie personnelle du dépôt principal sur laquelle vous effecturez les modifications avant de de l'envoyer sur le dépôt principal (celui qui est sous mon nom).
+
+Ou vous changez directement sur le dépôt principal mais alors je vous conseille fortement de faire attention avant d'envoyer ; en effet quand vous faîtes un fork, avant de pouvoir envoyer sur le dépôt principal vous devez faire ce que l'on appelle un *pull request*. En gros vous demandez au dépôt principal d'intégrer vos changements et dans ce cas-là, les autres contributeurs peuvent voir vos modifications et par exemple vérifier qu'il n'y a pas de bug.
+Comme dans ce cas-ci vous envoyez directement au dépôt, il n'y a pas forcément de contrôle sur les bugs que vous pourriez faire.
+
+Tout d'abord si vous utilisez la *méthode n°1*, il faut que vous appuyez sur le bouton "fork" au dessus du dépôt. Vous avez alors créé une copie sur votre propre compte, rendez-vous y.
 Maintenant il faut que vous téléchargiez cette copie sur votre pc. Cliquez sur le bouton "Clone or download" **sur la page de votre fork**. Vous obtiendrez un lien web. Copier-collez.
+
+Si vous utilisez la *méthode n°2*, vous devez cliquer sur le bouton "Clone or download" **sur la page de du dépôt principal**.
+
 Pour cela retournez dans votre interpreteur de commande (ou interface graphique ça dépends de ce que vous utilisez). Déplacez-vous jusqu'au dossier ou voulez mettre le projet.
 
 Tapez : `git clone https://github.com/VOTRE-PSEUDO/NOM-REPO`
@@ -54,7 +63,7 @@ Enter et si vous avez tout bien fait vous avez cloné le repo !
 Maintenant pour pouvoir le synchroniser, il faut faire encore quelques commandes;
 - Ouvrez un terminal
 - Allez dans votre dossier
-- Sur la page internet du repo, allez sur le bouton "Clone or download" **sur la page de votre fork** et copier-collez. 
+- Sur la page internet du repo, allez sur le bouton "Clone or download" **sur la page de votre fork ou du dépôt selon la méthode** et copier-collez. 
 - Tapez : `git remote -v` Deux lignes s'affichent normalement.
 - Tapez : `git remote add upstream https://github.com/VOTRE-LIEN`
 - Pour être sûr faites : `git remote -v` Normalement vous en avez maintenant. 
@@ -90,11 +99,22 @@ Si jamais ça arrive quand même, il va falloir d'abord corriger le conflit manu
 ```
 HEAD
 >>>>>>>>>>>>>>>>>>
-
+//code 1
 ==================
-
-<<<<<<<<<<<<<<<<<<
+//code 2
+>>>>>>>>>>>>>>>>>>465d465465464a6e46
 ```
-En gros il met en parallèle les différentes versions. Il faut manuellement en supprimer une (et les >>>>>>>>>>)
+En gros il met en parallèle les différentes versions. Il faut manuellement en supprimer une (et les >>>> et ====)
 Et ensuite on peut commit et push comme vous voulez. Sinon vous me laisser règler ça et ça passera.
+
+Si jamais vous n'avez pas de *fork* et que vous avez utilisé **la méthode 1** du clonage, vous pouvez directement utiliser la commande : `git pull`
+Si ça ne fonctionne pas, faites comme la méthode ci-dessus.
+
 Pour plus d'informations : https://help.github.com/articles/syncing-a-fork/
+
+### Organiser le travail
+
+Il y a plusieurs outils pour pouvoir organiser le travail sur github. Il y a notamment le système d'*ISSUES*. C'est une fonctionnalité de github qui permet par exemple, de reporter des bugs ou de proposer des améliorations. Il y a moyen de l'utiliser comme d'une list de chose à faire (*TODO*).
+
+Ensuite il y a moyen de créer ce qu'on appelle un "projet". C'est une interface qui permet simplement de créer des notes et des les placer dans des colonnes avec des noms prédéfinis. Ces notes peuvent être convertis en *Issues* et vice-versa. Cela permet entre autre de pouvoir organiser les tâches (ou autre...).
+
