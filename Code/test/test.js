@@ -53,34 +53,34 @@ describe('User', () => {
     user = new User('Bastin Julien','25300',0.0,'Louvain-La-Neuve',null);
   });
 
-  describe('#getName', function (){
+  describe('#getName', function () {
     it('should return the name of the user', () => {
       expect(user.getName()).to.be.a('string');
       expect(user.getName()).equals('Bastin Julien');
     });
   });
 
-  describe('#getAccountNumber', function (){
+  describe('#getAccountNumber', function () {
     it('should return the account number of the user', () => {
       expect(user.getAccountNumber()).equals('25300');
     });
   });
 
-  describe('#getBalance', function (){
+  describe('#getBalance', function () {
     it('should return the balance of the user', () => {
       expect(user.getBalance()).to.be.a('number');
       expect(user.getBalance()).equals(0);
     });
   });
 
-  describe('#getPlace', function (){
+  describe('#getPlace', function () {
     it('should return the place of the user', () => {
       expect(user.getPlace()).to.be.a('string');
       expect(user.getPlace()).equals('Louvain-La-Neuve');
     });
   });
 
-  describe('#sendMessageWithNull', function (){
+  describe('#sendMessageWithNull', function () {
     it('should sent a message to the user when he didnt received yet', () => {
       user.receivedMessage = null;
       user.sendMessage("a message");
@@ -94,7 +94,7 @@ describe('User', () => {
     })
   });
 
-  describe('#sendMessageNotEmpty', function (){
+  describe('#sendMessageNotEmpty', function () {
     it('should sent a message to the user when he received some before', () => {
       user.receivedMessage = ["blahblahblah", "blublublublublu", "oui je n'ai pas d'imagination"];
       user.sendMessage("a message");
@@ -111,7 +111,7 @@ describe('User', () => {
     })
   });
 
-  describe('#getMessages', function(){
+  describe('#getMessages', function() {
     it('should return the messages received by the user', () => {
       user.receivedMessage = ["a message", "another one", "and again another"];
       expect(user.getMessages()).to.not.be.a('null');
@@ -127,7 +127,7 @@ describe('User', () => {
     })
   });
 
-  describe('#getLastMessage', function(){
+  describe('#getLastMessage', function() {
     it('should return the messages received by the user', () => {
       user.receivedMessage = "a message";
       expect(user.getMessages()).to.not.be.a('null');
@@ -140,7 +140,7 @@ describe('User', () => {
     });
   });
 
-  describe('#supplyAccount', function (){
+  describe('#supplyAccount', function () {
     it('should increase the balance of the user', () =>{
       user.balance = 0;
       user.supplyAccount(5.0);
@@ -152,7 +152,7 @@ describe('User', () => {
     });
   });
 
-  describe('#removeAccount', function (){
+  describe('#removeAccount', function () {
     it('should remove the amount of money passed of the balance of the user', () =>{
       user.balance = 10.0;
       user.removeAccount(5.0);
