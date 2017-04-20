@@ -21,10 +21,10 @@ export class User {
   sendMessage(message) {// envoie un message à l'utilisateur
     // On regarde d'abbord si c'est bien un string
     if(typeof message === 'string' || message instanceof String) {
-      if(this.receivedMessage === null ) {
-        this.receivedMessage = [message];
-      }else {
+      if(this.receivedMessage !== null ) {
         this.receivedMessage.push(message);
+      }else{
+        this.receivedMessage = [message];
       }
     }else {
       throw new Error("Is not a string");

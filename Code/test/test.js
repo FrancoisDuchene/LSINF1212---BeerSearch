@@ -1,7 +1,8 @@
 let expect = require('chai').expect;
 let Beer = require('../classeBeer');
 let User = require('../classeUser');
-let SellPlace = require ('../classeSellPlace');
+let SellPlace = require('../classeSellPlace');
+let Element = require('../classeElement');
 
 describe('Beer', () => {
   let beer;
@@ -80,21 +81,15 @@ describe('User', () => {
     });
   });
 
-  describe('#sendMessageWithNull', function () {
+  describe('#sendMessage', function () {
     it('should sent a message to the user when he didnt received yet', () => {
-      user.receivedMessage = null;
       user.sendMessage("a message");
       expect(user.receivedMessage).to.not.be.a('null');
       expect(user.receivedMessage).to.not.be.an('undefined');
       expect(user.receivedMessage).to.be.a('array');
       expect(user.receivedMessage[0]).equals("a message");
-    });
-    after(function () {
       user.receivedMessage = null;
-    })
-  });
-
-  describe('#sendMessageNotEmpty', function () {
+    });
     it('should sent a message to the user when he received some before', () => {
       user.receivedMessage = ["blahblahblah", "blublublublublu", "oui je n'ai pas d'imagination"];
       user.sendMessage("a message");
@@ -105,10 +100,8 @@ describe('User', () => {
       expect(user.receivedMessage[1]).equals("blublublublublu");
       expect(user.receivedMessage[2]).equals("oui je n'ai pas d'imagination");
       expect(user.receivedMessage[3]).equals("a message");
-    });
-    after(function () {
       user.receivedMessage = null;
-    })
+    });
   });
 
   describe('#getMessages', function() {
@@ -165,19 +158,57 @@ describe('User', () => {
   });
 });
 
+describe('Elem', () => {
+  let elem;
+  let biere;
+
+  beforeEach(() => {
+    biere = new Beer("Orval", 2.0, null, "ambre", "amere");
+    elem = new Element(biere, 3, 20);
+  });
+
+  describe('#getBeer', function () {
+    it('should show the beer of the element', () =>{
+      expect(elem.getBeer()).equals(new Beer("Orval", 2.0, null, "ambre", "amere"));
+    });
+  });
+
+  describe('#getPrix', function () {
+    it('should show the price of the element', () =>{
+      expect(elem.getPrix()).equals(3);
+    });
+  });
+
+  describe('#getQuantite', function () {
+    it('should show the quantite of the element', () =>{
+      expect(elem.getQuantite()).equals(20);
+    });
+  });
+
+  describe('#setQuantite', function () {
+    it('should change the quantity of the element', () =>{
+      elem.setQuantite(50);
+      expect(elem.getBeer()).to.be.a('number');
+      expect(elem.getBeer()).equals(50);
+    });
+  });
+});
+
 describe('SellPlace', () => {
   let sellPlace;
   let orval;
   let leffe;
   let tk;
   let chimay;
+  let stock
 
   beforeEach(() => {
-    sellPlace = new SellPlace('Louvain-La-Neuve',[[orval, 20, 2.5], [leffe, 40, 1.5], [tk, 10, 2.0]]);
     orval = new Beer();
     leffe = new Beer();
     tk = new Beer();
     chimay = new Beer();
+    stock = [new Element(orval,2.5, 20),new Element(leffe, 1.5, 40), new Element(tk, 2.0, 10)];
+    sellPlace = new SellPlace('Louvain-La-Neuve',stock);
   });
 
   describe('#getPosition', function () {
@@ -202,21 +233,51 @@ describe('SellPlace', () => {
 
   describe('#getStock', function () {
     it('should return the stock of the sell place', () => {
-      expect(sellPlace.getStock()).equals('20 Orval, 40 Leffe, 10 Triples Karmeliet');
+      let stock = sellPlace.getStock();
+      expect(stock).to.be.a('array');
+      expect(stock).to.have.length(3);
+      expect(stock[0]).equals(new Element(orval,2.5, 20));
     });
   });
 
-  describe('#removeBeerFromStock', function () {
-    it('should remove the quntity of beer passed from the stock', () => {
-      sellPlace.removeBeerFromStock(leffe, 5);
-      expect(sellPlace.getStock()).equals('20 Orval, 35 Leffe, 10 Triples Karmeliet');
+  describe('#removeQuantityBeer', function () {
+    it('should remove the quantity of beer passed from the stock', () => {
+      sellPlace.removeQuantityBeer(leffe, 5);
+      let stock = sellPlace.getStock();
+      expect(stock[1].getQuantite()).equals(35);
+    });
+    it("should do nothing when try to remove an element which isn't in the stock", () => {
+      sellPlace.removeQuantityBeer(chimay, 5);
+      let stock = sellPlace.getStock();
+      //TODO
+      expect(stock[1].getQuantite()).equals(35);
     });
   });
 
-  describe('#addBeerToStock', function () {
-    it('should add the quanity of beer with his price passed to the stock', () => {
-      sellPlace.addBeerToStock(chimay, 20, 2.3);
-      expect(sellPlace.getStock()).equals('20 Orval, 35 Leffe, 10 Triples Karmeliet, 20 Chimay')
+  describe('#addQuantityBeer', function () {
+    it('should add a quantity of beer passed from the stock', () => {
+      sellPlace.addQuantityBeer(leffe, 5);
+      let stock = sellPlace.getStock();
+      //TODO
+      expect(stock[1].getQuantite()).equals(35);
+    });
+  });
+
+  describe('#removeElementFromStock', function () {
+    it('should remove the element passed from the stock', () => {
+      sellPlace.removeElementFromStock(leffe);
+      let stock = sellPlace.getStock();
+      //TODO
+      expect(stock[1].getQuantite()).equals(35);
+    });
+  });
+
+  describe('#addElementToStockNewBeer', function () {
+    it('should add a element with his price and quantity to the stock', () => {
+      sellPlace.addElementToStock(chimay, 2.3, 20);
+      let stock = sellPlace.getStock();
+      //TODO
+      expect(stock[3]).equals(new Element(chimay, 2.3, 20));
     });
   });
 
