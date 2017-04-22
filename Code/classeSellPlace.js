@@ -40,15 +40,26 @@ export class SellPlace
     });
   }
   addQuantityBeer(Beer, quantity) {
-    throw new Error("not yet implemented");
+    this.stock.forEach(function(item, index, array) {
+      if(item.getBeer() === Beer) {
+        item.addQuantite(quantity);
+      }
+    });
   }
   removeElementFromStock(Beer) { // retire une quantité de bière du stock
-    throw new Error("not yet implemented");
+    this.stock.forEach(function(item, index, array) {
+      if(item.getBeer() === Beer) {
+        let removedItem = this.stock.splice(index,index);
+      }
+    });
   }
   addElementToStock(Beer, quantity, price) {// ajoute une quantité de bière au stock
-    throw new Error("not yet implemented");
+    if(Beer.getName() !== null) {
+      let elem = new Element(Beer, price, quantity);
+      this.stock.push(elem);
+    }
   }
-  sendCommand(Beer, quantity, Utilisateur) { // vérifie si la commande est
+  sendCommand(Beer, quantity, Utilisateur) {  // vérifie si la commande est
                                               //possible(quantité en stock)
     throw new Error("not yet implemented");   // et l'enregistre
   }

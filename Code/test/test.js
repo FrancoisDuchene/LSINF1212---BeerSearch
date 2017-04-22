@@ -45,6 +45,14 @@ describe('Beer', () => {
       expect(beer.getTaste()).equals('amère');
     });
   });
+
+  describe('#setSellPlace', function() {
+    it('should return the taste of the beer', () => {
+      expect(beer.getSellPlace()).equals('Abbaye d Orval');
+      beer.setSellPlace("Hypermarche FourCarre");
+      expect(beer.getSellPlace()).equals('Hypermarche FourCarre');
+    });
+  });
 });
 
 describe('User', () => {
@@ -169,7 +177,8 @@ describe('Elem', () => {
 
   describe('#getBeer', function () {
     it('should show the beer of the element', () =>{
-      expect(elem.getBeer()).equals(new Beer("Orval", 2.0, null, "ambre", "amere"));
+      expect(elem.getBeer().getName()).equals("Orval");
+      expect(elem.getBeer().getDegree()).equals(2.0);
     });
   });
 
@@ -188,8 +197,8 @@ describe('Elem', () => {
   describe('#setQuantite', function () {
     it('should change the quantity of the element', () =>{
       elem.setQuantite(50);
-      expect(elem.getBeer()).to.be.a('number');
-      expect(elem.getBeer()).equals(50);
+      expect(elem.getQuantite()).to.be.a('number');
+      expect(elem.getQuantite()).equals(50);
     });
   });
 });
@@ -203,12 +212,16 @@ describe('SellPlace', () => {
   let stock
 
   beforeEach(() => {
-    orval = new Beer();
-    leffe = new Beer();
-    tk = new Beer();
-    chimay = new Beer();
+    orval = new Beer("Orval", 2.0, null, "ambre", "amere");
+    leffe = new Beer("Leffe", 5.0, null, "blonde", "doux");
+    tk = new Beer("Tk", 6.0, null, "brune", "corsee");
+    chimay = new Beer("chimay", 7.0, "noire", "profonde");
     stock = [new Element(orval,2.5, 20),new Element(leffe, 1.5, 40), new Element(tk, 2.0, 10)];
     sellPlace = new SellPlace('Louvain-La-Neuve',stock);
+    orval.setSellPlace(sellPlace);
+    leffe.setSellPlace(sellPlace);
+    tk.setSellPlace(sellPlace);
+    chimay.setSellPlace(sellPlace);
   });
 
   describe('#getPosition', function () {
@@ -236,7 +249,15 @@ describe('SellPlace', () => {
       let stock = sellPlace.getStock();
       expect(stock).to.be.a('array');
       expect(stock).to.have.length(3);
-      expect(stock[0]).equals(new Element(orval,2.5, 20));
+      expect(stock[0].getQuantite()).equals(20);
+      expect(stock[0].getPrix()).equals(2.5);
+      expect(stock[0].getBeer().getName()).equals("Orval");
+      expect(stock[1].getQuantite()).equals(40);
+      expect(stock[1].getPrix()).equals(1.5);
+      expect(stock[1].getBeer().getName()).equals("Leffe");
+      expect(stock[2].getQuantite()).equals(10);
+      expect(stock[2].getPrix()).equals(2.0);
+      expect(stock[2].getBeer().getName()).equals("Tk");
     });
   });
 
@@ -249,8 +270,14 @@ describe('SellPlace', () => {
     it("should do nothing when try to remove an element which isn't in the stock", () => {
       sellPlace.removeQuantityBeer(chimay, 5);
       let stock = sellPlace.getStock();
-      //TODO
-      expect(stock[1].getQuantite()).equals(35);
+      expect(stock).to.be.a('array');
+      expect(stock).to.have.length(3);
+      expect(stock[1].getQuantite()).equals(40);
+    });
+    it("should do put the quantity 0 when try to remove more quantity of an element that are already in the stock", () => {
+      sellPlace.removeQuantityBeer(leffe, 45);
+      let stock = sellPlace.getStock();
+      expect(stock[1].getQuantite()).equals(0);
     });
   });
 
@@ -258,8 +285,7 @@ describe('SellPlace', () => {
     it('should add a quantity of beer passed from the stock', () => {
       sellPlace.addQuantityBeer(leffe, 5);
       let stock = sellPlace.getStock();
-      //TODO
-      expect(stock[1].getQuantite()).equals(35);
+      expect(stock[1].getQuantite()).equals(45);
     });
   });
 
@@ -267,8 +293,20 @@ describe('SellPlace', () => {
     it('should remove the element passed from the stock', () => {
       sellPlace.removeElementFromStock(leffe);
       let stock = sellPlace.getStock();
-      //TODO
-      expect(stock[1].getQuantite()).equals(35);
+      expect(stock[1].getQuantite()).equals(10);
+      expect(stock[1].getPrix()).equals(2.0);
+      expect(stock[0].getQuantite()).equals(20);
+      expect(stock[0].getPrix()).equals(2.5);
+    });
+    it("shouldn't remove a null element" , () => {
+      sellPlace.removeElementFromStock(chimay);
+      let stock = sellPlace.getStock();
+      expect(stock[2].getQuantite()).equals(10);
+      expect(stock[2].getPrix()).equals(2.0);
+      expect(stock[1].getQuantite()).equals(40);
+      expect(stock[1].getPrix()).equals(1.5);
+      expect(stock[0].getQuantite()).equals(20);
+      expect(stock[0].getPrix()).equals(2.5);
     });
   });
 
@@ -276,8 +314,12 @@ describe('SellPlace', () => {
     it('should add a element with his price and quantity to the stock', () => {
       sellPlace.addElementToStock(chimay, 2.3, 20);
       let stock = sellPlace.getStock();
-      //TODO
-      expect(stock[3]).equals(new Element(chimay, 2.3, 20));
+      expect(stock[3].getBeer().getName()).equals("chimay");
+      expect(stock[3].getBeer().getDegree()).equals(7.0);
+    });
+    it("should return an error when a beer without name is given" , () => {
+      lupulus = new Beer();
+      expect(sellPlace.addElementToStock(lupulus, 20, 3.0)).to.throw('Beer without name - impossible to add to stock');
     });
   });
 

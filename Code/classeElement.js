@@ -18,5 +18,8 @@ export class Element {
   setQuantite(quantite) {
     this.quantite = quantite;
   }
+  addQuantite(quantite) {
+    this.quantite = this.quantite + quantite;
+  }
 }
 module.exports = Element;

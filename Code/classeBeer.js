@@ -10,17 +10,20 @@ export class Beer
   getName() {// renvoie le nom de la bière
     return this.name;
   }
-  getDegree(){//renvoie le taux d'alcohol de la bière
+  getDegree() {//renvoie le taux d'alcohol de la bière
   return this.degree;
   }
-  getSellPlace(){// renvoie les points de vente qui disposent de la bière
+  getSellPlace() {// renvoie les points de vente qui disposent de la bière
     return this.sellPlace;
   }
-  getType(){ // renvoie le type de la bière
+  getType() { // renvoie le type de la bière
     return this.type;
   }
-  getTaste(){// renvoie le goût de la bière
+  getTaste() {// renvoie le goût de la bière
     return this.taste;
+  }
+  setSellPlace(sellPlace) {
+    this.sellPlace = sellPlace;
   }
 }
 module.exports = Beer;
