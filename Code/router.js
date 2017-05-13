@@ -3,25 +3,44 @@ let path    = require("path");
 // Un fonction speciale pour les routes sous express
 let router = express.Router();
 
+//on renseigne les dossiers où sont stocker les pages
+//et ce qui va avec (css, fonts, javascript et ressources)
+router.use(express.static(__dirname + '/pages'));
+router.use(express.static(__dirname + '/pages/css'));
+router.use(express.static(__dirname + '/pages/fonts'));
+router.use(express.static(__dirname + '/pages/js'));
+router.use(express.static(__dirname + '/pages/res'));
+
 // Middleware basique qui fixe le header pour tous les cas
 router.use(function(req, res, next) {
   console.log("Initialisation du routeur");
   next();
 });
 
-// Toutes les requetes GET
-
+//toutes les requêtes get
 router.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname+'/pages/index.html'));
+  res.sendFile('index.html');
 });
 router.get('/index.html', function(req, res) {
-  res.sendFile(path.join(__dirname+'/pages/index.html'));
+  res.sendFile('index.html');
 });
 router.get('/RechercheBieres.html', function(req, res) {
-  res.sendFile(path.join(__dirname+'/pages/RechercheBieres.html'));
+  res.sendFile('RechercheBieres.html');
 });
 router.get('/PDV.html', function(req, res) {
-  res.sendFile(path.join(__dirname+'/pages/PDV.html'));
+  res.sendFile('PDV.html');
+});
+router.get('/Commander.html', function(req, res){
+  res.sendFile('Commander.html');
+});
+router.get('/contact.html', function(req, res){
+  res.sendFile('contact.html');
+});
+router.get('/Login.html', function(req, res){
+  res.sendFile('Login.html');
+});
+router.get('/SignIn.html', function(req, res){
+  res.sendFile('SignIn.html');
 });
 
 //Toutes les requetes POST
