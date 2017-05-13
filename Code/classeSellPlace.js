@@ -11,7 +11,9 @@ export class SellPlace
   }
   hasBeer(Beer){// renvoie true si la bière est en stock, false sinon
     this.stock.forEach(function(item, index, array) {
-      if(item.getBeer() === Beer) {
+      if(item.getBeer().getName() === Beer.getName() && item.getBeer().getDegree() === Beer.getDegree() &&
+        item.getBeer().getSellPlace() === Beer.getSellPlace() && item.getBeer().getType() === Beer.getType() &&
+        item.getBeer().getTaste() === Beer.getTaste()) {
         return true;
       }
     });

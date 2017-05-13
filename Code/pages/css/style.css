@@ -45,3 +45,10 @@ Code utile pour le login et l'inscription
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.map {
+  display:block;
+  text-align: center;
+  height: 400px;
+  width: 100%;
+}

@@ -73,7 +73,8 @@ Plus d'infos : https://help.github.com/articles/fork-a-repo/
 
 Maintenant que vous avez une copie propre du repo sur votre ordinateur, vous pouvez commencer à contribuer.
 Le système de github consiste en un repo central (celui-ci) et des "fork" que vous aurez fait. Ces fork ne sont que des copies. 
-Le principe c'est que vous envoyez vos changements sur votre dépot perso, puis ensuite vous demandez à l'envoyer sur le repo central.
+Le principe c'est que vous envoyez vos changements sur votre dépot perso, puis ensuite vous demandez à l'envoyer sur le dépôt central.
+Si vous êtes ce qu'on appelle un "collaborateur" (c'est d'office le cas si vous avez été invité sur un dépôt privé), vous pouvez directement envoyer sur le dépôt central.
 
 Maintenant le système de git. En gros ça se passe quasiment toujours comme ça :
 - Vous travaillez, vous changez le code
@@ -86,16 +87,25 @@ Maintenant pour l'envoyer sur le depo central. Sur votre "fork", cliquez sur pul
 
 ### Synchronisez votre travail avec celui du groupe
 
-Pour mettre à jour votre dépot avec les modifications faites par le groupe, il faut suivre cette démarche :
+Pour mettre à jour votre dépot avec les modifications faites par le groupe si vous avez un **fork**, il faut suivre cette démarche :
 - Ouvrez un terminal et allez dans le dossier de votre projet
 - Tapez : `git fetch upstream`
 - Tapez : `git checkout master`
 - Tapez : `git merge upstream/master`
 
-Normalement tout est bon. Si il y a des merge conflicts, god save ourself.
-Pour ça faites gaffe de pas modifier en même temps le même fichier qu'un autre parce que c'est un coup à foutre la merde.
+Si vous envoyez directement vers le dépôt central (autrement dit vous avez utilisé **la méthode 1** du clonage), vous pouvez directement la commande `git pull` avec des paramètres si il y a besoin (git vous le dira)
 
-Si jamais ça arrive quand même, il va falloir d'abord corriger le conflit manuellement avant de pouvoir push. Pour ça il faut ouvrir le(s) fichier(s) en question et regarder si il y a des lignes du style : 
+Normalement tout est bon. Si il y a des merge conflicts, god save ourself.
+Pour ça faites attention de pas modifier en même temps le même fichier qu'une autre personne parce que c'est un moyen d'en créer.
+
+#### Gérer les merge conflicts
+Si jamais ça arrive quand même, il va falloir d'abord corriger le conflit manuellement avant de pouvoir push. 
+
+Si vous vous êtes rendu compte qu'il va y a avoir un conflit avant de pull, et bien `git pull` de toute façon. Vous allez devoir gérer le conflit de toute manière à moins de supprimer votre travail d'abord (ce qui est rarement le cas). Si il refuse de le faire, attendez un peu.
+Ensuite il faut généralement que vous ajoutiez vos fichiers à un commit (comme vous feriez d'habitude).
+Essayez de `git pull`. Soit tout se passe bien soit git va vous indiquer que vous avez un merge conflict. Si tout va bien, essayez de push et il devrait alors vous indiquer que vous en avez un (si il réussit à push c'est qu'il n'y avait pas vraiment de problème).
+
+A ce stade, git vous indique en lettres capitales qu'il y a un MERGE CONFLICT avec les noms des fichiers. Ouvrez-les avec votre éditeur de texte préféré et cherchez des lignes du style : 
 ```
 HEAD
 >>>>>>>>>>>>>>>>>>
@@ -104,8 +114,8 @@ HEAD
 //code 2
 >>>>>>>>>>>>>>>>>>465d465465464a6e46
 ```
-En gros il met en parallèle les différentes versions. Il faut manuellement en supprimer une (et les >>>> et ====)
-Et ensuite on peut commit et push comme vous voulez. Sinon vous me laisser règler ça et ça passera.
+En gros il met en parallèle les différentes versions. Il faut manuellement en supprimer une (+ les >>>> ,====, HEAD et 465d465465464a6e46)
+Et ensuite vous pouvez `git commit -m "merge conflict resolved"` et `git push`.
 
 Si jamais vous n'avez pas de *fork* et que vous avez utilisé **la méthode 1** du clonage, vous pouvez directement utiliser la commande : `git pull`
 Si ça ne fonctionne pas, faites comme la méthode ci-dessus.

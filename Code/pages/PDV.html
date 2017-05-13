@@ -9,54 +9,134 @@
         <link href="css/style.css" rel="stylesheet"/>
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="./index.html">BeerSearch</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="./index.html">Accueil</a></li>
-                <li><a href="./RechercheBieres.html">Recherche bière</a></li>
-                <li class="active"><a href="#">Trouver un point de vente de bière</a></li>
-                <li><a href="./Commander.html">Commander une bière</a></li>
-              </ul>
-              <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
-              <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
-            </div><!--/.nav-collapse -->
+      <!-- Inclusion des bibliothèques de base -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.js"></script>
+      <!-- Inclusion des bibliothèques javascript OpenLayers et Mapstraction -->
+      <script type="text/javascript" src="http://openlayers.org/en/v4.1.1/build/ol.js"></script>
+      <script type="text/javascript" src="http://mapstraction.com/svn/source/mapstraction.js"></script>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">BeerSearch</a>
           </div>
-        </nav>
-        <header>
-          <div class="container">
-            <div class="starter-template">
-              <h1>Trouvez un point de vente !</h1>
-            </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="./index.html">Accueil</a></li>
+              <li><a href="./RechercheBieres.html">Recherche bière</a></li>
+              <li class="active"><a href="#">Trouver un point de vente de bière</a></li>
+              <li><a href="./Commander.html">Commander une bière</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
+            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+      <header>
+        <div class="container">
+          <div class="starter-template">
+            <h1>Trouvez un point de vente !</h1>
           </div>
-        </header>
+        </div>
+      </header>
       <section>
         <div class="container">
-          <header>
-            <h3>Vous avez plusieurs choix :</h3>
-          </header>
-          <ul>
-            <li>Géolocalisez-vous !</li>
-            <li>Dites-nous une zone où chercher</li>
-          </ul>
+          <label for="track">
+            Géolocalisez-vous :
+            <input id="track" type="checkbox"/>
+          </label>
         </div>
+      </section>
+      <section>
+        <div id="mapPDV" class="map"></div>
+        <div id="info" style="display: none;"></div>
+        <div class="container">
+          <p>
+            Votre position est : <code id="position"><code>
+          </p>
+        </div>
+        <script type="text/javascript">
+          let view = new ol.View({
+            center: ol.proj.fromLonLat([4.6128, 50.6682]),
+            zoom: 14
+          });
+
+          let map = new ol.Map({
+            target: 'mapPDV',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: view
+          });
+
+          let geolocalisation = new ol.Geolocation({
+            projection: view.getProjection()
+          });
+
+          function el(id) {
+            return document.getElementById(id);
+          }
+
+          el('track').addEventListener('change', function() {
+            geolocalisation.setTracking(this.checked);
+          });
+
+          //Lorsqu'on utilise
+          geolocalisation.on('change', function() {
+            el('position').innerText = 'Votre position :' + geolocalisation.getPosition();
+          });
+
+          //Quand il y a une erreur
+          geolocalisation.on('error', function(error) {
+            let info = el('info');
+            info.innerHTML = error.message;
+            info.style.display = '';
+          });
+
+          let positionFeature = new ol.Feature();
+          positionFeature.setStyle(new ol.style.Style({
+            image: new ol.style.Circle({
+              radius: 6,
+              fill: new ol.style.Fill({
+                color: '#3399CC'
+              }),
+              stroke: new ol.style.Stroke({
+                color: '#fff',
+                width: 2
+              })
+            })
+          }));
+
+          geolocalisation.on('change:position', function() {
+            let coordinates = geolocalisation.getPosition();
+            positionFeature.setGeometry(coordinates ?
+              new ol.geom.Point(coordinates) : null);
+            //TODO trouver un moyen pour que la carte ne revienne pas tout le temps sur le point de localisation
+            map.getView().setCenter(coordinates);
+          });
+
+          new ol.layer.Vector({
+            map: map,
+            source: new ol.source.Vector({
+              features: [positionFeature]
+            })
+          });
+        </script>
       </section>
         <footer class="footer">
           <div class="container">
             <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
           </div>
         </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="js/bootstrap.js"></script>
     </body>
 </html>

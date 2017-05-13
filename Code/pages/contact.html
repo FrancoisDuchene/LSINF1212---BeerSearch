@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Biere, Bière, rechercher, commander, alchool">
+        <meta name="author" content="François Duchêne">
+        <meta name="description" content="Catalogue complet de bières permettant de localiser des point de vente et de commander en ligne !">
+        <title>BeerSearch</title>
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+      <!-- Les biblliothèques nécessaires-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.js"></script>
+      <!-- Inclusion des bibliothèques javascript OpenLayers et Mapstraction -->
+      <script type="text/javascript" src="http://openlayers.org/en/v4.1.1/build/ol.js"></script>
+      <script type="text/javascript" src="http://mapstraction.com/svn/source/mapstraction.js"></script>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">BeerSearch</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#">Accueil</a></li>
+              <li><a href="./RechercheBieres.html">Recherche bière</a></li>
+              <li><a href="./PDV.html">Trouver un point de vente de bière</a></li>
+              <li><a href="./Commander.html">Commander une bière</a></li>
+              <li class="active"><a href="./contact.html">Contact</a></li>
+            </ul>
+            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
+            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+      <header>
+        <div class="container">
+          <div class="starter-template">
+            <h1>BeerSearch</h1>
+            <h2>Contactez nous !</h2>
+          </div>
+        </div>
+      </header>
+      <section>
+        <div class="container">
+          <address>
+            <strong>BeerUnited SPRL</strong> - Louvain-la neuve 1348
+          </address>
+          <div id="mapContact" class="map">
+            <script type="text/javascript">
+              let view = new ol.View({
+                center: ol.proj.fromLonLat([4.6128, 50.6682]),
+                zoom: 14
+              })
+              let map = new ol.Map({
+                target: 'mapContact',
+                layers: [
+                  new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                  })
+                ],
+                controls: ol.control.defaults({
+                  attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+                    collapsible: false
+                  })
+                })
+                view: view
+              });
+            </script>
+          </div>
+          <!--
+          <iframe width="850" height="700" frameborder="0" scrolling="no" marginheight="00" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=4.499588012695313%2C50.620934656407265%2C4.726181030273438%2C50.71537375116745&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/>
+          <small><a href="https://www.openstreetmap.org/#map=13/50.6682/4.6129">Afficher une carte plus grande</a></small>
+        -->
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="container">
+          <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
+        </div>
+      </footer>
+    </body>
+</html>
