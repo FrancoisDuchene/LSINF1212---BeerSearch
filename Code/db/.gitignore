@@ -1,5 +1,5 @@
-journal
-*.data
-*.lock
+journal/
+diagnostic.data/
+mongod.lock
 *.turtle
 WiredTiger.wt
