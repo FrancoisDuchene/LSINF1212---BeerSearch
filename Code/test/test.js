@@ -217,7 +217,7 @@ describe('SellPlace', () => {
     tk = new Beer("Tk", 6.0, null, "brune", "corsee");
     chimay = new Beer("chimay", 7.0, "noire", "profonde");
     stock = [new Element(orval,2.5, 20),new Element(leffe, 1.5, 40), new Element(tk, 2.0, 10)];
-    sellPlace = new SellPlace('Louvain-La-Neuve',stock);
+    sellPlace = new SellPlace('Louvain-La-Neuve',stock, 50, 20);
     orval.setSellPlace(sellPlace);
     leffe.setSellPlace(sellPlace);
     tk.setSellPlace(sellPlace);
@@ -227,6 +227,18 @@ describe('SellPlace', () => {
   describe('#getPosition', function () {
     it('should return the position of the sell place', () => {
       expect(sellPlace.getPosition()).equals('Louvain-La-Neuve');
+    });
+  });
+
+  describe('#getLatitude', function () {
+    it('should return the latitude of the sell place', () => {
+      expect(sellPlace.getLatitude()).equals(50);
+    });
+  });
+
+  describe('#getLongitude', function () {
+    it('should return the longitude of the sell place', () => {
+      expect(sellPlace.getLongitude()).equals(20);
     });
   });
 

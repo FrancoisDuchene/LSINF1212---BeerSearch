@@ -46,9 +46,22 @@ Code utile pour le login et l'inscription
   border-top-right-radius: 0;
 }
 
+/*
+A propos des cartes
+*/
+
 .map {
   display:block;
   text-align: center;
   height: 400px;
   width: 100%;
+}
+
+#leafletmap:focus {
+  outline: #4A74A8 solid 0.15em;
+}
+
+.centeringDiv {
+  display:block;
+  text-align: center;
 }

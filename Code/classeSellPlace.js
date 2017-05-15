@@ -2,12 +2,21 @@ export class SellPlace
 {
   //Position doit etre un string
   //Stock est un tableau d'elements
-  constructor(position, stock) {
-      this.position = position;
+  //latitude et longitude sont des nombres flottants
+  constructor(position, stock, latitude, longitude) {
+      this.position = position; //Un string decrivant le lieu
       this.stock = stock;
+      this.latitude = latitude;
+      this.longitude = longitude;
   }
   getPosition(){ // donne un lieu géographique du point de vente
     return this.position;
+  }
+  getLatitude() {
+    return this.latitude;
+  }
+  getLongitude() {
+    return this.longitude;
   }
   hasBeer(Beer){// renvoie true si la bière est en stock, false sinon
     this.stock.forEach(function(item, index, array) {

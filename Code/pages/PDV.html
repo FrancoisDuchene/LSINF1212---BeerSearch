@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="François Duchêne">
-        <title>BeerSearch - Trouver un point de vente</title>
-        <link href="css/bootstrap.css" rel="stylesheet" />
-        <link href="css/style.css" rel="stylesheet"/>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="François Duchêne">
+      <title>BeerSearch - Trouver un point de vente</title>
+      <link href="css/bootstrap.css" rel="stylesheet" />
+      <link href="css/style.css" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+       integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+       crossorigin=""/>
     </head>
     <body>
-      <!-- Inclusion des bibliothèques de base -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-      <script src="js/bootstrap.js"></script>
-      <!-- Inclusion des bibliothèques javascript OpenLayers et Mapstraction -->
-      <script type="text/javascript" src="http://openlayers.org/en/v4.1.1/build/ol.js"></script>
-      <script type="text/javascript" src="http://mapstraction.com/svn/source/mapstraction.js"></script>
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
@@ -56,87 +52,26 @@
         </div>
       </section>
       <section>
-        <div id="mapPDV" class="map"></div>
-        <div id="info" style="display: none;"></div>
+        <div id="leafletmap" class="map"></div>
         <div class="container">
           <p>
             Votre position est : <code id="position"><code>
           </p>
         </div>
-        <script type="text/javascript">
-          let view = new ol.View({
-            center: ol.proj.fromLonLat([4.6128, 50.6682]),
-            zoom: 14
-          });
-
-          let map = new ol.Map({
-            target: 'mapPDV',
-            layers: [
-              new ol.layer.Tile({
-                source: new ol.source.OSM()
-              })
-            ],
-            view: view
-          });
-
-          let geolocalisation = new ol.Geolocation({
-            projection: view.getProjection()
-          });
-
-          function el(id) {
-            return document.getElementById(id);
-          }
-
-          el('track').addEventListener('change', function() {
-            geolocalisation.setTracking(this.checked);
-          });
-
-          //Lorsqu'on utilise
-          geolocalisation.on('change', function() {
-            el('position').innerText = 'Votre position :' + geolocalisation.getPosition();
-          });
-
-          //Quand il y a une erreur
-          geolocalisation.on('error', function(error) {
-            let info = el('info');
-            info.innerHTML = error.message;
-            info.style.display = '';
-          });
-
-          let positionFeature = new ol.Feature();
-          positionFeature.setStyle(new ol.style.Style({
-            image: new ol.style.Circle({
-              radius: 6,
-              fill: new ol.style.Fill({
-                color: '#3399CC'
-              }),
-              stroke: new ol.style.Stroke({
-                color: '#fff',
-                width: 2
-              })
-            })
-          }));
-
-          geolocalisation.on('change:position', function() {
-            let coordinates = geolocalisation.getPosition();
-            positionFeature.setGeometry(coordinates ?
-              new ol.geom.Point(coordinates) : null);
-            //TODO trouver un moyen pour que la carte ne revienne pas tout le temps sur le point de localisation
-            map.getView().setCenter(coordinates);
-          });
-
-          new ol.layer.Vector({
-            map: map,
-            source: new ol.source.Vector({
-              features: [positionFeature]
-            })
-          });
-        </script>
       </section>
-        <footer class="footer">
-          <div class="container">
-            <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
-          </div>
-        </footer>
-    </body>
+      <footer class="footer">
+        <div class="container">
+          <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
+        </div>
+      </footer>
+      <!-- Inclusion des bibliothèques de base -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.js"></script>
+      <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+      integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+      crossorigin=""></script>
+      <script src="js/leaflet.ajax.min.js"></script>
+      <script src="js/geolocalisation.js" type="text/javascript"></script>
+  </body>
 </html>
