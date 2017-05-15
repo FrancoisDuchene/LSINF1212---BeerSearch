@@ -22,6 +22,8 @@ Tout d'abord nous avons 3 fichiers *classeBeer*, *classeUser* et *classeSellPlac
 
 Le fichier *serveur.js* définit un module simple pour lancer un serveur.
 
+Le dossier *db* reprend la base de donnée de notre application
+
 ### Tests
 Nous avons un dossier test reprennant le fichier de test sur ces différentes classes.
 
@@ -29,6 +31,8 @@ Pour lancer les tests, il suffit de se placer dans le dossier avec un invite de 
 
 ### Côté serveur - Backend
 Pour notre projet, nous utilisons le gestionnaire de module *node.js* **yarn**.
+
+Pour lancer le serveur, il suffit de se placer dans le dossier *Code* et de taper la commande `node index.js`
 
 #### Dependances
 Ce sont les dépendances nécessaires au fonctionnement du projet. On les installe avec la commande `yarn add` donc :
@@ -45,4 +49,11 @@ Pour installer les dependances, on utilise donc la commande `yarn add --dev`
 * `chai` pour les modules de test comme *expect*
 
 ### Côté client - FrontEnd
-On utilise le module **bootstrap** afin de nous aider dans la construction des pages *HTML*
+On utilise le module **bootstrap** afin de nous aider dans la construction des pages *HTML*.
+
+Pour la géolocalisation, nous utilisons le site de cartographie **openstreetmap** et la bibliothèque **leaflet**.
+
+### Côté base de donnée
+On utilise MongoDB pour gérer la base de donnée de notre application.
+
+Pour lancer la base de donnée il faut se placer dans le dossier Code et utiliser la commande `mongod --dbpath db`
