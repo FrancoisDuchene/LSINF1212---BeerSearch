@@ -54,12 +54,23 @@ router.get('/sendSignIn.html', function(req, res){
 //Toutes les requetes POST
 
 //Une requete pour s'inscrire
-router.post('/sendLogin', passport.authenticate('local'), function(req, res) {
-  User
-    .findByUsername(req.body.email)
-    .then(user => {
-      res.status(200).send({ name: user.name });
-    });
+router.post('/sendLogin', function(req, res) {
+  let email = req.body.email;
+  let password = req.body.password;
+
+  User.findOne({email: email, password: password}, function(error, user){
+    if(error){
+      console.log(error);
+      return res.status(500).send();
+    }
+
+    if(!user){
+      return res.status(400).send();
+    }
+    console.log("Log in réussi");
+    res.redirect('index.html');
+    return res.status(200).send();
+  });
 });
 
 router.post('/sendSignIn', function(req, res) {
@@ -84,6 +95,7 @@ router.post('/sendSignIn', function(req, res) {
       console.log(error);
       return res.status(500).send();
     }
+    console.log("enregistrement réussi");
     res.redirect('Login.html');
     return res.status(200).send();
   });
