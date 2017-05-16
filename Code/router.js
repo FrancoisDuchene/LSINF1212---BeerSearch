@@ -1,7 +1,12 @@
 let express = require('express');
 let path    = require("path");
+let passport = require('passport');
+let User = require('./models/user');
+let bodyParser = require("body-parser");
 // Un fonction speciale pour les routes sous express
 let router = express.Router();
+
+router.use(bodyParser.urlencoded({ extended: true }));
 
 //on renseigne les dossiers où sont stocker les pages
 //et ce qui va avec (css, fonts, javascript et ressources)
@@ -42,18 +47,46 @@ router.get('/Login.html', function(req, res){
 router.get('/SignIn.html', function(req, res){
   res.sendFile('SignIn.html');
 });
+router.get('/sendSignIn.html', function(req, res){
+  res.sendFile('sendSignIn.html');
+});
 
 //Toutes les requetes POST
 
 //Une requete pour s'inscrire
-router.post('/sendSignIn', function(req, res) {
-  res.setHeader('Content-Type', 'text/plain');
-  res.end("Requete POST pour l'inscription !");
+router.post('/sendLogin', passport.authenticate('local'), function(req, res) {
+  User
+    .findByUsername(req.body.email)
+    .then(user => {
+      res.status(200).send({ name: user.name });
+    });
 });
 
-router.post('/sendLogin', function(req, res) {
-  res.setHeader('Content-Type', 'text/plain');
-  res.end("Requete POST pour la connexion");
+router.post('/sendSignIn', function(req, res) {
+  let coordBank = req.body.coordBank;
+  let balance = req.body.balance;
+  let name = req.body.name;
+  let email = req.body.email;
+  let password = req.body.password;
+  let adress = req.body.adress;
+  let country = req.body.country;
+
+  let newUser = new User();
+  newUser.coordBank = coordBank;
+  newUser.balance = balance;
+  newUser.name = name;
+  newUser.email = email;
+  newUser.password = password;
+  newUser.adress = adress;
+  newUser.country = country;
+  newUser.save(function(error, savedUser){
+    if(error){
+      console.log(error);
+      return res.status(500).send();
+    }
+    res.redirect('Login.html');
+    return res.status(200).send();
+  });
 });
 
 //On exporte notre router vers index.js pour le donner

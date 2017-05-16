@@ -23,12 +23,12 @@
         </div>
       </nav>
       <div class="container">
-        <form class="form-signin" id="SignIn" method="post">
+        <form class="form-signin" action="/sendLogin" id="SignIn" method="post">
           <h2 class="form-signin-heading">Se connecter</h2>
           <label for="inputEmail" class="sr-only">Adresse Mail</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Adresse Mail" required autofocus>
+          <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Adresse Mail" required autofocus>
           <label for="inputPassword" class="sr-only">Mot de passe</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Mot de Passe" required>
+          <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Mot de Passe" required>
           <div class="checkbox">
             <label>
               <input type="checkbox" value="remember-me"> Se souvenir de moi
