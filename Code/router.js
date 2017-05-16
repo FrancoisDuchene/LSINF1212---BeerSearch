@@ -6,6 +6,10 @@ let bodyParser = require("body-parser");
 // Un fonction speciale pour les routes sous express
 let router = express.Router();
 
+let globalUser;
+
+let isLog = false;
+
 router.use(bodyParser.urlencoded({ extended: true }));
 
 //on renseigne les dossiers où sont stocker les pages
@@ -65,8 +69,17 @@ router.post('/sendLogin', function(req, res) {
     }
 
     if(!user){
-      return res.status(400).send();
+      return res.redirect('Login.html');
     }
+    globalUser = new User();
+    globalUser.coordBank = user.coordBank;
+    globalUser.balance = user.balance;
+    globalUser.name = user.name;
+    globalUser.email = user.email;
+    globalUser.password = user.password;
+    globalUser.adress = user.adress;
+    globalUser.country = user.country;
+    isLog = true;
     console.log("Log in réussi");
     res.redirect('index.html');
     return res.status(200).send();
@@ -104,3 +117,5 @@ router.post('/sendSignIn', function(req, res) {
 //On exporte notre router vers index.js pour le donner
 //en parametre a server.js
 module.exports = router;
+exports.globalUser = globalUser;
+exports.isLog = isLog;
