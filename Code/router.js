@@ -114,6 +114,18 @@ router.post('/sendSignIn', function(req, res) {
   });
 });
 
+router.post('/search', function(req, res){
+  //récupérer les infos depuis le code html
+  let Bière = req.body.Bière;
+
+  //requête
+  Biere.find({Bière: "/" + Bière + "/i"}, function(err, docs){
+    router.get('/search', function(req, res){
+      res.render('listBiere.html', {coordinate: docs});
+    });
+  });
+
+});
 //On exporte notre router vers index.js pour le donner
 //en parametre a server.js
 module.exports = router;
