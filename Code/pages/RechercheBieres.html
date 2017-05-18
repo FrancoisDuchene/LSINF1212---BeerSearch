@@ -1,53 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="François Duchêne">
-        <title>BeerSearch - Rechercher</title>
-        <link href="css/bootstrap.css" rel="stylesheet" />
-        <link href="css/style.css" rel="stylesheet" />
-    </head>
-    <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="./index.html">BeerSearch</a>
-          </div>
-          <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="./index.html">Accueil</a></li>
-              <li class="active"><a href="#">Recherche bière</a></li>
-              <li><a href="./PDV.html">Trouver un point de vente de bière</a></li>
-              <li><a href="./Commander.html">Commander une bière</a></li>
-              <li><a href="./contact.html">Contact</a></li>
-            </ul>
-            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
-            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
-          </div><!--/.nav-collapse -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="François Duchêne">
+    <title>BeerSearch - Rechercher</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./index.html">BeerSearch</a>
         </div>
-      </nav>
-      <header>
-        <div class="container">
-          <div class="starter-template">
-            <h1> Recherche</h1>
-            <p>C'est la page de recherche de bieres</p>
-          </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="./index.html">Accueil</a></li>
+            <li class="active"><a href="#">Recherche bière</a></li>
+            <li><a href="./PDV.html">Trouver un point de vente de bière</a></li>
+            <li><a href="./Commander.html">Commander une bière</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+          <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
+          <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <header>
+      <div class="container">
+        <div class="starter-template">
+          <h1> Recherche</h1>
+          <p>C'est la page de recherche de bieres</p>
         </div>
-      </header
-      <footer class="footer">
-        <div class="container">
-          <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
+      </div>
+    </header>
+    <section>
+      <form method="post" class="form-search" id="boutonRechercher">
+        <div class="input-append">
+          <script src="js/recherche.js"></script>
+          <input type="search" id="inputSearch" class="span2 search-query" placeholder="Rechercher.." onsearch="al()"/>
+          <button type="submit" class="btn" onclick="al()">
+            <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+          </button>
         </div>
-      </footer>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-      <script src="js/bootstrap.js"></script>
-    </body>
+        <label for="type">Type de bière</label>
+        <select name="type" id="type">
+          <option value="Tout">Tout</option>
+          <option value="Blonde">Blonde</option>
+          <option value="Blanche">Blanche</option>
+          <option value="Triple">Triple</option>
+          <option value="Ambrée">Ambrée</option>
+          <option value="Brune">Brune</option>
+          <option value="Abbaye">Abbaye</option>
+          <option value="Fruitée">Fruitée</option>
+          <option value="Lambic">Lambic</option>
+          <option value="Ale">Ale</option>
+          <option value="Double">Double</option>
+          <option value="Pils">Pils</option>
+          <option value="Stout">Stout</option>
+          <option value="Rouge">Rouge</option>
+          <option value="Spéciale">Spéciale</option>
+          <option value="Bock">Bock</option>
+          <option value="Bio">Bio</option>
+          <option value="BiereNoel">Bière de Noël</option>
+          <option value="BièreMiel">Bière au miel</option>
+          <option value="Saison">Saison</option>
+          <option value="FermentationBasse">Fermentation basse</option>
+          <option value="FermentationHaute">Fermentation haute</option>
+        </select>
+        <label for="degree">Degré d'alcool</label>
+        <select name="degree" id="degree">
+          <option value="Tout">Tout</option>
+          <option value="moins2">Moins de 2 degrée</option>
+          <option value="2et6">Entre 2 et 6</option>
+          <option value="6et8">Entre 6 et 8</option>
+          <option value="plus8">Plus de 8</option>
+        </select>
+      </form>
+    </section>
+    <section class="container">
+      <h3 id="result"></h3>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.js"></script>
+  </body>
 </html>

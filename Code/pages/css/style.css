@@ -45,6 +45,25 @@ Code utile pour le login et l'inscription
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+/*
+Rechercher
+*/
+#boutonRechercher {
+  text-align: center;
+  display:block;
+}
+
+#inputSearch {
+  width: 20%;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4 ease-in-out;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+#inputSearch:focus {
+  width: 70%
+}
 
 /*
 A propos des cartes
