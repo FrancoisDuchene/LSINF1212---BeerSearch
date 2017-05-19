@@ -151,23 +151,22 @@ router.post('/search', function(req, res){
 
   let sBiere = ".*" + Bière + ".*";
   let sType = ".*" + Type + ".*";
-  console.log(sttt);
   //requête
   if(Type == "Tout" && degree == "Tout"){
-    Biere.find({Bières: {$regex: sBiere}}, function(err, docs){
-      console.log(docs.length);
+    Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
+    console.log(docs.length);
     });
   }
   else if(Type == "Tout"){
-    Biere.find({Bières: { $regex: sBiere}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
     });
   }
   else if(degree == "Tout"){
-    Biere.find({Bières: { $regex: sBière}, Type: {$regex: sType}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBière, $options: 'i'}, Type: {$regex: sType}}, function(err, docs){
     });
   }
   else{
-    Biere.find({Bières: { $regex: sBière}, Type: {$regex: sType}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBière, $options: 'i'}, Type: {$regex: sType}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
     });
   }
 
