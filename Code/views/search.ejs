@@ -42,7 +42,10 @@
   <h1>Bieres</h1>
     <ul id="Bieres">
     <% Bieres.forEach(function(biere){ %>
-      <li>Nom: <%= biere.Bières %> - Degré d'alcool: <%= biere.Degree %> - Type: <%= biere.Type %></li>
+      <li>
+        Nom: <%= biere.Bières %> - Degré d'alcool: <%= biere.Degree %> - Type: <%= biere.Type %>
+        <a href='Commander.html?name=<%= biere.Bières %>'>Commander</a>
+      </li>
     <% }) %>
     </ul>
 

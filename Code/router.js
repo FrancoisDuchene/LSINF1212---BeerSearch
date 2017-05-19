@@ -42,6 +42,7 @@ router.get('/PDV.html', function(req, res) {
   res.sendFile('PDV.html');
 });
 router.get('/Commander.html', function(req, res){
+  console.log(req.query.name);
   res.sendFile('Commander.html');
 });
 router.get('/contact.html', function(req, res){
@@ -174,6 +175,7 @@ router.post('/search', function(req, res){
   }
 
 });
+
 //On exporte notre router vers index.js pour le donner
 //en parametre a server.js
 module.exports = router;
