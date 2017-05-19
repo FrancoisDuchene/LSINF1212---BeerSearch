@@ -35,8 +35,8 @@
     <header>
       <div class="container">
         <div class="starter-template">
-          <h1> Recherche</h1>
-          <p>C'est la page de recherche de bieres</p>
+          <h1>Recherche</h1>
+          <h3>Ici recherchez vos bières belges favorites dans notre immense base de donnée !</h3>
         </div>
       </div>
     </header>
@@ -44,8 +44,8 @@
       <form method="post" class="form-search" action="/search" id="boutonRechercher">
         <div class="input-append">
           <script src="js/recherche.js"></script>
-          <input type="search" id="inputSearch" name="nomBiere"  class="span2 search-query" placeholder="Rechercher.." onsearch="al()"/>
-          <button type="submit" class="btn" onclick="al()">
+          <input type="search" id="inputSearch" name="nomBiere"  class="span2 search-query" placeholder="Rechercher.." onsearch="Recherche()"/>
+          <button type="submit" class="btn" onclick="Recherche()">
             <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
           </button>
         </div>

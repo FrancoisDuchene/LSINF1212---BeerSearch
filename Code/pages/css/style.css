@@ -1,4 +1,5 @@
 html {
+  position: relative;
   min-height: 100%;
 }
 
@@ -70,7 +71,7 @@ Code utile pour le login et l'inscription
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.comm{  
+.comm{
     text-align: center;
     display:block;
 }
@@ -102,8 +103,27 @@ Rechercher
     transition: width 0.4 ease-in-out;
     font-size: 16px;
     margin-bottom: 12px;
-
 }
+
+#Bieres {
+    border-bottom: 3px solid;
+}
+
+.listBie {
+  background-color: #E5E5E5;
+  border-top: 1px dashed;
+  padding: 5px;
+}
+
+.listBie:hover {
+  background-color: #F6F6F6;
+  padding: 10px;
+}
+
+#lienCom {
+  text-align: right;
+}
+
 /*
 A propos des cartes
 */
@@ -122,4 +142,18 @@ A propos des cartes
 .centeringDiv {
   display:block;
   text-align: center;
+}
+
+/*
+Commander
+*/
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+td, th {
+    padding:2px 5px;
+    border: 1px solid black;
 }

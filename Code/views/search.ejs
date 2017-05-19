@@ -39,12 +39,12 @@
       </div>
     </div>
   </header>
-  <h1>Bieres</h1>
-    <ul id="Bieres">
+  <h1>Bières</h1>
+    <ul class="list-unstyled" id="Bieres">
     <% Bieres.forEach(function(biere){ %>
-      <li>
+      <li class="listBie">
         Nom: <%= biere.Bières %> - Degré d'alcool: <%= biere.Degree %> - Type: <%= biere.Type %>
-        <a href='Commander.html?name=<%= biere.Bières %>'>Commander</a>
+        <a id="lienCom" href='Commander.html?name=<%= biere.Bières %>'>Commander</a>
       </li>
     <% }) %>
     </ul>
