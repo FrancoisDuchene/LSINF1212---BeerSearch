@@ -149,27 +149,24 @@ router.post('/search', function(req, res){
         lte = 20;
 }
 
-
+  let sttt = ".*" + Bière + ".*";
+  console.log(sttt);
   //requête
   if(Type == "Tout" && degree == "Tout"){
-    Biere.find({Bière: {$in: [Bière]}}, function(err, docs){
-      console.log(docs[1]);
-      res.render('search.ejs', {Bieres: docs});
+    Biere.find({Bières: {$regex: sttt}}, function(err, docs){
+      console.log(docs.length);
     });
   }
   else if(Type == "Tout"){
-    Biere.find({Bière: { $in: [Bière]}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+    Biere.find({Bières: { $in: [Bière]}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
     });
   }
   else if(degree == "Tout"){
-    Biere.find({Bière: { $in: Bière}, Type: {$in: Type}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+    Biere.find({Bières: { $in: Bière}, Type: {$in: Type}}, function(err, docs){
     });
   }
   else{
-    Biere.find({Bière: { $in: Bière}, Type: {$in: Type}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+    Biere.find({Bières: { $in: Bière}, Type: {$in: Type}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
     });
   }
 

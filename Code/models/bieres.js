@@ -19,6 +19,4 @@ Biere.plugin(passportLocalMongoose, {
   usernameField: 'Bières'
 });
 
-Biere.index({Bières: 'text'});
-
 module.exports = mongoose.model('Biere', Biere);

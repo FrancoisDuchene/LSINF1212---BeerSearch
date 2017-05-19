@@ -5,6 +5,7 @@ const
   MongoStore = require('connect-mongo')(session),
   mongoose = require('mongoose'),
   User = require('./models/user');
+  Biere =require('./models/bieres');
 
 exports.configure = function configureExpressSession(app) {
 
@@ -19,7 +20,10 @@ exports.configure = function configureExpressSession(app) {
   app.use(passport.initialize());
   app.use(passport.session());
   passport.use(User.createStrategy());
+  passport.use(Biere.createStrategy());
   passport.serializeUser(User.serializeUser());
+  passport.serializeUser(Biere.serializeUser());
   passport.deserializeUser(User.deserializeUser());
+  passport.deserializeUser(Biere.deserializeUser());
 
 };
