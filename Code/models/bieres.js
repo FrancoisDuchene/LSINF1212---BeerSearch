@@ -5,18 +5,20 @@ let
 let Biere = new mongoose.Schema({
   Bières: String,
   Type: String,
-  Teneur en alcool: String,
+  Degree: String,
   Brasserie: String,
   brasserie: String,
   localité: String,
   province: String,
-  Principales bières: String,
-  Production annuelle en hl: Number,
+  Principales_bières: String,
+  Production_annuelle_en_hl: Number,
   Géolocalisation: String
 });
 
-User.plugin(passportLocalMongoose, {
+Biere.plugin(passportLocalMongoose, {
   usernameField: 'Bières'
 });
+
+Biere.index({Bières: 'text'});
 
 module.exports = mongoose.model('Biere', Biere);

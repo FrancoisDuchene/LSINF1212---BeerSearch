@@ -2,6 +2,7 @@ let express = require('express');
 let path    = require("path");
 let passport = require('passport');
 let User = require('./models/user');
+let Biere = require('./models/bieres');
 let bodyParser = require("body-parser");
 // Un fonction speciale pour les routes sous express
 let router = express.Router();
@@ -11,6 +12,7 @@ let globalUser;
 let isLog = false;
 
 router.use(bodyParser.urlencoded({ extended: true }));
+
 
 //on renseigne les dossiers où sont stocker les pages
 //et ce qui va avec (css, fonts, javascript et ressources)
@@ -53,6 +55,10 @@ router.get('/SignIn.html', function(req, res){
 });
 router.get('/sendSignIn.html', function(req, res){
   res.sendFile('sendSignIn.html');
+});
+router.get('/search.html', function(req, res){
+  console.log("1");
+  res.render('search.html');
 });
 
 //Toutes les requetes POST
@@ -116,14 +122,56 @@ router.post('/sendSignIn', function(req, res) {
 
 router.post('/search', function(req, res){
   //récupérer les infos depuis le code html
-  let Bière = req.body.Bière;
+  let Bière = req.body.nomBiere;
+  let Type = req.body.type;
+  let degree = req.body.degree;
+  let gte;
+  let lte;
+  switch(degree) {
+    case "moins2":
+        lte = 2;
+        gte = 0;
+        break;
+    case "2et6":
+        lte = 6;
+        gte = 2;
+        break;
+    case "6et8":
+        lte = 8;
+        gte = 6;
+        break;
+    case "plus8":
+        lte = 20;
+        gte = 8;
+        break;
+    default:
+        gte = 0;
+        lte = 20;
+}
+
 
   //requête
-  Biere.find({Bière: "/" + Bière + "/i"}, function(err, docs){
-    router.get('/search', function(req, res){
-      res.render('listBiere.html', {coordinate: docs});
+  if(Type == "Tout" && degree == "Tout"){
+    Biere.find({Bière: {$in: [Bière]}}, function(err, docs){
+      console.log(docs[1]);
+      res.render('search.ejs', {Bieres: docs});
     });
-  });
+  }
+  else if(Type == "Tout"){
+    Biere.find({Bière: { $in: [Bière]}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
+    });
+  }
+  else if(degree == "Tout"){
+    Biere.find({Bière: { $in: Bière}, Type: {$in: Type}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
+    });
+  }
+  else{
+    Biere.find({Bière: { $in: Bière}, Type: {$in: Type}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
+    });
+  }
 
 });
 //On exporte notre router vers index.js pour le donner
