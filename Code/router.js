@@ -126,6 +126,7 @@ router.post('/search', function(req, res){
   let Bière = req.body.nomBiere;
   let Type = req.body.type;
   let degree = req.body.degree;
+  let province = req.body.province;
   let gte;
   let lte;
   switch(degree) {
@@ -152,24 +153,45 @@ router.post('/search', function(req, res){
 
   let sBiere = ".*" + Bière + ".*";
   let sType = ".*" + Type + ".*";
+  let sProvince = ".*" + province + ".*";
   //requête
-  if(Type == "Tout" && degree == "Tout"){
+  if(Type == "Tout" && degree == "Tout" && province == "Tout"){
     Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
     res.render('search.ejs', {Bieres: docs});
     });
   }
-  else if(Type == "Tout"){
+  else if(Type == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
       res.render('search.ejs', {Bieres: docs});
     });
   }
-  else if(degree == "Tout"){
-    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType}}, function(err, docs){
+  else if(degree == "Tout" && province == "Tout"){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
+    });
+  }
+  else if (degree == "Tout" && Type == "Tout"){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
+    });
+  }
+  else if (province == "Tout"){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
+    });
+  }
+  else if (degree == "Tout"){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
+    });
+  }
+  else if (Type == "Tout"){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
       res.render('search.ejs', {Bieres: docs});
     });
   }
   else{
-    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
       res.render('search.ejs', {Bieres: docs});
     });
   }
