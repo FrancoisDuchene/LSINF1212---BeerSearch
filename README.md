@@ -18,7 +18,7 @@ Distinguons d'abord les différents dossiers.
 * Le dossier *code* reprend quant à lui tout le code de notre application
 
 ### Structuration et explication de notre code
-Tout d'abord nous avons 3 fichiers *classeBeer*, *classeUser* et *classeSellPlace* qui reprennant le squelette de notre application.
+Tout d'abord nous avons 3 fichiers *classeBeer*, *classeUser* et *classeSellPlace* que nous avons réalisé au départ du projet mais que nous n'avons pas utilisé.
 
 Le fichier *serveur.js* définit un module simple pour lancer un serveur.
 Le fichier *index.js* sert à lancer le serveur.
@@ -27,9 +27,13 @@ Le fichier *session.js* relie la base de donnée au serveur.
 Le fichier *router.js* gère les pages html et comprend les fonctions `Get` et `Post`.
 
 Le dossier *db* reprend la base de donnée de notre application
+Le dossier *models* reprend deux schéma de donnée, indispensables pour l'interaction avec la base de donnée.
+Le dossier *pages* reprend les différentes pages html ainsi que les ressources css et les scripts.
+Le dossier *views* reprend un `view` nécessaire au fonctionnement de la recherche de bières.
 
 ### Tests
-Nous avons un dossier test reprennant le fichier de test sur ces différentes classes.
+Nous avons un dossier test reprennant le fichier de test sur les classes de bases que nous avons réalisé au début du projet.
+Néanmoins par manque de temps nous n'avons pas réalisé de test sur le fonctionnement de notre application web.
 
 Pour lancer les tests, il suffit de se placer dans le dossier avec un invite de commande et d'avoir installer mocha au préalable et ensuite de taper la commande `yarn test`.
 
