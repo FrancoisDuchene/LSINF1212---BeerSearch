@@ -154,19 +154,22 @@ router.post('/search', function(req, res){
   //requête
   if(Type == "Tout" && degree == "Tout"){
     Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
-    console.log(docs.length);
+    res.render('search.ejs', {Bieres: docs});
     });
   }
   else if(Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
     });
   }
   else if(degree == "Tout"){
-    Biere.find({Bières: { $regex: sBière, $options: 'i'}, Type: {$regex: sType}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
     });
   }
   else{
-    Biere.find({Bières: { $regex: sBière, $options: 'i'}, Type: {$regex: sType}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
     });
   }
 
