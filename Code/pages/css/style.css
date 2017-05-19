@@ -78,7 +78,7 @@ Rechercher
   display:block;
 }
 
-#inputSearch {
+#inputSearch{
   width: 20%;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4 ease-in-out;
@@ -90,6 +90,16 @@ Rechercher
   width: 70%
 }
 
+#searchthis {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4 ease-in-out;
+    font-size: 16px;
+    margin-bottom: 12px;
+
+}
 /*
 A propos des cartes
 */

@@ -42,6 +42,7 @@ router.get('/PDV.html', function(req, res) {
   res.sendFile('PDV.html');
 });
 router.get('/Commander.html', function(req, res){
+  console.log(req.query.name);
   res.sendFile('Commander.html');
 });
 router.get('/contact.html', function(req, res){
@@ -154,23 +155,27 @@ router.post('/search', function(req, res){
   //requête
   if(Type == "Tout" && degree == "Tout"){
     Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
-    console.log(docs.length);
+    res.render('search.ejs', {Bieres: docs});
     });
   }
   else if(Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
     });
   }
   else if(degree == "Tout"){
-    Biere.find({Bières: { $regex: sBière, $options: 'i'}, Type: {$regex: sType}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
     });
   }
   else{
-    Biere.find({Bières: { $regex: sBière, $options: 'i'}, Type: {$regex: sType}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+    Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
+      res.render('search.ejs', {Bieres: docs});
     });
   }
 
 });
+
 //On exporte notre router vers index.js pour le donner
 //en parametre a server.js
 module.exports = router;
