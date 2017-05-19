@@ -70,6 +70,10 @@ Code utile pour le login et l'inscription
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.comm{  
+    text-align: center;
+    display:block;
+}
 /*
 Rechercher
 */
