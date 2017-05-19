@@ -45,7 +45,6 @@ Pour lancer le serveur, il suffit de se placer dans le dossier *Code* et de tape
 #### Dependances
 Ce sont les dépendances nécessaires au fonctionnement du projet. Elles se trouvent dans le fichier *package.json* dans la partie `dependencies`.
 
-
 #### Dependances dev
 Ce sont toutes les dépendances marquées comme nécessaires uniquement au développement, càd elles ne sont pas nécessaires au fonctionnement du projet.
 Comme gestionnaire de tests **mocha**. Elles se trouvent dans le fichier *package.json* dans la partie `devDependencies`.
@@ -64,14 +63,14 @@ On utilise le module **bootstrap** afin de nous aider dans la construction des p
 Pour la géolocalisation, nous utilisons le site de cartographie **openstreetmap** et la bibliothèque **leaflet**.
 
 ### Côté base de donnée
-On utilise MongoDB pour gérer la base de donnée de notre application.
+On utilise **MongoDB** pour gérer la base de donnée de notre application.
 
 Pour lancer la base de donnée il faut se placer dans le dossier Code et utiliser la commande `mongod --dbpath db`
 
 ### Lancement de l'application
 Voici la marche à suivre pour lancer notre application web:
 
-* *Premièrement*: lancez la base de donnée grâce à la commande `mongod --dbpath db`.
+* *Premièrement*: lancez la base de donnée grâce à la commande `mongod --dbpath db` à partir du dossier **Code/**.
 * *Deuxièmement*: lancez le serveur avec la commande `node index.js`
 * *Troisièmement*: Se rendre sur un navigateur web tel *firefox* ou *chrome* et se rendre à l'adresse *localhost:8080*
 * Enjoy!
