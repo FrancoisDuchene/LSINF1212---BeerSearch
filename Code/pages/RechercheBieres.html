@@ -35,8 +35,8 @@
     <header>
       <div class="container">
         <div class="starter-template">
-          <h1> Recherche</h1>
-          <p>C'est la page de recherche de bieres</p>
+          <h1>Recherche</h1>
+          <h3>Ici recherchez vos bières belges favorites dans notre immense base de donnée !</h3>
         </div>
       </div>
     </header>
@@ -44,8 +44,8 @@
       <form method="post" class="form-search" action="/search" id="boutonRechercher">
         <div class="input-append">
           <script src="js/recherche.js"></script>
-          <input type="search" id="inputSearch" name="nomBiere"  class="span2 search-query" placeholder="Rechercher.." onsearch="al()"/>
-          <button type="submit" class="btn" onclick="al()">
+          <input type="search" id="inputSearch" name="nomBiere"  class="span2 search-query" placeholder="Rechercher.." onsearch="Recherche()"/>
+          <button type="submit" class="btn" onclick="Recherche()">
             <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
           </button>
         </div>
@@ -81,6 +81,21 @@
           <option value="2et6">Entre 2 et 6</option>
           <option value="6et8">Entre 6 et 8</option>
           <option value="plus8">Plus de 8</option>
+        </select>
+        <label for="province">Province</label>
+        <select name="province" id="province">
+          <option value="Tout">Tout</option>
+          <option value="Luxembourg">Luxembourg</option>
+          <option value="Namur">Namur</option>
+          <option value="Liège">Liège</option>
+          <option value="Hainaut">Hainaut</option>
+          <option value="Bruxelles">Bruxelles</option>
+          <option value="Brabant flamand">Brabant flamand</option>
+          <option value="Brabant wallon">Brabant wallon</option>
+          <option value="Flandre-Occidentale">Flandre-Occidentale</option>
+          <option value="Flande-Orientale">Flande-Orientale</option>
+          <option value="Limbourg">Limbourg</option>
+          <option value="Anvers">Anvers</option>
         </select>
       </form>
     </section>

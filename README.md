@@ -18,14 +18,22 @@ Distinguons d'abord les différents dossiers.
 * Le dossier *code* reprend quant à lui tout le code de notre application
 
 ### Structuration et explication de notre code
-Tout d'abord nous avons 3 fichiers *classeBeer*, *classeUser* et *classeSellPlace* qui reprennant le squelette de notre application.
+Tout d'abord nous avons 3 fichiers *classeBeer*, *classeUser* et *classeSellPlace* que nous avons réalisé au départ du projet mais que nous n'avons pas utilisé.
 
 Le fichier *serveur.js* définit un module simple pour lancer un serveur.
+Le fichier *index.js* sert à lancer le serveur.
+Le fichier *database.js* gère la base de donnée.
+Le fichier *session.js* relie la base de donnée au serveur.
+Le fichier *router.js* gère les pages html et comprend les fonctions `Get` et `Post`.
 
 Le dossier *db* reprend la base de donnée de notre application
+Le dossier *models* reprend deux schéma de donnée, indispensables pour l'interaction avec la base de donnée.
+Le dossier *pages* reprend les différentes pages html ainsi que les ressources css et les scripts.
+Le dossier *views* reprend un `view` nécessaire au fonctionnement de la recherche de bières.
 
 ### Tests
-Nous avons un dossier test reprennant le fichier de test sur ces différentes classes.
+Nous avons un dossier test reprennant le fichier de test sur les classes de bases que nous avons réalisé au début du projet.
+Néanmoins par manque de temps nous n'avons pas réalisé de test sur le fonctionnement de notre application web.
 
 Pour lancer les tests, il suffit de se placer dans le dossier avec un invite de commande et d'avoir installer mocha au préalable et ensuite de taper la commande `yarn test`.
 
@@ -35,18 +43,19 @@ Pour notre projet, nous utilisons le gestionnaire de module *node.js* **yarn**.
 Pour lancer le serveur, il suffit de se placer dans le dossier *Code* et de taper la commande `node index.js`
 
 #### Dependances
-Ce sont les dépendances nécessaires au fonctionnement du projet. On les installe avec la commande `yarn add` donc :
+Ce sont les dépendances nécessaires au fonctionnement du projet. Elles se trouvent dans le fichier *package.json* dans la partie `dependencies`.
 
-* `express`
-* `bootstrap`
 #### Dependances dev
 Ce sont toutes les dépendances marquées comme nécessaires uniquement au développement, càd elles ne sont pas nécessaires au fonctionnement du projet.
-Comme gestionnaire de tests **mocha**.
+Comme gestionnaire de tests **mocha**. Elles se trouvent dans le fichier *package.json* dans la partie `devDependencies`.
 
-Pour installer les dependances, on utilise donc la commande `yarn add --dev`
+Voici les plus importantes :
 
 * `babel-register` (un traducteur de code JS récent en code plus ancien)
 * `chai` pour les modules de test comme *expect*
+
+#### Installer les dépendances
+Pour installer toutes les dépendances il suffit de se placer dans le dossier *Code* et de taper la commande `yarn`.
 
 ### Côté client - FrontEnd
 On utilise le module **bootstrap** afin de nous aider dans la construction des pages *HTML*.
@@ -54,6 +63,14 @@ On utilise le module **bootstrap** afin de nous aider dans la construction des p
 Pour la géolocalisation, nous utilisons le site de cartographie **openstreetmap** et la bibliothèque **leaflet**.
 
 ### Côté base de donnée
-On utilise MongoDB pour gérer la base de donnée de notre application.
+On utilise **MongoDB** pour gérer la base de donnée de notre application.
 
 Pour lancer la base de donnée il faut se placer dans le dossier Code et utiliser la commande `mongod --dbpath db`
+
+### Lancement de l'application
+Voici la marche à suivre pour lancer notre application web:
+
+* *Premièrement*: lancez la base de donnée grâce à la commande `mongod --dbpath db` à partir du dossier **Code/**.
+* *Deuxièmement*: lancez le serveur avec la commande `node index.js`
+* *Troisièmement*: Se rendre sur un navigateur web tel *firefox* ou *chrome* et se rendre à l'adresse *localhost:8080*
+* Enjoy!

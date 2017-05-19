@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="François Duchêne">
-  <title>BeerSearch - Rechercher</title>
+  <title>BeerSearch - Recherche</title>
   <link href="css/bootstrap.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
 </head>
@@ -39,12 +39,12 @@
       </div>
     </div>
   </header>
-  <h1>Bieres</h1>
-    <ul id="Bieres">
+  <h1>Bières</h1>
+    <ul class="list-unstyled" id="Bieres">
     <% Bieres.forEach(function(biere){ %>
-      <li>
+      <li class="listBie">
         Nom: <%= biere.Bières %> - Degré d'alcool: <%= biere.Degree %> - Type: <%= biere.Type %>
-        <a href='Commander.html?name=<%= biere.Bières %>'>Commander</a>
+        <a id="lienCom" href='Commander.html?name=<%= biere.Bières %>'>Commander</a>
       </li>
     <% }) %>
     </ul>
