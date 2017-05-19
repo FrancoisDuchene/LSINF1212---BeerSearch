@@ -7,6 +7,7 @@
         <title>BeerSearch - Commander</title>
         <link href="css/bootstrap.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet"/>
+        <link href="css/tab.css" rel="stylesheet"/>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -35,10 +36,44 @@
         <header>
           <div class="container">
             <div class="starter-template">
-              <h1>Commander des bières !</h1>
+              <h1>Commander des Maintenant</h1>
             </div>
           </div>
         </header>
+        <div class="recherche_p">
+
+          <form action="/search" id="searchthis" method="get">
+            <input id="search" name="q" type="text" placeholder="Rechercher" />
+            <input id="search-btn" type="submit" value="Rechercher" />
+          </form>
+
+        </div>
+        <table>
+          <tr>
+            <th> Bière    </th>
+            <th> Caractéristiques </th>
+            <th> Points de vente </th>
+            <th> Commander </th>
+          </tr>
+          <tr>
+            <td> Chimey </td>
+            <td> youpi </td>
+            <td> youpi </td>
+            <td> youpi </td>
+          </tr>
+          <tr>
+            <td> Orval </td>
+            <td> youpi </td>
+            <td> personne </td>
+            <td> youpi </td>
+          </tr>
+          <tr>
+            <td> Orange Pied'boeuf </td>
+            <td> youpi </td>
+            <td> gaston Lagaffe </td>
+            <td> youpi </td>
+          </tr>
+        </table>
         <footer class="footer">
           <div class="container">
             <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
