@@ -1,4 +1,4 @@
-var PDVmap = L.map('leafletmap', {
+let PDVmap = L.map('leafletmap', {
   center: [[50.6682012,4.6128839]],
   inertia: true,
   inertiaDeceleration: 2000
@@ -33,8 +33,8 @@ if('geolocation' in navigator) {
   // upon success, do this
   function success(pos){
     // get longitude and latitude from the position object passed in
-    var lng = pos.coords.longitude;
-    var lat = pos.coords.latitude;
+    let lng = pos.coords.longitude;
+    let lat = pos.coords.latitude;
     el('position').innerText = "latitude: " + lat + " ,longitude: " + lng;
     PDVmap.setView([lat,lng],14);
     let userPos = L.marker([lat,lng]).addTo(PDVmap);

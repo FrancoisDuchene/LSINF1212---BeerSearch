@@ -12,7 +12,6 @@ function start(router) {
   app.use(require('express-validator')());
   app.use(require('errorhandler')());
   app.use('/api', router);
-  app.set('view engine', 'ejs');
 
   database.open()
     .catch(() => {
