@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../parties/head %>
+        <link href="css/dashboard.css" rel="stylesheet">
+        <meta name="keywords" content="Biere, Bière, rechercher, commander, alchool">
+        <meta name="author" content="François Duchêne">
+        <meta name="description" content="Catalogue complet de bières permettant de localiser des point de vente et de commander en ligne !">
+        <title>BeerSearch</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <% include ../parties/nav %>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="./RechercheBieres.html">Recherche bière</a></li>
+                <li><a href="./PDV.html">Points de ventes</a></li>
+                <li><a href="./Commander.html">Commander une bière</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+        <header>
+          <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+              <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Aperçu <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Outils d'administration</a></li>
+                <li><a href="#">Historique</a></li>
+              </ul>
+              <ul class="nav nav-sidebar">
+                <li><a href="">Se déconnecter</a></li>
+                <li><a href="">Supprimer son compte</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+              <h1 class="page-header">Dashboard</h1>
+
+              <div class="row placeholders">
+                <div class="col-xs-12 col-sm-12 placeholder">
+                  <img src="../res/Man_silhouette.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                  <h4>Prénom <%=utilisateur.name %></h4>
+                  <span class="text-muted">Pseudonyme</span>
+                </div>
+              </div>
+
+              <h2 class="sub-header">Vos coordonnées</h2>
+              <section class="row placeholders">
+                <div class="col-sm-4 colonneProfil">
+                  <h3>Coordonnées personnelles</h3>
+                  <section class="row placeholder">
+                    <div class="col-sm-6 texteProfil">
+                      Pseudonyme:</br>
+                      Nom: </br>
+                      Prénom:</br>
+                      Sexe:</br>
+                      Téléphone:</br>
+                      Adresse Mail:</br>
+                    </div>
+                    <div class="col-sm-6 donneeProfil">
+                      <!-- A compléter -->
+                      </br>
+                      <%=utilisateur.name %></br>
+                      </br>
+                      </br>
+                      </br>
+                      <%=utilisateur.email %></br>
+                    </div>
+                  </section>
+                </div>
+                <div class="col-sm-4 colonneProfil">
+                  <h3>Facturation</h3>
+                  <section class="row placeholder">
+                    <div class="col-sm-6 texteProfil">
+                      Adresse facturation:</br>
+                      Code Postal:</br>
+                      Localité:</br>
+                      Pays:</br>
+                      Compte de facturation:</br>
+                      Solde disponible:</br>
+                    </div>
+                    <div class="col-sm-6 donneeProfil">
+                      <!-- A compléter -->
+                      <%=utilisateur.adress %></br>
+                      </br>
+                      </br>
+                      <%=utilisateur.country %></br>
+                      <%=utilisateur.coordBank %></br>
+                      <%=utilisateur.balance %></br>
+                    </div>
+                  </section>
+                </div>
+                <div class="col-sm-4">
+                  <h3>Livraison</h3>
+                  <section class="row placeholder">
+                    <div class="col-sm-6 texteProfil">
+                      Adresse livraison:</br>
+                      Code Postal:</br>
+                      Localité:</br>
+                      Pays:</br>
+                    </div>
+                    <div class="col-sm-6 donneeProfil">
+                      <!-- A compléter -->
+                      </br>
+                      </br>
+                      </br>
+                      </br>
+                    </div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        </header>
+        <footer class="footer">
+          <% include ../parties/footer %>
+        </footer>
+        <% include ../parties/scripts %>
+    </body>
+</html>

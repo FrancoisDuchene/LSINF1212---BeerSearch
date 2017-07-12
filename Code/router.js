@@ -44,26 +44,30 @@ router.get('/RechercheBieres.html', function(req, res) {
 router.get('/PDV.html', function(req, res) {
   res.render('pages/PDV');
 });
-router.get('/Commander.html', function(req, res){
+router.get('/Commander.html', function(req, res) {
   console.log(req.query.name);
   res.render('pages/Commander');
 });
-router.get('/contact.html', function(req, res){
+router.get('/contact.html', function(req, res) {
   res.render('pages/contact');
 });
-router.get('/Login.html', function(req, res){
+router.get('/Login.html', function(req, res) {
   res.render('pages/Login');
 });
-router.get('/SignIn.html', function(req, res){
+router.get('/SignIn.html', function(req, res) {
   res.render('pages/SignIn');
 });
-router.get('/sendSignIn.html', function(req, res){
+router.get('/sendSignIn.html', function(req, res) {
   res.render('pages/sendSignIn');
 });
-router.get('/search.html', function(req, res){
+router.get('/search.html', function(req, res) {
   console.log("Accès - Page résultats de recherche");
   res.render('pages/search');
 });
+router.get('/profile.html', function(req, res) {
+  console.log("Accès au profil utilisateur");
+  res.render('pages/Profil', {utilisateur: globalUser});
+})
 
 //Toutes les requetes POST
 
@@ -79,6 +83,7 @@ router.post('/sendLogin', function(req, res) {
     }
 
     if(!user){
+      console.log('Login incorrect')
       return res.redirect('Login.html');
     }
     globalUser = new User();
@@ -91,7 +96,7 @@ router.post('/sendLogin', function(req, res) {
     globalUser.country = user.country;
     isLog = true;
     console.log("Log in réussi");
-    res.redirect('index.html');
+    res.redirect('profile.html');
     return res.status(200).send();
   });
 });
