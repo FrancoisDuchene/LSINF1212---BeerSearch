@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <% include ../parties/head %>
       <meta name="author" content="François Duchêne">
       <title>BeerSearch - Trouver un point de vente</title>
-      <link href="css/bootstrap.css" rel="stylesheet" />
-      <link href="css/style.css" rel="stylesheet"/>
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
        integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
        crossorigin=""/>
@@ -14,15 +11,7 @@
     <body>
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="./index.html">BeerSearch</a>
-          </div>
+          <% include ../parties/nav %>
           <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li><a href="./RechercheBieres.html">Recherche bière</a></li>
@@ -59,14 +48,10 @@
         </div>
       </section>
       <footer class="footer">
-        <div class="container">
-          <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
-        </div>
+        <% include ../parties/footer %>
       </footer>
       <!-- Inclusion des bibliothèques de base -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-      <script src="js/bootstrap.js"></script>
+      <% include ../parties/scripts %>
       <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
       integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
       crossorigin=""></script>

@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <% include ../parties/head %>
         <meta name="keywords" content="Biere, Bière, rechercher, commander, alchool">
         <meta name="author" content="François Duchêne">
         <meta name="description" content="Catalogue complet de bières permettant de localiser des point de vente et de commander en ligne !">
         <title>BeerSearch</title>
-        <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
-        <link href="css/style.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">BeerSearch</a>
-            </div>
+            <% include ../parties/nav %>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                 <li><a href="./RechercheBieres.html">Recherche bière</a></li>
@@ -44,12 +33,8 @@
           </div>
         </header>
         <footer class="footer">
-          <div class="container">
-            <p class="text-muted">Site créé dans le cadre du cours LSINF1212</p>
-          </div>
+          <% include ../parties/footer %>
         </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="js/bootstrap.js"></script>
+        <% include ../parties/scripts %>
     </body>
 </html>

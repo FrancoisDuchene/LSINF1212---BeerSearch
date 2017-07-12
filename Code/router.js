@@ -16,50 +16,51 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 //on renseigne les dossiers où sont stocker les pages
 //et ce qui va avec (css, fonts, javascript et ressources)
-router.use(express.static(__dirname + '/pages'));
-router.use(express.static(__dirname + '/pages/css'));
-router.use(express.static(__dirname + '/pages/fonts'));
-router.use(express.static(__dirname + '/pages/js'));
-router.use(express.static(__dirname + '/pages/res'));
+router.use(express.static(__dirname + '/views'));
+router.use(express.static(__dirname + '/views/css'));
+router.use(express.static(__dirname + '/views/fonts'));
+router.use(express.static(__dirname + '/views/js'));
+router.use(express.static(__dirname + '/views/res'));
 
 // Middleware basique qui fixe le header pour tous les cas
 router.use(function(req, res, next) {
-  console.log("Initialisation du routeur");
+  console.log("Initialisation du routeur - ");
   next();
 });
 
 //toutes les requêtes get
 router.get('/', function(req, res) {
-  res.sendFile('index.html');
+  res.render('pages/index');
 });
 router.get('/index.html', function(req, res) {
-  res.sendFile('index.html');
+  res.render('pages/index');
 });
 router.get('/RechercheBieres.html', function(req, res) {
-  res.sendFile('RechercheBieres.html');
+  console.log("Accès - Page RechercheBieres")
+  res.render('pages/RechercheBieres')
 });
 router.get('/PDV.html', function(req, res) {
-  res.sendFile('PDV.html');
+  res.render('pages/PDV');
 });
 router.get('/Commander.html', function(req, res){
   console.log(req.query.name);
-  res.sendFile('Commander.html');
+  res.render('pages/Commander');
 });
 router.get('/contact.html', function(req, res){
-  res.sendFile('contact.html');
+  res.render('pages/contact');
 });
 router.get('/Login.html', function(req, res){
-  res.sendFile('Login.html');
+  res.render('pages/Login');
 });
 router.get('/SignIn.html', function(req, res){
-  res.sendFile('SignIn.html');
+  res.render('pages/SignIn');
 });
 router.get('/sendSignIn.html', function(req, res){
-  res.sendFile('sendSignIn.html');
+  res.render('pages/sendSignIn');
 });
 router.get('/search.html', function(req, res){
-  console.log("1");
-  res.render('search.html');
+  console.log("Accès - Page résultats de recherche");
+  res.render('pages/search');
 });
 
 //Toutes les requetes POST
@@ -157,45 +158,44 @@ router.post('/search', function(req, res){
   //requête
   if(Type == "Tout" && degree == "Tout" && province == "Tout"){
     Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
-    res.render('search.ejs', {Bieres: docs});
+    res.render('pages/search', {Bieres: docs});
     });
   }
   else if(Type == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs});
     });
   }
   else if(degree == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs});
     });
   }
   else if (degree == "Tout" && Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs});
     });
   }
   else if (province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs});
     });
   }
   else if (degree == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs});
     });
   }
   else if (Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs});
     });
   }
   else{
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
-      res.render('search.ejs', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs});
     });
   }
-
 });
 
 //On exporte notre router vers index.js pour le donner
