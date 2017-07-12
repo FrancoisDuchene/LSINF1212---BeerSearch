@@ -13,7 +13,7 @@ function start(router) {
   app.use(require('errorhandler')());
   app.use('/api', router);
   app.set('view engine', 'ejs');
-  
+
   database.open()
     .catch(() => {
       console.error('Please check that the MongoDB server is running.');
@@ -24,7 +24,7 @@ function start(router) {
 
   // Middleware pour gerer les erreurs 404
   app.use("*", function(req, res) {
-    res.status(404).send('Erreur 404 - Page non trouvee');
+    res.status(404).send('Erreur 404 - Page non trouvée');
   });
 
   process.on('SIGINT', () => {

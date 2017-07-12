@@ -1,8 +1,11 @@
 let express = require('express');
 let path    = require("path");
 let passport = require('passport');
+//On appelle les différents modèles de mongoose
 let User = require('./models/user');
 let Biere = require('./models/bieres');
+let Pdv = require('./models/pdv');
+
 let bodyParser = require("body-parser");
 // Un fonction speciale pour les routes sous express
 let router = express.Router();
@@ -12,7 +15,6 @@ let globalUser;
 let isLog = false;
 
 router.use(bodyParser.urlencoded({ extended: true }));
-
 
 //on renseigne les dossiers où sont stocker les pages
 //et ce qui va avec (css, fonts, javascript et ressources)
