@@ -20,8 +20,13 @@
               <li><a href="./Commander.html">Commander une bière</a></li>
               <li class="active"><a href="#">Contact</a></li>
             </ul>
-            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
-            <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
+            <% if(isLog) { %>
+              <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Profile.html'">Profil</button>
+              <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./deconnexion.html'">Se déconnecter</button>
+            <% }else{ %>
+              <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./Login.html'">Se connecter</button>
+              <button type="button" class="btn btn-default navbar-btn" onclick="location.href='./SignIn.html'">S'inscrire</button>
+            <% } %>
           </div><!--/.nav-collapse -->
         </div>
       </nav>

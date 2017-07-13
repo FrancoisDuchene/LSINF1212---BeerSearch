@@ -24,59 +24,52 @@
         </nav>
         <header>
           <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-              <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Aperçu <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Outils d'administration</a></li>
-                <li><a href="#">Historique</a></li>
-              </ul>
-              <ul class="nav nav-sidebar">
-                <li><a href="">Se déconnecter</a></li>
-                <li><a href="">Supprimer son compte</a></li>
-              </ul>
-            </div>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-              <h1 class="page-header">Dashboard</h1>
-
-              <div class="row placeholders">
-                <div class="col-xs-12 col-sm-12 placeholder">
-                  <img src="../res/Man_silhouette.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4>Prénom <%=utilisateur.name %></h4>
-                  <span class="text-muted">Pseudonyme</span>
-                </div>
+            <div class="row">
+              <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                  <li class="active"><a href="#">Aperçu <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">Outils d'administration</a></li>
+                  <li><a href="#">Historique</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                  <li><a href="">Se déconnecter</a></li>
+                  <li><a href="">Supprimer son compte</a></li>
+                </ul>
               </div>
-
-              <h2 class="sub-header">Vos coordonnées</h2>
-              <section class="row placeholders">
-                <div class="col-sm-4 colonneProfil">
-                  <h3>Coordonnées personnelles</h3>
-                  <section class="row placeholder">
-                    <div class="col-sm-6 texteProfil">
-                      Pseudonyme:</br>
-                      Nom: </br>
-                      Prénom:</br>
-                      Sexe:</br>
-                      Téléphone:</br>
-                      Adresse Mail:</br>
-                    </div>
-                    <div class="col-sm-6 donneeProfil">
-                      <!-- A compléter -->
-                      </br>
-                      <%=utilisateur.name %></br>
-                      </br>
-                      </br>
-                      </br>
-                      <%=utilisateur.email %></br>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-sm-4 colonneProfil">
-                  <h3>Facturation</h3>
-                  <section class="row placeholder">
-                    <div class="col-sm-6 texteProfil">
-                      Adresse facturation:</br>
-                      Code Postal:</br>
+              <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header">Profil</h1>
+                <h2 class="sub-header">Vos coordonnées</h2>
+                <section class="row placeholders">
+                  <div class="col-sm-4 colonneProfil">
+                    <h3>Coordonnées personnelles</h3>
+                    <section class="row placeholder">
+                      <div class="col-sm-6 texteProfil">
+                        Pseudonyme:</br>
+                        Nom: </br>
+                        Prénom:</br>
+                        Sexe:</br>
+                        Téléphone:</br>
+                        Adresse Mail:</br>
+                      </div>
+                      <div class="col-sm-6 donneeProfil">
+                        <!-- A compléter -->
+                        </br>
+                        <%=utilisateur.name %></br>
+                        </br>
+                        </br>
+                        </br>
+                        <%=utilisateur.email %></br>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="row placeholders">
+                  <div class="col-sm-4 colonneProfil">
+                    <h3>Facturation</h3>
+                    <section class="row placeholder">
+                      <div class="col-sm-6 texteProfil">
+                        Adresse facturation:</br>
+                        Code Postal:</br>
                       Localité:</br>
                       Pays:</br>
                       Compte de facturation:</br>
@@ -115,10 +108,10 @@
             </div>
           </div>
         </div>
-        </header>
-        <footer class="footer">
-          <% include ../parties/footer %>
-        </footer>
+      </header>
+      <footer class="footer">
+        <% include ../parties/footer %>
+      </footer>
         <% include ../parties/scripts %>
     </body>
 </html>

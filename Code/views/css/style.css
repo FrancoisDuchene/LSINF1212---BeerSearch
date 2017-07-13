@@ -157,3 +157,16 @@ td, th {
     padding:2px 5px;
     border: 1px solid black;
 }
+
+/*
+Déconnexion
+*/
+.decobloc {
+  margin-left: 35%;
+  margin-right: 35%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /*border: thick double #b3b3b3;
+  background-color: #e6e6e6;
+  border-radius: 20px;*/
+}

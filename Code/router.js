@@ -12,6 +12,8 @@ let router = express.Router();
 
 let globalUser;
 
+//On vérifie si un utilisateur est loggé ou pas
+//On passe ce paramètre à toutes les pages pour activer certaines choses
 let isLog = false;
 
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -32,43 +34,78 @@ router.use(function(req, res, next) {
 
 //toutes les requêtes get
 router.get('/', function(req, res) {
-  res.render('pages/index');
+  if(isLog) {
+    res.render('pages/index', {nom: globalUser.name,isLog:isLog});
+  }else{
+    res.render('pages/index', {isLog:isLog});
+  }
 });
 router.get('/index.html', function(req, res) {
-  res.render('pages/index');
+  if(isLog) {
+    res.render('pages/index', {nom: globalUser.name,isLog:isLog});
+  }else{
+    res.render('pages/index', {isLog:isLog});
+  }
 });
 router.get('/RechercheBieres.html', function(req, res) {
   console.log("Accès - Page RechercheBieres")
-  res.render('pages/RechercheBieres')
+  if(isLog) {
+    res.render('pages/RechercheBieres', {nom: globalUser.name,isLog:isLog})
+  }else{
+    res.render('pages/RechercheBieres', {isLog:isLog})
+  }
 });
 router.get('/PDV.html', function(req, res) {
-  res.render('pages/PDV');
+  if(isLog) {
+    res.render('pages/PDV', {nom: globalUser.name,isLog:isLog});
+  }else{
+    res.render('pages/PDV', {isLog:isLog});
+  }
 });
 router.get('/Commander.html', function(req, res) {
   console.log(req.query.name);
-  res.render('pages/Commander');
+  if(isLog) {
+    res.render('pages/Commander', {nom: globalUser.name,isLog:isLog});
+  }else{
+    res.render('pages/Commander', {isLog:isLog});
+  }
 });
 router.get('/contact.html', function(req, res) {
-  res.render('pages/contact');
+  if(isLog) {
+    res.render('pages/contact', {nom: globalUser.name,isLog:isLog});
+  }else{
+    res.render('pages/contact', {isLog:isLog});
+  }
 });
 router.get('/Login.html', function(req, res) {
-  res.render('pages/Login');
+  res.render('pages/Login', {isLog:isLog});
 });
 router.get('/SignIn.html', function(req, res) {
-  res.render('pages/SignIn');
+  res.render('pages/SignIn', {isLog:isLog});
 });
 router.get('/sendSignIn.html', function(req, res) {
-  res.render('pages/sendSignIn');
+  if(isLog) {
+    res.render('pages/sendSignIn', {nom: globalUser.name,isLog:isLog});
+  }else{
+    res.render('pages/sendSignIn', {isLog:isLog});
+  }
 });
 router.get('/search.html', function(req, res) {
   console.log("Accès - Page résultats de recherche");
-  res.render('pages/search');
+  if(isLog) {
+    res.render('pages/search', {nom: globalUser.name,isLog:isLog});
+  }else{
+    res.render('pages/search', {isLog:isLog});
+  }
 });
 router.get('/profile.html', function(req, res) {
   console.log("Accès au profil utilisateur");
-  res.render('pages/Profil', {utilisateur: globalUser});
-})
-
+  res.render('pages/Profil', {utilisateur: globalUser, isLog:isLog});
+});
+router.get('/deconnexion.html', function(req, res) {
+  console.log("Page déconnexion utilisateur");
+  res.render('pages/deconnecter', {isLog:isLog});
+});
 //Toutes les requetes POST
 
 //Une requete pour s'inscrire
@@ -96,7 +133,7 @@ router.post('/sendLogin', function(req, res) {
     globalUser.country = user.country;
     isLog = true;
     console.log("Log in réussi");
-    res.redirect('profile.html');
+    res.redirect('index.html');
     return res.status(200).send();
   });
 });
@@ -165,43 +202,54 @@ router.post('/search', function(req, res){
   //requête
   if(Type == "Tout" && degree == "Tout" && province == "Tout"){
     Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
-    res.render('pages/search', {Bieres: docs});
+    res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
   }
   else if(Type == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
   }
   else if(degree == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
   }
   else if (degree == "Tout" && Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
   }
   else if (province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
   }
   else if (degree == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
   }
   else if (Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
   }
   else{
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs});
+      res.render('pages/search', {Bieres: docs, isLog:isLog});
     });
+  }
+});
+
+router.post('/deco', function(req, res) {
+  if(isLog) {
+    isLog = false;
+    console.log("Utilisateur " + globalUser.name + " déconnecté");
+    globalUser = undefined;
+    res.redirect('index.html');
+  }else{
+    res.redirect('deconnexion.html');
   }
 });
 
