@@ -3,13 +3,23 @@ let
   passportLocalMongoose = require('passport-local-mongoose');
 
 let User = new mongoose.Schema({
-  coordBank: String,
-  balance: Number,
   name: String,
+  prenom: String,
+  pseudo: String,
+  sexe: String,
+  tel: Number,
   email: String,
   password: String,
   adress: String,
-  country: String
+  postalCode: Number,
+  city: String,
+  country: String,
+  coordBank: String,
+  balance: Number,
+  livrAdress: String,
+  livrPostalCode: Number,
+  livrCity: String,
+  livrCountry: String
 });
 
 User.plugin(passportLocalMongoose, {

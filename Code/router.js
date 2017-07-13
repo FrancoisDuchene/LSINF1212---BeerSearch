@@ -124,13 +124,23 @@ router.post('/sendLogin', function(req, res) {
       return res.redirect('Login.html');
     }
     globalUser = new User();
-    globalUser.coordBank = user.coordBank;
-    globalUser.balance = user.balance;
     globalUser.name = user.name;
+    globalUser.prenom = user.prenom;
+    globalUser.pseudo = user.pseudo;
+    globalUser.sexe = user.sexe;
+    globalUser.tel = user.tel;
     globalUser.email = user.email;
     globalUser.password = user.password;
     globalUser.adress = user.adress;
+    globalUser.postalCode = user.postalCode;
+    globalUser.city = user.city;
     globalUser.country = user.country;
+    globalUser.coordBank = user.coordBank;
+    globalUser.balance = user.balance;
+    globalUser.livrAdress = user.livrAdress;
+    globalUser.livrPostalCode = user.livrPostalCode;
+    globalUser.livrCity = user.livrCity;
+    globalUser.livrCountry = user.livrCountry;
     isLog = true;
     console.log("Log in réussi");
     res.redirect('index.html');
@@ -139,22 +149,42 @@ router.post('/sendLogin', function(req, res) {
 });
 
 router.post('/sendSignIn', function(req, res) {
-  let coordBank = req.body.coordBank;
-  let balance = req.body.balance;
   let name = req.body.name;
+  let prenom = req.body.prenom;
+  let pseudo = req.body.pseudo;
+  let sexe = req.body.sexe;
+  let tel = req.body.tel;
   let email = req.body.email;
   let password = req.body.password;
   let adress = req.body.adress;
+  let postalCode = req.body.postalCode;
+  let city = req.body.city;
   let country = req.body.country;
+  let coordBank = req.body.coordBank;
+  let balance = req.body.balance;
+  let livrAdress = req.body.livrAdress;
+  let livrPostalCode = req.body.livrPostalCode;
+  let livrCity = req.body.livrCity;
+  let livrCountry = req.body.livrCountry;
 
   let newUser = new User();
-  newUser.coordBank = coordBank;
-  newUser.balance = balance;
   newUser.name = name;
+  newUser.prenom = prenom;
+  newUser.pseudo = pseudo;
+  newUser.sexe = sexe;
+  newUser.tel = tel;
   newUser.email = email;
   newUser.password = password;
   newUser.adress = adress;
+  newUser.postalCode = postalCode;
+  newUser.city = city;
   newUser.country = country;
+  newUser.coordBank = coordBank;
+  newUser.balance = balance;
+  newUser.livrAdress = livrAdress;
+  newUser.livrPostalCode = livrPostalCode;
+  newUser.livrCity = livrCity;
+  newUser.livrCountry = livrCountry;
   newUser.save(function(error, savedUser){
     if(error){
       console.log(error);

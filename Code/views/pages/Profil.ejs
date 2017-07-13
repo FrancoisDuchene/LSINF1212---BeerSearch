@@ -53,11 +53,11 @@
                       </div>
                       <div class="col-sm-6 donneeProfil">
                         <!-- A compléter -->
-                        </br>
+                        <%=utilisateur.pseudo %></br>
                         <%=utilisateur.name %></br>
-                        </br>
-                        </br>
-                        </br>
+                        <%=utilisateur.prenom %></br>
+                        <%=utilisateur.sexe %></br>
+                        <%=utilisateur.tel %></br>
                         <%=utilisateur.email %></br>
                       </div>
                     </section>
@@ -70,48 +70,48 @@
                       <div class="col-sm-6 texteProfil">
                         Adresse facturation:</br>
                         Code Postal:</br>
-                      Localité:</br>
-                      Pays:</br>
-                      Compte de facturation:</br>
-                      Solde disponible:</br>
-                    </div>
-                    <div class="col-sm-6 donneeProfil">
-                      <!-- A compléter -->
-                      <%=utilisateur.adress %></br>
-                      </br>
-                      </br>
-                      <%=utilisateur.country %></br>
-                      <%=utilisateur.coordBank %></br>
-                      <%=utilisateur.balance %></br>
-                    </div>
-                  </section>
-                </div>
-                <div class="col-sm-4">
-                  <h3>Livraison</h3>
-                  <section class="row placeholder">
-                    <div class="col-sm-6 texteProfil">
-                      Adresse livraison:</br>
-                      Code Postal:</br>
-                      Localité:</br>
-                      Pays:</br>
-                    </div>
-                    <div class="col-sm-6 donneeProfil">
-                      <!-- A compléter -->
-                      </br>
-                      </br>
-                      </br>
-                      </br>
-                    </div>
-                  </section>
-                </div>
-              </section>
+                        Localité:</br>
+                        Pays:</br>
+                        Compte de facturation:</br>
+                        Solde disponible:</br>
+                      </div>
+                      <div class="col-sm-6 donneeProfil">
+                        <!-- A compléter -->
+                        <%=utilisateur.adress %></br>
+                        <%=utilisateur.postalCode %></br>
+                        <%=utilisateur.city %></br>
+                        <%=utilisateur.country %></br>
+                        <%=utilisateur.coordBank %></br>
+                        <%=utilisateur.balance %></br>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="col-sm-4">
+                    <h3>Livraison</h3>
+                    <section class="row placeholder">
+                      <div class="col-sm-6 texteProfil">
+                        Adresse livraison:</br>
+                        Code Postal:</br>
+                        Localité:</br>
+                        Pays:</br>
+                      </div>
+                      <div class="col-sm-6 donneeProfil">
+                        <!-- A compléter -->
+                        <%=utilisateur.livrAdress %></br>
+                        <%=utilisateur.livrPostalCode %></br>
+                        <%=utilisateur.livrCity %></br>
+                        <%=utilisateur.livrCountry %></br>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
-      <footer class="footer">
-        <% include ../parties/footer %>
-      </footer>
-        <% include ../parties/scripts %>
-    </body>
+        </header>
+        <footer class="footer">
+          <% include ../parties/footer %>
+        </footer>
+          <% include ../parties/scripts %>
+      </body>
 </html>
