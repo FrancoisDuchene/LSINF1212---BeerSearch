@@ -1,3 +1,5 @@
 journal/
 diagnostic.data/
 mongod.lock
+WiredTiger.turtle
+WiredTiger.wt
