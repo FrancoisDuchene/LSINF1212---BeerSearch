@@ -60,7 +60,7 @@
 }
 {
   "Bières": "28 Triple",
-  "Type": ["Blonde","Triple"],
+  "Type": ["Blonde", "Triple"],
   "Degree": "9 %",
   "Brasserie": "Brasserie De Proef pour Caulier Développement",
   "brasserie": "#N/A",
@@ -192,7 +192,7 @@
 }
 {
   "Bières": "Abbaye d'Aulne Super Noël 9",
-  "Type": ["Abbaye", "Bière de Noël"],
+  "Type": ["Abbaye", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie du Val de Sambre",
   "brasserie": "Brasserie du Val de Sambre",
@@ -336,7 +336,7 @@
 }
 {
   "Bières": "Abbaye de Saint-Martin Cuvée de Noël",
-  "Type": ["Abbaye", "Bière de Noël"],
+  "Type": ["Abbaye", "Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie de Brunehaut",
   "brasserie": "Brasserie de Brunehaut",
@@ -408,7 +408,7 @@
 }
 {
   "Bières": "Abbaye des Rocs Spéciale Noël",
-  "Type": ["Abbaye", "Bière de Noël"],
+  "Type": ["Abbaye", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie de l'Abbaye des Rocs",
   "brasserie": "Brasserie de l'abbaye des Rocs",
@@ -648,7 +648,7 @@
 }
 {
   "Bières": "Affligem Noël",
-  "Type": ["Abbaye", "Bière de Noël"],
+  "Type": ["Abbaye", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie Affligem (Heineken)",
   "brasserie": "#N/A",
@@ -864,7 +864,7 @@
 }
 {
   "Bières": "Angélus Spéciale Noël",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie Brootcoorens",
   "brasserie": "Brasserie Brootcoorens",
@@ -1284,7 +1284,7 @@
 }
 {
   "Bières": "Augrenoise Blonde de Noël",
-  "Type": ["Blonde, "Bière de Noël"],
+  "Type": ["Blonde", "Bière de Noel"],
   "Degree": "10 %",
   "Brasserie": "Brasserie Augrenoise",
   "brasserie": "Brasserie Augrenoise",
@@ -1380,7 +1380,7 @@
 }
 {
   "Bières": "Authentique Blonde de Noël",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Authentique Brasserie",
   "brasserie": "Authentique Brasserie",
@@ -1476,7 +1476,7 @@
 }
 {
   "Bières": "Balthazar",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,9 %",
   "Brasserie": "Brasserie Alvinne",
   "brasserie": "Brasserie Alvinne",
@@ -2364,7 +2364,7 @@
 }
 {
   "Bières": "Bierpruver Winter",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8 %",
   "Brasserie": "Huisbrouwerij de 3 vaten|-",
   "brasserie": "#N/A",
@@ -2436,7 +2436,7 @@
 }
 {
   "Bières": "La Binchoise Spéciale Noël",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie La Binchoise",
   "brasserie": "Brasserie La Binchoise",
@@ -3120,7 +3120,7 @@
 }
 {
   "Bières": "Bocq Christmas",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,1 %",
   "Brasserie": "Brasserie du Bocq",
   "brasserie": "Brasserie du Bocq",
@@ -3312,7 +3312,7 @@
 }
 {
   "Bières": "Bon Secours Noël",
-  "Type": ["Fermentation haute", "Blonde, Bière de Noël"],
+  "Type": ["Fermentation haute", "Blonde, Bière de Noel"],
   "Degree": "10 %",
   "Brasserie": "Brasserie Caulier",
   "brasserie": "Brasserie Caulier",
@@ -3444,7 +3444,7 @@
 }
 {
   "Bières": "La Botteresse de Noël",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "10,5 %",
   "Brasserie": "Brasserie La Botteresse de Sur-les-Bois",
   "brasserie": "#N/A",
@@ -4176,7 +4176,7 @@
 }
 {
   "Bières": "Bush de Noël",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "12 %",
   "Brasserie": "Brasserie Dubuisson",
   "brasserie": "Brasserie Dubuisson",
@@ -4188,7 +4188,7 @@
 }
 {
   "Bières": "Bush de Noël Premium",
-  "Type": ["Bière de Noël", "Triple"],
+  "Type": ["Bière de Noel", "Triple"],
   "Degree": "13 %",
   "Brasserie": "Brasserie Dubuisson",
   "brasserie": "Brasserie Dubuisson",
@@ -4920,7 +4920,7 @@
 }
 {
   "Bières": "Chapeau Winter Gueuze",
-  "Type": ["Gueuze", "Bière de Noël"],
+  "Type": ["Gueuze", "Bière de Noel"],
   "Degree": "5,6 %",
   "Brasserie": "Brasserie De Troch",
   "brasserie": "Brasserie De Troch",
@@ -5100,7 +5100,7 @@
 }
 {
   "Bières": "Christmas Leroy",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "7,5 %",
   "Brasserie": "Brasserie Van Eecke",
   "brasserie": "Brasserie Van Eecke",
@@ -5112,7 +5112,7 @@
 }
 {
   "Bières": "Christmas-Verhaeghe",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "7,2 %",
   "Brasserie": "Brasserie Verhaeghe",
   "brasserie": "Brasserie Verhaeghe",
@@ -5124,7 +5124,7 @@
 }
 {
   "Bières": "Christmas Pale Ale",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "6,3 %",
   "Brasserie": "Brasserie De Ryck",
   "brasserie": "Brasserie De Ryck",
@@ -5340,7 +5340,7 @@
 }
 {
   "Bières": "Corsendonk Christmas Ale",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie du Bocq pour la Brasserie Corsendonk",
   "brasserie": "#N/A",
@@ -5400,7 +5400,7 @@
 }
 {
   "Bières": "Courage",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "8 %",
   "Brasserie": "Brasserie De Dochter van de Korenaar",
   "brasserie": "Brasserie De Dochter van de Korenaar",
@@ -5615,7 +5615,7 @@
   "Géolocalisation": "49° 49′ 30,47″ N, 5° 05′ 11,55″ E"
 }
 {
-  "Bières": "Cuvée du Château",
+  "Bières": "Cuvée du Chateau",
   "Type": ["Brune"],
   "Degree": "11 %",
   "Brasserie": "Brasserie Van Honsebrouck",
@@ -5690,7 +5690,7 @@
   "Bières": "Cuvée du Tchesté",
   "Type": ["Fermentation haute"],
   "Degree": "7,5 %",
-  "Brasserie": "Brasserie Les 3 Fourquets pour la Confrérie du Tchesté de Neufchâteau",
+  "Brasserie": "Brasserie Les 3 Fourquets pour la Confrérie du Tchesté de Neufchateau",
   "brasserie": "#N/A",
   "localité": "#N/A",
   "province": "#N/A",
@@ -6132,7 +6132,7 @@
 }
 {
   "Bières": "Delhaize Christmas",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie Affligem (Heineken)",
   "brasserie": "#N/A",
@@ -6192,7 +6192,7 @@
 }
 {
   "Bières": "Delirium Christmas",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "10 %",
   "Brasserie": "Brasserie Huyghe",
   "brasserie": "Brasserie Huyghe",
@@ -6240,7 +6240,7 @@
 }
 {
   "Bières": "De Nacht",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "5,2 %",
   "Brasserie": "Brasserie Vissenaken",
   "brasserie": "Brasserie Vissenaken",
@@ -6288,7 +6288,7 @@
 }
 {
   "Bières": "Den Drupneuze",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie Den Tseut",
   "brasserie": "Brasserie Den Tseut",
@@ -6480,7 +6480,7 @@
 }
 {
   "Bières": "De Vlier X-Mas",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie De Vlier",
   "brasserie": "Brasserie De Vlier",
@@ -7248,7 +7248,7 @@
 }
 {
   "Bières": "Enghien Noël",
-  "Type": ["Fermentation haute", "Triple", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Triple", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie de Silly",
   "brasserie": "Brasserie de Silly",
@@ -8028,7 +8028,7 @@
 }
 {
   "Bières": "Forestinne Nordika",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "7,5 %",
   "Brasserie": "Brasserie Caracole",
   "brasserie": "Brasserie Caracole",
@@ -8340,7 +8340,7 @@
 }
 {
   "Bières": "Gauloise Christmas",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,1 %",
   "Brasserie": "Brasserie du Bocq",
   "brasserie": "Brasserie du Bocq",
@@ -8688,7 +8688,7 @@
 }
 {
   "Bières": "Gordon Xmas",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,8 %",
   "Brasserie": "Brasserie Palm pour le Groupe John Martin",
   "brasserie": "#N/A",
@@ -8856,7 +8856,7 @@
 }
 {
   "Bières": "La Grelotte",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie Grain d'Orge",
   "brasserie": "Brasserie Grain d'Orge",
@@ -8892,7 +8892,7 @@
 }
 {
   "Bières": "Gribousine Hiver",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie La Binchoise pour la Brasserie de Malonne",
   "brasserie": "#N/A",
@@ -10896,7 +10896,7 @@
 }
 {
   "Bières": "Kerstpater",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie Van Den Bossche",
   "brasserie": "",
@@ -10908,7 +10908,7 @@
 }
 {
   "Bières": "Kerstbie",
-  "Type": ["Brune", "Bière de Noël"],
+  "Type": ["Brune", "Bière de Noel"],
   "Degree": "8 %",
   "Brasserie": "Brasserie De Bie",
   "brasserie": "",
@@ -10920,7 +10920,7 @@
 }
 {
   "Bières": "KerstSmiske",
-  "Type": ["Brune", "Bière de Noël"],
+  "Type": ["Brune", "Bière de Noel"],
   "Degree": "11 %",
   "Brasserie": "Brasserie Smisje",
   "brasserie": "",
@@ -10932,7 +10932,7 @@
 }
 {
   "Bières": "Kerstvuur",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8 %",
   "Brasserie": "De Proefbrouwerij pour la Brasserie Pirlot",
   "brasserie": "",
@@ -10992,7 +10992,7 @@
 }
 {
   "Bières": "Kleveretien",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "10 %",
   "Brasserie": "De Scheldebrouwerij pour la Brasserie Het Nest",
   "brasserie": "",
@@ -11484,7 +11484,7 @@
 }
 {
   "Bières": "Leffe de Noël",
-  "Type": ["Bière de Noël", "Abbaye"],
+  "Type": ["Bière de Noel", "Abbaye"],
   "Degree": "6,5 %",
   "Brasserie": "Abbaye Notre-Dame de Leffe (AB InBev)",
   "brasserie": "",
@@ -11724,7 +11724,7 @@
 }
 {
   "Bières": "Li Berwette di Noyè",
-  "Type": ["Brune", "Bière de Noël"],
+  "Type": ["Brune", "Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie Saint-Monon pour la Confrérie du Busson",
   "brasserie": "",
@@ -11843,8 +11843,8 @@
   "Géolocalisation": ""
 }
 {
-  "Bières": "Liers Bière de Noël",
-  "Type": ["Ambrée", "Bière de Noël"],
+  "Bières": "Liers Bière de Noel",
+  "Type": ["Ambrée", "Bière de Noel"],
   "Degree": "6 %",
   "Brasserie": "Brasserie Strubbe pour la commune de Lierre",
   "brasserie": "",
@@ -12192,7 +12192,7 @@
 }
 {
   "Bières": "Lupulus Hibernatus",
-  "Type": ["Brune", "Bière de Noël"],
+  "Type": ["Brune", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie Les Trois Fourquets",
   "brasserie": "",
@@ -13512,7 +13512,7 @@
 }
 {
   "Bières": "Nen Kerstbal",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8 %",
   "Brasserie": "pour Vacas",
   "brasserie": "",
@@ -13608,7 +13608,7 @@
 }
 {
   "Bières": "Noël de Silenrieux",
-  "Type": ["Triple", "Bière de Noël"],
+  "Type": ["Triple", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie de Silenrieux",
   "brasserie": "",
@@ -13752,7 +13752,7 @@
 }
 {
   "Bières": "Odlo Hivernum",
-  "Type": ["Bière de Noël", "Stout"],
+  "Type": ["Bière de Noel", "Stout"],
   "Degree": "8,7 %",
   "Brasserie": "Brasserie Lupus pour (T)Huisbrouwerij Odlo",
   "brasserie": "",
@@ -14220,7 +14220,7 @@
 }
 {
   "Bières": "Palm Dobbel",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "6 %",
   "Brasserie": "Brasserie Palm",
   "brasserie": "",
@@ -14616,7 +14616,7 @@
 }
 {
   "Bières": "Père Noël",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "7 %",
   "Brasserie": "Brasserie De Ranke",
   "brasserie": "",
@@ -14711,8 +14711,8 @@
   "Géolocalisation": ""
 }
 {
-  "Bières": "Petrus Bière de Noël",
-  "Type": ["Bière de Noël"],
+  "Bières": "Petrus Bière de Noel",
+  "Type": ["Bière de Noel"],
   "Degree": "6,5 %",
   "Brasserie": "Brasserie De Brabandere",
   "brasserie": "",
@@ -15059,7 +15059,7 @@
   "Géolocalisation": ""
 }
 {
-  "Bières": "La Poiluchette Blonde Cuvéé du Château",
+  "Bières": "La Poiluchette Blonde Cuvéé du Chateau",
   "Type": ["Fermentation haute"],
   "Degree": "7,5 %",
   "Brasserie": "Brasserie Huyghe",
@@ -15252,7 +15252,7 @@
 }
 {
   "Bières": "La Prime",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie Sainte-Hélène",
   "brasserie": "",
@@ -15804,7 +15804,7 @@
 }
 {
   "Bières": "Ronsischen Dubbel",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "7,4 %",
   "Brasserie": "De Proefbrouwerij pour Slaapmutske",
   "brasserie": "",
@@ -15972,7 +15972,7 @@
 }
 {
   "Bières": "La Rulles Cuvée Meilleurs Vœux",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "7,3 %",
   "Brasserie": "Brasserie artisanale de Rulles",
   "brasserie": "",
@@ -16476,7 +16476,7 @@
 }
 {
   "Bières": "Santa Bee",
-  "Type": ["Brune", "Bière de Noël"],
+  "Type": ["Brune", "Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie Boelens",
   "brasserie": "",
@@ -16728,7 +16728,7 @@
 }
 {
   "Bières": "Serafijn Kerstlicht",
-  "Type": ["Ambrée", "Bière de Noël"],
+  "Type": ["Ambrée", "Bière de Noel"],
   "Degree": "7 %",
   "Brasserie": "De Proefbrouwerij pour la MicroBrasserie Achilles",
   "brasserie": "",
@@ -16968,7 +16968,7 @@
 }
 {
   "Bières": "Slaapmutske Christmas",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "7,4 %",
   "Brasserie": "De Proefbrouwerij pour la Brasserie Slaapmutske",
   "brasserie": "",
@@ -17015,7 +17015,7 @@
   "Géolocalisation": ""
 }
 {
-  "Bières": "Slaghmuylder's Bière de Noël",
+  "Bières": "Slaghmuylder's Bière de Noel",
   "Type": ["Fermentation basse", "Blonde"],
   "Degree": "5,2 %",
   "Brasserie": "Brasserie Slaghmuylder",
@@ -17111,8 +17111,8 @@
   "Géolocalisation": ""
 }
 {
-  "Bières": "SnaasBière de Noël",
-  "Type": ["Bière de Noël"],
+  "Bières": "SnaasBière de Noel",
+  "Type": ["Bière de Noel"],
   "Degree": "8 %",
   "Brasserie": "Brasserie Deca",
   "brasserie": "",
@@ -17256,7 +17256,7 @@
 }
 {
   "Bières": "La Spéciale Fêtes",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie de Bouillon",
   "brasserie": "",
@@ -17340,7 +17340,7 @@
 }
 {
   "Bières": "St. Bernardus Christmas Ale",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "10 %",
   "Brasserie": "Brasserie St. Bernardus",
   "brasserie": "",
@@ -17532,7 +17532,7 @@
 }
 {
   "Bières": "St. Feuillien Cuvée de Noël",
-  "Type": ["Abbaye", "Bière de Noël"],
+  "Type": ["Abbaye", "Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie St-Feuillien",
   "brasserie": "",
@@ -18215,8 +18215,8 @@
   "Géolocalisation": ""
 }
 {
-  "Bières": "'t Gaverhopke Bière de Noël",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Bières": "'t Gaverhopke Bière de Noel",
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "6,8 %",
   "Brasserie": "Brasserie 't Gaverhopke",
   "brasserie": "",
@@ -18984,7 +18984,7 @@
 }
 {
   "Bières": "Tournay de Noël",
-  "Type": ["Stout", "Bière de Noël"],
+  "Type": ["Stout", "Bière de Noel"],
   "Degree": "8,2 %",
   "Brasserie": "Brasserie de Cazeau",
   "brasserie": "",
@@ -19140,7 +19140,7 @@
 }
 {
   "Bières": "Triest X-mas",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Microbrasserie Den Triest",
   "brasserie": "",
@@ -19968,7 +19968,7 @@
 }
 {
   "Bières": "Vicaris Kerst",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "10 %",
   "Brasserie": "Brasserie Dilewyns",
   "brasserie": "",
@@ -20748,7 +20748,7 @@
 }
 {
   "Bières": "Wieze Christmas Tripel Hop",
-  "Type": ["Triple" "Bière de Noël"],
+  "Type": ["Triple", "Bière de Noel"],
   "Degree": "8 %",
   "Brasserie": "Brasserie Wieze",
   "brasserie": "",
@@ -20856,7 +20856,7 @@
 }
 {
   "Bières": "Winterkoninkske Haspengouwse Grand Cru",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "13 %",
   "Brasserie": "Brasserie Cornelissen pour la Brasserie Kerkom",
   "brasserie": "",
@@ -20868,7 +20868,7 @@
 }
 {
   "Bières": "Wintersnood",
-  "Type": ["Bière de Noël"],
+  "Type": ["Bière de Noel"],
   "Degree": "6,4 %",
   "Brasserie": "'t Hofbrouwerijke pour la De Verhuisbrouwerij",
   "brasserie": "",
@@ -21192,7 +21192,7 @@
 }
 {
   "Bières": "Zeven Zonden Gula",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "9 %",
   "Brasserie": "Brasserie Gulden Spoor pour Hugel",
   "brasserie": "",
@@ -21204,7 +21204,7 @@
 }
 {
   "Bières": "Zeven Zonden Luxuria",
-  "Type": ["Fermentation haute", "Bière de Noël"],
+  "Type": ["Fermentation haute", "Bière de Noel"],
   "Degree": "8,5 %",
   "Brasserie": "Brasserie Gulden Spoor pour Hugel",
   "brasserie": "",
