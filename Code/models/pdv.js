@@ -4,17 +4,24 @@ let
 
 let pdv = new mongoose.Schema({
   Nom: String,
+  AncienNom: String,
   Ville: String,
   NumeroAdresse: Number,
   CodePostal: Number,
   Adresse: String,
   localite: String,
   province: String,
+  Pays: String,
+  HeuresOuvertures: String,
+  Telephone: String,
   tablesExterieur: Boolean,
+  MicroBrasserie: Boolean,
+  Operateur: String,
+  gay: Boolean,
   nourriture: Boolean,
-  SiteInternet: Number,
+  SiteInternet: String,
   AccesHandicape: Boolean,
-  Geolocalisation: [{La: Number, Lo: Number}]
+  Geolocalisation: {La: Number, Lo: Number}
 });
 
 pdv.plugin(passportLocalMongoose, {
