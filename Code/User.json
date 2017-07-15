@@ -1,42 +1,61 @@
 {
-  "nom" : "Harry Lafranc",
-  "balance" : "50,30",
-  "place" : "Bruxelles" ,
-  "accountNumber" : "BE25 7854 0222 3656"
+  "name" : "test",
+  "prenom" : "tset",
+  "pseudo" : "t",
+  "sexe" : "M",
+  "tel" : 123456789,
+  "email" : "azerty@uio.com",
+  "password" : "password",
+  "adress" : "rue des pétunias",
+  "postalCode" : 9876,
+  "city" : "Jodoigne",
+  "country" : "Belgique",
+  "coordBank" : "BE54 4568 4587 9231",
+  "balance" : 87,
+  "livrAdress" : "rue des tulipes",
+  "livrPostalCode" : 8765,
+  "livrCity" : "Hannut",
+  "livrCountry" : "Belgique"
 }
 {
-  "nom" : "Kabale Wokealgo",
-  "balance" : "15,20",
-  "place" : "Enghien" ,
-  "accountNumber" : "BE56 8596 2854 5864"
+  "name" : "Harry Lafranc",
+  "balance" : 50.00,
+  "adress" : "Bruxelles" ,
+  "coordBank" : "BE25 7854 0222 3656"
 }
 {
-  "nom" : "Bernard Lermite",
-  "balance" : "17,00",
-  "place" : "Nivelles" ,
-  "accountNumber" : "BE36 0221 0222 3656"
+  "name" : "Kabale Wokealgo",
+  "balance" : 15.20,
+  "adress" : "Enghien" ,
+  "coordBank" : "BE56 8596 2854 5864"
 }
 {
-  "nom" : "Jean Lafranc",
-  "balance" : "0,00",
-  "place" : "Mons" ,
-  "accountNumber" : "BE62 0221 0222 5748"
+  "name" : "Bernard Lermite",
+  "balance" : 17.00,
+  "adress" : "Nivelles" ,
+  "coordBank" : "BE36 0221 0222 3656"
 }
 {
-  "nom" : "Dupont Dupont",
-  "balance" : "2,00",
-  "place" : "Bruxelles" ,
-  "accountNumber" : "BE35 5685 0222 9685"
+  "name" : "Jean Lafranc",
+  "balance" : 0.00,
+  "adress" : "Mons" ,
+  "coordBank" : "BE62 0221 0222 5748"
 }
 {
-  "nom" : "Gerard Dupont",
-  "balance" : "5,00",
-  "place" : "Bruxelles" ,
-  "accountNumber" : "BE59 5845 0222 5444"
+  "name" : "Dupont Dupont",
+  "balance" : 2.00,
+  "adress" : "Bruxelles" ,
+  "coordBank" : "BE35 5685 0222 9685"
 }
 {
-  "nom" : "Pierre Haille",
-  "balance" : "520;25",
-  "place" : "Charleroi" ,
-  "accountNumber" : "BE85 7777 4574 3656"
+  "name" : "Gerard Dupont",
+  "balance" : 5.00,
+  "adress" : "Bruxelles" ,
+  "coordBank" : "BE59 5845 0222 5444"
+}
+{
+  "name" : "Pierre Haille",
+  "balance" : 520.25,
+  "adress" : "Charleroi" ,
+  "coordBank" : "BE85 7777 4574 3656"
 }
