@@ -170,3 +170,13 @@ Déconnexion
   background-color: #e6e6e6;
   border-radius: 20px;*/
 }
+
+.boutons {
+  margin-right: 20%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+fieldset {
+  margin-top: 30px;
+}

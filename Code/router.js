@@ -100,11 +100,15 @@ router.get('/search.html', function(req, res) {
 });
 router.get('/profile.html', function(req, res) {
   console.log("Accès au profil utilisateur");
-  res.render('pages/Profil', {utilisateur: globalUser, isLog:isLog});
+  res.render('pages/Profil', {utilisateur: globalUser});
 });
 router.get('/deconnexion.html', function(req, res) {
   console.log("Page déconnexion utilisateur");
   res.render('pages/deconnecter', {isLog:isLog});
+});
+router.get('/outilAdmin.html', function(req, res) {
+  console.log("Page outils d'administrations");
+  res.render('pages/outilAdmin', {utilisateur: globalUser});
 });
 //Toutes les requetes POST
 
@@ -150,41 +154,21 @@ router.post('/sendLogin', function(req, res) {
 
 router.post('/sendSignIn', function(req, res) {
   let name = req.body.name;
-  let prenom = req.body.prenom;
-  let pseudo = req.body.pseudo;
-  let sexe = req.body.sexe;
-  let tel = req.body.tel;
   let email = req.body.email;
   let password = req.body.password;
   let adress = req.body.adress;
-  let postalCode = req.body.postalCode;
-  let city = req.body.city;
   let country = req.body.country;
   let coordBank = req.body.coordBank;
   let balance = req.body.balance;
-  let livrAdress = req.body.livrAdress;
-  let livrPostalCode = req.body.livrPostalCode;
-  let livrCity = req.body.livrCity;
-  let livrCountry = req.body.livrCountry;
-
+  //TODO vérifier que l'adresse mail ne figure pas déjà dans la bdd pour éviter les conflits
   let newUser = new User();
   newUser.name = name;
-  newUser.prenom = prenom;
-  newUser.pseudo = pseudo;
-  newUser.sexe = sexe;
-  newUser.tel = tel;
   newUser.email = email;
   newUser.password = password;
   newUser.adress = adress;
-  newUser.postalCode = postalCode;
-  newUser.city = city;
   newUser.country = country;
   newUser.coordBank = coordBank;
   newUser.balance = balance;
-  newUser.livrAdress = livrAdress;
-  newUser.livrPostalCode = livrPostalCode;
-  newUser.livrCity = livrCity;
-  newUser.livrCountry = livrCountry;
   newUser.save(function(error, savedUser){
     if(error){
       console.log(error);
@@ -281,6 +265,46 @@ router.post('/deco', function(req, res) {
   }else{
     res.redirect('deconnexion.html');
   }
+});
+
+router.post('/modifDonnees', function(req, res) {
+  let nom = req.body.nom;
+  let prenom = req.body.prenom;
+  let pseudo = req.body.pseudo;
+  let sexe = req.body.sexe;
+  let tel = req.body.tel;
+  let email = req.body.email;
+  let password = req.body.mdp;
+  let adress = req.body.fact;
+  let postalCode = req.body.codePo;
+  let city = req.body.city;
+  let country = req.body.pays;
+  let coordBank = req.body.coord;
+  let balance = req.body.balance;
+  let livrAdress = req.body.addrLivr;
+  let livrPostalCode = req.body.codePoLivr;
+  let livrCity = req.body.cityLivr;
+  let livrCountry = req.body.paysLivr;
+
+  let modifUser = new User();
+  modifUser.name = nom;
+  modifUser.prenom = prenom;
+  modifUser.pseudo = pseudo;
+  modifUser.sexe = sexe;
+  modifUser.tel = tel;
+  modifUser.email = email;
+  modifUser.password = password;
+  modifUser.adress = adress;
+  modifUser.postalCode = postalCode;
+  modifUser.city = city;
+  modifUser.country = country;
+  modifUser.coordBank = coordBank;
+  modifUser.balance = balance;
+  modifUser.livrAdress = livrAdress;
+  modifUser.livrPostalCode = livrPostalCode;
+  modifUser.livrCity = livrCity;
+  modifUser.livrCountry = livrCountry;
+  res.redirect('/outilAdmin.html');
 });
 
 //On exporte notre router vers index.js pour le donner

@@ -21,41 +21,55 @@
   "name" : "Harry Lafranc",
   "balance" : 50.00,
   "adress" : "Bruxelles" ,
+  "email" : "harry@la.com",
+  "password" : "password",
   "coordBank" : "BE25 7854 0222 3656"
 }
 {
   "name" : "Kabale Wokealgo",
   "balance" : 15.20,
   "adress" : "Enghien" ,
+  "email" : "kabale@ahah.com",
+  "password" : "password",
   "coordBank" : "BE56 8596 2854 5864"
 }
 {
   "name" : "Bernard Lermite",
   "balance" : 17.00,
   "adress" : "Nivelles" ,
+  "email" : "Bernard@Lermite.com",
+  "password" : "password",
   "coordBank" : "BE36 0221 0222 3656"
 }
 {
   "name" : "Jean Lafranc",
   "balance" : 0.00,
   "adress" : "Mons" ,
+  "email" : "Jean@la.com",
+  "password" : "password",
   "coordBank" : "BE62 0221 0222 5748"
 }
 {
-  "name" : "Dupont Dupont",
+  "name" : "Pierre Dupont",
   "balance" : 2.00,
   "adress" : "Bruxelles" ,
+  "email" : "Pierre@Dupont.com",
+  "password" : "password",
   "coordBank" : "BE35 5685 0222 9685"
 }
 {
   "name" : "Gerard Dupont",
   "balance" : 5.00,
   "adress" : "Bruxelles" ,
+  "email" : "Gerard@uio.com",
+  "password" : "password",
   "coordBank" : "BE59 5845 0222 5444"
 }
 {
   "name" : "Pierre Haille",
   "balance" : 520.25,
   "adress" : "Charleroi" ,
+  "email" : "Ouille@aie.ouille",
+  "password" : "password",
   "coordBank" : "BE85 7777 4574 3656"
 }

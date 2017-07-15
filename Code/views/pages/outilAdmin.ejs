@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../parties/head %>
+        <link href="css/dashboard.css" rel="stylesheet">
+        <meta name="keywords" content="Biere, Bière, rechercher, commander, alchool">
+        <meta name="author" content="François Duchêne">
+        <meta name="description" content="Catalogue complet de bières permettant de localiser des point de vente et de commander en ligne !">
+        <title>BeerSearch</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <% include ../parties/nav %>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/RechercheBieres.html">Recherche bière</a></li>
+                <li><a href="/PDV.html">Points de ventes</a></li>
+                <li><a href="/Commander.html">Commander une bière</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+        <header>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                  <li><a href="/Profile.html">Aperçu <span class="sr-only">(current)</span></a></li>
+                  <li class="active"><a href="#">Outils d'administration</a></li>
+                  <li><a href="#">Historique</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                  <li><a href="/deconnexion.html">Se déconnecter</a></li>
+                  <li><a href="">Supprimer son compte</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1>Outils d'administrations</h1>
+                <h3>Vous pouvez modifier vos données ici</h3>
+                <form action="/modifDonnees" method="post">
+                  <div class="row">
+                    <section class="col-sm-6">
+                      <fieldset>
+                        <legend>Informations personnelles</legend>
+                        Nom : <input type="text" name="nom" placeholder="<%=utilisateur.name %>"><br>
+                        Prénom : <input type="text" name="prenom" placeholder="<%=utilisateur.prenom %>"><br>
+                        Pseudonyme : <input type="text" name="pseudo" placeholder="<%=utilisateur.pseudo %>"><br>
+                        Homme <input type="radio" name="sexe" placeholder=""><br>
+                        Femme <input type="radio" name="sexe" placeholder=""><br>
+                        Autre <input type="radio" name="sexe" placeholder=""><br>
+                        Numéro de téléphone : <input type="text" name="tel" placeholder="<%=utilisateur.tel %>"><br>
+                      </fieldset>
+                    </section>
+                    <section class="col-sm-6">
+                      <fieldset>
+                        <legend>Informations de facturation</legend>
+                        Adresse de facturation : <input type="text" name="fact" placeholder="<%=utilisateur.adress %>"><br>
+                        Code postal adresse de facturation : <input type="text" name="codePo" placeholder="<%=utilisateur.postalCode %>"><br>
+                        Cité adresse facturation : <input type="text" name="city" placeholder="<%=utilisateur.city %>"><br>
+                        Pays adresse facturation : <input type="text" name="pays" placeholder="<%=utilisateur.country %>"><br>
+                        Coordonnées de Banque : <input type="text" name="coord" placeholder="<%=utilisateur.coordBank %>"><br>
+                        Votre solde disponible : <input type="text" name="balance" placeholder="<%=utilisateur.balance %>"><br>
+                      </fieldset>
+                    </section>
+                  </div>
+                  <div class="row">
+                    <section class="col-sm-6">
+                      <fieldset>
+                        <legend>Informations de connexion</legend>
+                        Adresse Email : <input type="email" name="email" placeholder="<%=utilisateur.email %>"><br>
+                        Mot de passe : <input type="password" name="mdp" placeholder="<%=utilisateur.password %>"><br>
+                      </fieldset>
+                    </section>
+                    <section class="col-sm-6">
+                      <fieldset>
+                        <legend>Informations de livraison</legend>
+                        Adresse de livraison : <input type="text" name="addrLivr" placeholder="<%=utilisateur.livrAdress %>"><br>
+                        Code postal adresse de livraison : <input type="text" name="codePoLivr" placeholder="<%=utilisateur.livrPostalCode %>"><br>
+                        Cité adresse de livraison : <input type="text" name="cityLivr" placeholder="<%=utilisateur.livrCity %>"><br>
+                        Pays adresse de livraison : <input type="text" name="paysLivr" placeholder="<%=utilisateur.livrCountry %>"><br>
+                      </fieldset>
+                    </section>
+                  </div>
+                  <div class="boutons">
+                    <button class="btn btn-lg btn-primary btn-block" type="reset">Réinitialiser</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer les changements</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </header>
+        <footer class="footer">
+          <% include ../parties/footer %>
+        </footer>
+          <% include ../parties/scripts %>
+      </body>
+</html>
