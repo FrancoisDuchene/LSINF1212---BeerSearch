@@ -268,42 +268,40 @@ router.post('/deco', function(req, res) {
 });
 
 router.post('/modifDonnees', function(req, res) {
-  let nom = req.body.nom;
-  let prenom = req.body.prenom;
-  let pseudo = req.body.pseudo;
-  let sexe = req.body.sexe;
-  let tel = req.body.tel;
-  let email = req.body.email;
-  let password = req.body.mdp;
-  let adress = req.body.fact;
-  let postalCode = req.body.codePo;
-  let city = req.body.city;
-  let country = req.body.pays;
-  let coordBank = req.body.coord;
-  let balance = req.body.balance;
-  let livrAdress = req.body.addrLivr;
-  let livrPostalCode = req.body.codePoLivr;
-  let livrCity = req.body.cityLivr;
-  let livrCountry = req.body.paysLivr;
-
-  let modifUser = new User();
-  modifUser.name = nom;
-  modifUser.prenom = prenom;
-  modifUser.pseudo = pseudo;
-  modifUser.sexe = sexe;
-  modifUser.tel = tel;
-  modifUser.email = email;
-  modifUser.password = password;
-  modifUser.adress = adress;
-  modifUser.postalCode = postalCode;
-  modifUser.city = city;
-  modifUser.country = country;
-  modifUser.coordBank = coordBank;
-  modifUser.balance = balance;
-  modifUser.livrAdress = livrAdress;
-  modifUser.livrPostalCode = livrPostalCode;
-  modifUser.livrCity = livrCity;
-  modifUser.livrCountry = livrCountry;
+  User.findOne({email:req.body.email}, function(err, modifUser) {
+    //On prend en compte les possibles erreurs de bdd
+    if(err) {
+      res.status(500).send(err);
+    }else{
+      //On met à jour chaque attribut
+      //Si l'un ne se trouve pas dans la requete,
+      //On remet simplement l'ancien
+      modifUser.name = req.body.nom || modifUser.name;
+      modifUser.prenom = req.body.prenom || modifUser.prenom;
+      modifUser.pseudo = req.body.pseudo || modifUser.pseudo;
+      modifUser.sexe = req.body.sexe || modifUser.sexe;
+      modifUser.tel = req.body.tel || modifUser.tel;
+      modifUser.email = req.body.email || modifUser.email;
+      modifUser.password = req.body.mdp || modifUser.password;
+      modifUser.adress = req.body.fact || modifUser.adress;
+      modifUser.postalCode = req.body.codePo || modifUser.postalCode;
+      modifUser.city = req.body.city || modifUser.city;
+      modifUser.country = req.body.pays || modifUser.country;
+      modifUser.coordBank = req.body.coord || modifUser.coordBank;
+      modifUser.balance = req.body.balance || modifUser.balance;
+      modifUser.livrAdress = req.body.addrLivr || modifUser.livrAdress;
+      modifUser.livrPostalCode = req.body.codePoLivr || modifUser.livrPostalCode;
+      modifUser.livrCity = req.body.cityLivr || modifUser.livrCity;
+      modifUser.livrCountry = req.body.paysLivr || modifUser.livrCountry;
+      // Save the updated document back to the database
+      modifUser.save(function (err, modifUser) {
+          if (err) {
+              res.status(500).send(err)
+          }
+          res.send(modifUser);
+      });
+    }
+  });
   res.redirect('/outilAdmin.html');
 });
 
