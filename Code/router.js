@@ -63,7 +63,16 @@ router.get('/PDV.html', function(req, res) {
   }
 });
 router.get('/Commander.html', function(req, res) {
-  console.log(req.query.name);
+  let biereId = req.query.id;
+  if(biereId != undefined){
+    console.log("id: " + biereId);
+    Biere.findOne({_id: biereId}, function(err, docs){
+      let biereTest = new Biere();
+      biereTest.Bières = docs.Bières;
+      console.log(biereTest.Bières);
+    });
+  }
+  
   if(isLog) {
     res.render('pages/Commander', {nom: globalUser.name,isLog:isLog});
   }else{
@@ -216,42 +225,82 @@ router.post('/search', function(req, res){
   //requête
   if(Type == "Tout" && degree == "Tout" && province == "Tout"){
     Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
-    res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
   else if(Type == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
   else if(degree == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
   else if (degree == "Tout" && Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
   else if (province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
   else if (degree == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
   else if (Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
   else{
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
-      res.render('pages/search', {Bieres: docs, isLog:isLog});
+      if(isLog){
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+      }
+      else{
+        res.render('pages/search', {Bieres: docs, isLog:isLog});
+      }
     });
   }
 });
