@@ -33,111 +33,118 @@
             </div>
           </div>
         </header>
-        <table class="table table-striped table-hover">
-          <tr>
-            <th> Bière </th>
-            <th> Caractéristiques </th>
-            <th> Points de vente </th>
-            <th> Prix </th>
-            <th> Commander </th>
-          </tr>
-          <tr>
-            <td> Chimey Bleue </td>
-            <td>
-               brune, 9 %, laisse un leger goût de caramel en bouche
-            </td>
-            <td> Au moine fou </td>
-            <td>3€</td>
-            <td>
-              <label for="type">Nombre de bouteilles </label>
-              <select name="type" id="type">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td> Chimey Bleue </td>
-            <td>
-               brune, 9 %, laisse un leger goût de caramel en bouche
-            </td>
-            <td> Jamais 203 </td>
-            <td>2,5€</td>
-            <td>
-              <label for="type">Nombre de bouteilles </label>
-              <select name="type" id="type">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td> Orval </td>
-            <td>
-               Ambrée, 6.2 %, amère
-            </td>
-            <td> Beer Bar </td>
-            <td>1,25€</td>
-            <td>
-              <label for="type">Nombre de bouteilles </label>
-              <select name="type" id="type">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td> Orange Pied'boeuf </td>
-            <td>
-                blonde, 1,2 %, classique
-            </td>
-            <td> Chez Lagaffe </td>
-            <td>1,75€</td>
-            <td>
-              <label for="type">Nombre de bouteilles </label>
-              <select name="type" id="type">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </td>
-          </tr>
-        </table>
+        <% if(!isLog){ %>
+          <h2>
+            Pour utiliser cette fonction vous devez être
+            <a id="lienConnexion" href='Login.html'>connecté</a>
+          </h2>
+        <% }else{ %>
+          <table class="table table-striped table-hover">
+            <tr>
+              <th> Bière </th>
+              <th> Caractéristiques </th>
+              <th> Points de vente </th>
+              <th> Prix </th>
+              <th> Commander </th>
+            </tr>
+            <tr>
+              <td> Chimey Bleue </td>
+              <td>
+                 brune, 9 %, laisse un leger goût de caramel en bouche
+              </td>
+              <td> Au moine fou </td>
+              <td>3€</td>
+              <td>
+                <label for="type">Nombre de bouteilles </label>
+                <select name="type" id="type">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td> Chimey Bleue </td>
+              <td>
+                 brune, 9 %, laisse un leger goût de caramel en bouche
+              </td>
+              <td> Jamais 203 </td>
+              <td>2,5€</td>
+              <td>
+                <label for="type">Nombre de bouteilles </label>
+                <select name="type" id="type">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td> Orval </td>
+              <td>
+                 Ambrée, 6.2 %, amère
+              </td>
+              <td> Beer Bar </td>
+              <td>1,25€</td>
+              <td>
+                <label for="type">Nombre de bouteilles </label>
+                <select name="type" id="type">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td> Orange Pied'boeuf </td>
+              <td>
+                  blonde, 1,2 %, classique
+              </td>
+              <td> Chez Lagaffe </td>
+              <td>1,75€</td>
+              <td>
+                <label for="type">Nombre de bouteilles </label>
+                <select name="type" id="type">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        <% } %>
         <div class="comm">
           <script>
             function commandeEff() {
