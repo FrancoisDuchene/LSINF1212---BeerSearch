@@ -37,7 +37,7 @@
 				"type" : "Point",
 				"coordinates" : [4.619107,50.668241]
 			}
-		}
+		},
     {
       "type": "Feature",
       "properties": {
@@ -143,7 +143,6 @@
         "housenumber": "8",
         "postcode": "1348",
         "street": "Rue Paulin Ladeuze",
-        "addr:suburb": "Louvain-la-Neuve",
         "amenity": "bar",
         "name": "Wax Bar"
       },
@@ -267,7 +266,8 @@
       "properties": {
         "city": "Louvain-la-Neuve",
         "country": "Belgique",
-        "housenumber": "6A",
+        "housenumber": "6",
+        "housenumberannexe": "A",
         "postcode": "1348",
         "street": "Place des Brabançons",
         "amenity": "pub",

@@ -12,11 +12,7 @@ let mapTile = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 if('geolocation' in navigator) {
 
   //SI la géolocalisation est supportée
-  /**
-  getCurrentPosition() accepts 3 arguments:
-  a success callback (required), an error callback (optional), and a set of options (optional)
-  **/
-  var options = {
+  let options = {
     // enableHighAccuracy = should the device take extra time or power to return a really accurate result, or should it give you the quick (but less accurate) answer?
     enableHighAccuracy: false,
     // timeout = how long does the device have, in milliseconds to return a result?
@@ -24,9 +20,20 @@ if('geolocation' in navigator) {
     // maximumAge = maximum age for a possible previously-cached position. 0 = must return the current position, not a prior cached position
     maximumAge: 0
   };
+  var LeafIcon = L.Icon.extend({
+    options: {
+      iconSize: [32, 32],
+    }
+  });
+
+  let beerIcon = new LeafIcon({iconUrl: '../res/beer.png'});
 
   // call getCurrentPosition()
   el('track').addEventListener('change', function() {
+    /**
+    getCurrentPosition() accepts 3 arguments:
+    a success callback (required), an error callback (optional), and a set of options (optional)
+    **/
     navigator.geolocation.getCurrentPosition(success, error, options);
   });
 
@@ -52,11 +59,69 @@ if('geolocation' in navigator) {
   }
 
   function loadGeoJSON() {
-    let geojsonLayer = new L.GeoJSON.AJAX("res/pub.geojson", {onEachFeature:popUp});
+    let geojsonLayer = new L.GeoJSON.AJAX("res/pub.geojson", {
+      pointToLayer: function (feature, latlng) {
+        return L.marker(latlng, {icon:beerIcon});
+      },
+      onEachFeature:popUp
+    });
     geojsonLayer.addTo(PDVmap);
   }
 
   function popUp(feature, layer) {
-    layer.bindPopup(feature.properties.name);
+    let popupContent = "<h2><img src='../res/beer.png'>&nbsp;"+feature.properties.name+"</h2>";
+
+    //On construit l'adresse
+    if(feature.properties.street || feature.properties.housenumber || feature.properties.postcode
+      || feature.properties.city || feature.properties.country) {
+      if (feature.properties.street)
+        popupContent += feature.properties.street + " ";
+      if(feature.properties.housenumber) {
+        popupContent += feature.properties.housenumber;
+        if(!feature.properties.housenumberannexe) {
+          popupContent += ", ";
+        }
+      }
+      if(feature.properties.housenumberannexe)
+        popupContent += feature.properties.housenumberannexe + ", ";
+      if(feature.properties.postcode)
+        popupContent += feature.properties.postcode + " ";
+      if(feature.properties.city) {
+        popupContent += feature.properties.city;
+        if(feature.properties.country)
+          popupContent += ","
+      }
+      if(feature.properties.country)
+        popupContent += " " + feature.properties.country
+    }
+
+    if(feature.properties.opening_hours)
+      popupContent += "<br>Horaire d'ouverture: " + feature.properties.opening_hours;
+
+    if(feature.properties.outdoor_seating) {
+      popupContent += "<br>Tables exterieures: ";
+      if(feature.properties.outdoor_seating === 'yes') {
+        popupContent += "oui";
+      }else {
+        popupContent += "non";
+      }
+    }
+
+    if(feature.properties.wheelchair) {
+      popupContent += "<br>Accès handicapé: ";
+      if(feature.properties.wheelchair === 'yes') {
+        popupContent += "oui";
+      }else{
+        popupContent += "non";
+      }
+    }
+
+    if (feature.properties.phone)
+      popupContent += "<br><i>"+feature.properties.phone+"</i>";
+
+    if (feature.properties.site)
+      popupContent += "<br><a href='"+feature.properties.site+"' target='_blank'>"+feature.properties.site+"</a>";
+
+    layer.bindPopup(popupContent);
   }
 }
