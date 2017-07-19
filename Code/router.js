@@ -35,31 +35,79 @@ router.use(function(req, res, next) {
 //toutes les requêtes get
 router.get('/', function(req, res) {
   if(isLog) {
-    res.render('pages/index', {nom: globalUser.name,isLog:isLog});
+    res.render('pages/index', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/index', {isLog:isLog});
+    res.render('pages/index', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }
 });
 router.get('/index.html', function(req, res) {
   if(isLog) {
-    res.render('pages/index', {nom: globalUser.name,isLog:isLog});
+    res.render('pages/index', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/index', {isLog:isLog});
+    res.render('pages/index', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }
 });
 router.get('/RechercheBieres.html', function(req, res) {
   console.log("Accès - Page RechercheBieres")
   if(isLog) {
-    res.render('pages/RechercheBieres', {nom: globalUser.name,isLog:isLog})
+    res.render('pages/RechercheBieres', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/RechercheBieres', {isLog:isLog})
+    res.render('pages/RechercheBieres', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }
 });
 router.get('/PDV.html', function(req, res) {
   if(isLog) {
-    res.render('pages/PDV', {nom: globalUser.name,isLog:isLog});
+    res.render('pages/PDV', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/PDV', {isLog:isLog});
+    res.render('pages/PDV', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }
 });
 router.get('/Commander.html', function(req, res) {
@@ -72,52 +120,130 @@ router.get('/Commander.html', function(req, res) {
       console.log(biereTest.Bières);
     });
   }
-  
+
   if(isLog) {
-    res.render('pages/Commander', {nom: globalUser.name,isLog:isLog});
+    res.render('pages/Commander', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/Commander', {isLog:isLog});
+    res.render('pages/Commander', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }
 });
 router.get('/contact.html', function(req, res) {
   if(isLog) {
-    res.render('pages/contact', {nom: globalUser.name,isLog:isLog});
+    res.render('pages/contact', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/contact', {isLog:isLog});
+    res.render('pages/contact', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).end(html);
+    });
   }
 });
 router.get('/Login.html', function(req, res) {
-  res.render('pages/Login', {isLog:isLog});
+  res.render('pages/Login', {isLog:isLog}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
 });
 router.get('/SignIn.html', function(req, res) {
-  res.render('pages/SignIn', {isLog:isLog});
+  res.render('pages/SignIn', {isLog:isLog}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
 });
 router.get('/sendSignIn.html', function(req, res) {
   if(isLog) {
-    res.render('pages/sendSignIn', {nom: globalUser.name,isLog:isLog});
+    res.render('pages/sendSignIn', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/sendSignIn', {isLog:isLog});
+    res.render('pages/sendSignIn', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }
 });
 router.get('/search.html', function(req, res) {
   console.log("Accès - Page résultats de recherche");
   if(isLog) {
-    res.render('pages/search', {nom: globalUser.name,isLog:isLog});
+    res.render('pages/search', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }else{
-    res.render('pages/search', {isLog:isLog});
+    res.render('pages/search', {isLog:isLog}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
   }
 });
 router.get('/profile.html', function(req, res) {
   console.log("Accès au profil utilisateur");
-  res.render('pages/Profil', {utilisateur: globalUser});
+  res.render('pages/Profil', {utilisateur: globalUser}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
 });
 router.get('/deconnexion.html', function(req, res) {
   console.log("Page déconnexion utilisateur");
-  res.render('pages/deconnecter', {isLog:isLog});
+  res.render('pages/deconnecter', {isLog:isLog}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
 });
 router.get('/outilAdmin.html', function(req, res) {
   console.log("Page outils d'administrations");
-  res.render('pages/outilAdmin', {utilisateur: globalUser});
+  res.render('pages/outilAdmin', {utilisateur: globalUser}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
 });
 //Toutes les requetes POST
 
@@ -129,11 +255,12 @@ router.post('/sendLogin', function(req, res) {
   User.findOne({email: email, password: password}, function(error, user){
     if(error){
       console.log(error);
-      return res.status(500).send();
+      return res.status(500).send(error);
     }
 
     if(!user){
       console.log('Login incorrect')
+      res.status(304);
       return res.redirect('Login.html');
     }
     globalUser = new User();
@@ -156,8 +283,8 @@ router.post('/sendLogin', function(req, res) {
     globalUser.livrCountry = user.livrCountry;
     isLog = true;
     console.log("Log in réussi");
-    res.redirect('index.html');
-    return res.status(200).send();
+    res.status(200);
+    return res.redirect('index.html');
   });
 });
 
@@ -170,6 +297,7 @@ router.post('/sendSignIn', function(req, res) {
   let coordBank = req.body.coordBank;
   let balance = req.body.balance;
   //TODO vérifier que l'adresse mail ne figure pas déjà dans la bdd pour éviter les conflits
+  //Il faut alors renvoyer un status(204) dans ce cas-là
   let newUser = new User();
   newUser.name = name;
   newUser.email = email;
@@ -184,8 +312,8 @@ router.post('/sendSignIn', function(req, res) {
       return res.status(500).send();
     }
     console.log("enregistrement réussi");
-    res.redirect('Login.html');
-    return res.status(200).send();
+    res.status(201);
+    return res.redirect('Login.html');
   });
 });
 
@@ -226,80 +354,176 @@ router.post('/search', function(req, res){
   if(Type == "Tout" && degree == "Tout" && province == "Tout"){
     Biere.find({Bières: {$regex: sBiere, $options: 'i'}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
   else if(Type == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
   else if(degree == "Tout" && province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
   else if (degree == "Tout" && Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
   else if (province == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
   else if (degree == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, Type: {$regex: sType, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
   else if (Type == "Tout"){
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
   else{
     Biere.find({Bières: { $regex: sBiere, $options: 'i'}, province: {$regex: sProvince, $options: 'i'}, Degree: {"$gt": gte, "$lt": lte}, Type: {$regex: sType, $options: 'i'}}, function(err, docs){
       if(isLog){
-        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name});
+        res.render('pages/search', {Bieres: docs, isLog:isLog, nom: globalUser.name}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
       else{
-        res.render('pages/search', {Bieres: docs, isLog:isLog});
+        res.render('pages/search', {Bieres: docs, isLog:isLog}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          return res.status(200).send(html);
+        });
       }
     });
   }
@@ -310,9 +534,11 @@ router.post('/deco', function(req, res) {
     isLog = false;
     console.log("Utilisateur " + globalUser.name + " déconnecté");
     globalUser = undefined;
-    res.redirect('index.html');
+    res.status(200);
+    return res.redirect('index.html');
   }else{
-    res.redirect('deconnexion.html');
+    res.status(304);
+    return res.redirect('deconnexion.html');
   }
 });
 
@@ -320,7 +546,7 @@ router.post('/modifDonnees', function(req, res) {
   User.findOne({email:req.body.email}, function(err, modifUser) {
     //On prend en compte les possibles erreurs de bdd
     if(err) {
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }else{
       //On met à jour chaque attribut
       //Si l'un ne se trouve pas dans la requete,
@@ -345,13 +571,14 @@ router.post('/modifDonnees', function(req, res) {
       // Save the updated document back to the database
       modifUser.save(function (err, modifUser) {
           if (err) {
-              res.status(500).send(err)
+              return res.status(500).send(err);
           }
-          res.send(modifUser);
+          return res.status(200).send(modifUser);
       });
     }
   });
-  res.redirect('/outilAdmin.html');
+  res.status(200);
+  return res.redirect('/outilAdmin.html');
 });
 
 //On exporte notre router vers index.js pour le donner

@@ -93,17 +93,6 @@
         </select>
       </form>
     </section>
-    <section class="container">
-      <h3 id="result"></h3>
-      <ul class="list-unstyled" id="Bieres">
-      <% Bieres.forEach(function(biere){ %>
-        <li class="listBie">
-          Nom: <%= biere.Bières %> - Degré d'alcool: <%= biere.Degree %> - Type: <%= biere.Type %>
-          <a id="lienCom" href='Commander.html?name=<%= biere.Bières %>'>Commander</a>
-        </li>
-      <% }) %>
-      </ul>
-    </section>
     <footer class="footer">
       <% include ../parties/footer %>
     </footer>
