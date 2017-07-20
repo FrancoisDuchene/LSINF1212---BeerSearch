@@ -1,435 +1,362 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "id": "node/369810169",
-            "properties": {
-                "type": "node",
-                "id": "369810169",
-                "tags": {
-                    "addr:city": "Louvain-la-Neuve",
-                    "addr:housenumber": "23",
-                    "addr:postcode": "1348",
-                    "addr:street": "Rue Rabelais",
-                    "amenity": "pub",
-                    "name": "La Galoute",
-                    "outdoor_seating": "yes",
-                    "website": "https://www.lagaloute.com/"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2017-04-18T14:57:49Z",
-                    "version": "4",
-                    "changeset": "47908975",
-                    "user": "feldspath",
-                    "uid": "5671265"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6132895,
-                    50.6691551
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462233776",
-            "properties": {
-                "type": "node",
-                "id": "462233776",
-                "tags": {
-                    "amenity": "pub",
-                    "food": "yes",
-                    "name": "Le Rabelais",
-                    "old_name": "Le Papillon",
-                    "wheelchair": "yes"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2013-02-22T16:50:23Z",
-                    "version": "4",
-                    "changeset": "15124960",
-                    "user": "lf6648",
-                    "uid": "500788"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6131044,
-                    50.6688545
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462233777",
-            "properties": {
-                "type": "node",
-                "id": "462233777",
-                "tags": {
-                    "amenity": "pub",
-                    "food": "yes",
-                    "name": "Le Cambridge"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2009-08-12T12:38:51Z",
-                    "version": "1",
-                    "changeset": "2117768",
-                    "user": "Jean Cayron",
-                    "uid": "90654"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6133807,
-                    50.6691282
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462233778",
-            "properties": {
-                "type": "node",
-                "id": "462233778",
-                "tags": {
-                    "amenity": "pub",
-                    "food": "yes",
-                    "name": "Le Grand-Place"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2010-01-16T08:56:35Z",
-                    "version": "2",
-                    "changeset": "3629798",
-                    "user": "Tbj",
-                    "uid": "42033"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6123319,
-                    50.6694019
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462233779",
-            "properties": {
-                "type": "node",
-                "id": "462233779",
-                "tags": {
-                    "amenity": "pub",
-                    "description": "Irish pub",
-                    "name": "Le Beckett's"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2013-08-10T22:25:36Z",
-                    "version": "4",
-                    "changeset": "17297077",
-                    "user": "baptal",
-                    "uid": "1710508"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6113353,
-                    50.6691353
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462233780",
-            "properties": {
-                "type": "node",
-                "id": "462233780",
-                "tags": {
-                    "addr:city": "Ottignies-Louvain-la-Neuve",
-                    "addr:country": "BE",
-                    "addr:housenumber": "8",
-                    "addr:postcode": "1348",
-                    "addr:street": "Rue Paulin Ladeuze",
-                    "addr:suburb": "Louvain-la-Neuve",
-                    "amenity": "bar",
-                    "gay": "yes",
-                    "name": "Wax Bar"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2016-08-05T11:12:30Z",
-                    "version": "8",
-                    "changeset": "41257275",
-                    "user": "Stem",
-                    "uid": "472906"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6117886,
-                    50.669873
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462233781",
-            "properties": {
-                "type": "node",
-                "id": "462233781",
-                "tags": {
-                    "amenity": "pub",
-                    "name": "Knokke Out",
-                    "outdoor_seating": "yes"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2017-04-21T20:28:38Z",
-                    "version": "6",
-                    "changeset": "48015402",
-                    "user": "feldspath",
-                    "uid": "5671265"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6151094,
-                    50.6696506
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462255456",
-            "properties": {
-                "type": "node",
-                "id": "462255456",
-                "tags": {
-                    "amenity": "pub",
-                    "food": "yes",
-                    "name": "Les Halles"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2017-04-21T20:28:38Z",
-                    "version": "3",
-                    "changeset": "48015402",
-                    "user": "feldspath",
-                    "uid": "5671265"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6163217,
-                    50.6692192
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462255457",
-            "properties": {
-                "type": "node",
-                "id": "462255457",
-                "tags": {
-                    "amenity": "pub",
-                    "food": "yes",
-                    "name": "Onlywood"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2013-11-17T16:35:54Z",
-                    "version": "2",
-                    "changeset": "18955295",
-                    "user": "Christophe Delaere",
-                    "uid": "104573"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6167376,
-                    50.6686535
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/462255459",
-            "properties": {
-                "type": "node",
-                "id": "462255459",
-                "tags": {
-                    "addr:city": "Louvain-la-neuve",
-                    "addr:country": "BE",
-                    "addr:housenumber": "4",
-                    "addr:postcode": "1348",
-                    "addr:street": "Place des Brabançons",
-                    "amenity": "pub",
-                    "food": "no",
-                    "microbrewery": "yes",
-                    "name": "Brasse-Temps",
-                    "operator": "Brasserie Dubuisson",
-                    "phone": "+32 (0)10 45 70 27",
-                    "website": "https://dubuisson.com"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2017-01-09T17:23:53Z",
-                    "version": "5",
-                    "changeset": "45031593",
-                    "user": "ThibPhil",
-                    "uid": "3504727"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6165215,
-                    50.6685485
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/1190203644",
-            "properties": {
-                "type": "node",
-                "id": "1190203644",
-                "tags": {
-                    "addr:city": "Louvain-la-Neuve",
-                    "addr:country": "BE",
-                    "addr:housenumber": "6A",
-                    "addr:postcode": "1348",
-                    "addr:street": "Place des Brabançons",
-                    "amenity": "pub",
-                    "food": "yes",
-                    "name": "Altérez-vous",
-                    "opening_hours": "Mo-Sa 11:30-00:00",
-                    "outdoor_seating": "yes",
-                    "phone": "+32 10 84 40 03",
-                    "website": "http://www.alterezvous.be",
-                    "wheelchair": "yes"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2017-04-14T21:13:11Z",
-                    "version": "5",
-                    "changeset": "47796281",
-                    "user": "feldspath",
-                    "uid": "5671265"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6161033,
-                    50.6683696
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/1617088130",
-            "properties": {
-                "type": "node",
-                "id": "1617088130",
-                "tags": {
-                    "amenity": "pub",
-                    "name": "À La Chope"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2012-05-10T13:21:04Z",
-                    "version": "2",
-                    "changeset": "11558707",
-                    "user": "RichdeLim",
-                    "uid": "678142"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.5995784,
-                    50.6658719
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/2763957637",
-            "properties": {
-                "type": "node",
-                "id": "2763957637",
-                "tags": {
-                    "addr:city": "Louvain-la-Neuve",
-                    "addr:postcode": "1348",
-                    "addr:street": "Grand'Rue",
-                    "amenity": "pub",
-                    "name": "Beer Bar",
-                    "outdoor_seating": "yes",
-                    "website": "http://www.beer-bar.be/"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2017-05-13T13:24:50Z",
-                    "version": "3",
-                    "changeset": "48649289",
-                    "user": "dominusbelgia",
-                    "uid": "1092336"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.613704,
-                    50.6691429
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "node/3934559833",
-            "properties": {
-                "type": "node",
-                "id": "3934559833",
-                "tags": {
-                    "addr:city": "Louvain-La-Neuve",
-                    "addr:housenumber": "39",
-                    "addr:postcode": "1348",
-                    "addr:street": "Grand Place",
-                    "amenity": "pub",
-                    "name": "Chez Augustin"
-                },
-                "relations": [],
-                "meta": {
-                    "timestamp": "2016-01-08T21:07:34Z",
-                    "version": "1",
-                    "changeset": "36453715",
-                    "user": "ThibPhil",
-                    "uid": "3504727"
-                }
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.6113014,
-                    50.6696924
-                ]
-            }
-        }
-    ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Louvain-la-Neuve",
+        "housenumber": "23",
+        "postcode": "1348",
+        "street": "Rue Rabelais",
+        "amenity": "pub",
+        "name": "La Galoute",
+        "outdoor_seating": "yes",
+        "phone" : "010 45 13 81",
+        "website": "https://www.lagaloute.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6132895,
+          50.6691551
+        ]
+      }
+    },
+    {
+			"type" : "Feature",
+			"properties" : {
+				"name" : "Dude!",
+        "city": "Louvain-la-Neuve",
+        "housenumber": "3",
+        "housenumberannexe": "a",
+        "postcode": "1348",
+        "street": "Place des Sciences",
+				"phone" : "010 45 35 78"
+			},
+      "geometry" : {
+				"type" : "Point",
+				"coordinates" : [4.619107,50.668241]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Louvain-la-Neuve",
+        "housenumber": "30",
+        "postcode": "1348",
+        "street": "Place Rabelais",
+        "amenity": "pub",
+        "food": "yes",
+        "name": "Le Rabelais",
+        "old_name": "Le Papillon",
+        "phone" : "010 45 29 60",
+        "wheelchair": "yes",
+        "site" : "https://www.lerabelais.be/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6131044,
+          50.6688545
+        ]
+      }
+    },
+    {
+			"type" : "Feature",
+			"properties" : {
+				"name" : "Le Decorhum",
+        "city": "Ottignies-Louvain-la-Neuve",
+        "housenumber": "4",
+        "postcode": "1348",
+        "street": "Rue Paulin Ladeuze",
+				"site" : "https://www.facebook.com/decorhum/"
+			},
+      "geometry" : {
+				"type" : "Point",
+				"coordinates" : [4.610846,50.670668]
+			}
+		},
+    {
+			"type" : "Feature",
+			"properties" : {
+				"name" : "MAF-Sporkot",
+        "city": "Ottignies-Louvain-la-Neuve",
+        "postcode": "1348",
+        "street": "Voie Cardijn",
+				"site" : "https://www.facebook.com/groups/481903058500416/"
+			},
+      "geometry" : {
+				"type" : "Point",
+				"coordinates" : [4.609762,50.671158]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "pub",
+        "food": "yes",
+        "name": "Le Cambridge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6133807,
+          50.6691282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "pub",
+        "food": "yes",
+        "name": "Le Grand-Place"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6123319,
+          50.6694019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "pub",
+        "description": "Irish pub",
+        "name": "Le Beckett's"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6113353,
+          50.6691353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Ottignies-Louvain-la-Neuve",
+        "country": "Belgique",
+        "housenumber": "8",
+        "postcode": "1348",
+        "street": "Rue Paulin Ladeuze",
+        "amenity": "bar",
+        "name": "Wax Bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6117886,
+          50.669873
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Ottignies-Louvain-la-Neuve",
+        "country": "Belgique",
+        "postcode": "1348",
+        "street": "Place de l'Université",
+        "amenity": "pub",
+        "name": "Knokke Out",
+        "phone" : "010 45 55 55",
+        "site" : "http://www.knokkeout.com/",
+        "outdoor_seating": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6151094,
+          50.6696506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "pub",
+        "food": "yes",
+        "name": "Les Halles"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6163217,
+          50.6692192
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "pub",
+        "food": "yes",
+        "name": "Onlywood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6167376,
+          50.6686535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Louvain-la-neuve",
+        "country": "Belgique",
+        "housenumber": "4",
+        "postcode": "1348",
+        "street": "Place des Brabançons",
+        "amenity": "pub",
+        "food": "no",
+        "microbrewery": "yes",
+        "name": "Brasse-Temps",
+        "operator": "Brasserie Dubuisson",
+        "phone": "+32 (0)10 45 70 27",
+        "website": "https://dubuisson.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6165215,
+          50.6685485
+        ]
+      }
+    },
+    {
+			"type" : "Feature",
+			"properties" : {
+				"name" : "Cercle Industriel",
+        "city": "Louvain-la-neuve",
+        "country": "Belgique",
+        "housenumber": "4",
+        "postcode": "1348",
+        "street": "Ruelle Saint-Éloi",
+				"site" : "http://www.cercle-industriel.be/"
+			},
+      "geometry" : {
+				"type" : "Point",
+				"coordinates" : [4.617583,50.668309]
+			}
+		},
+    {
+			"type" : "Feature",
+			"properties" : {
+				"name" : "Maison des Sciences",
+        "city": "Louvain-la-neuve",
+        "country": "Belgique",
+        "housenumber": "70",
+        "postcode": "1348",
+        "street": "Place des Wallons",
+				"site" : "http://www.sites-test.uclouvain.be/"
+			},
+      "geometry" : {
+				"type" : "Point",
+				"coordinates" : [4.618420,50.668417]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Louvain-la-Neuve",
+        "country": "Belgique",
+        "housenumber": "6",
+        "housenumberannexe": "A",
+        "postcode": "1348",
+        "street": "Place des Brabançons",
+        "amenity": "pub",
+        "food": "yes",
+        "name": "Altérez-vous",
+        "opening_hours": "Mo-Sa 11:30-00:00",
+        "outdoor_seating": "yes",
+        "phone": "+32 10 84 40 03",
+        "website": "http://www.alterezvous.be",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6161033,
+          50.6683696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "amenity": "pub",
+        "name": "À La Chope"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5995784,
+          50.6658719
+        ]
+      }
+    },
+    {
+			"type" : "Feature",
+			"properties" : {
+				"name" : "Vintage Bar",
+        "city": "Louvain-La-Neuve",
+        "postcode": "1348",
+				"street" : "Grand-Rue",
+				"phone" : "010 68 14 34",
+				"site" : "http://www.estaminetsportif.be/"
+			},
+      "geometry" : {
+				"type" : "Point",
+				"coordinates" : [
+          4.614569,
+          50.669340
+        ]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Louvain-la-Neuve",
+        "postcode": "1348",
+        "street": "Grand'Rue",
+        "housenumber": "5",
+        "amenity": "pub",
+        "name": "Beer Bar",
+        "phone" : "010 24 58 38",
+        "outdoor_seating": "yes",
+        "website": "http://www.beer-bar.be/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.613704,
+          50.6691429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "city": "Louvain-La-Neuve",
+        "housenumber": "39",
+        "postcode": "1348",
+        "street": "Grand Place",
+        "amenity": "pub",
+        "name": "Chez Augustin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6113014,
+          50.6696924
+        ]
+      }
+    }
+  ]
 }
