@@ -34,10 +34,10 @@
           </div>
         </header>
         <% if(!isLog){ %>
-          <h2>
+          <h3>
             Pour utiliser cette fonction vous devez être
             <a id="lienConnexion" href='Login.html'>connecté</a>
-          </h2>
+          </h3>
         <% }else{ %>
           <table class="table table-striped table-hover">
             <tr>
@@ -144,15 +144,16 @@
               </td>
             </tr>
           </table>
+
+          <div class="comm">
+            <script>
+              function commandeEff() {
+                document.getElementById("comm").innerHTML = "Commande envoyée !!";
+              }
+            </script>
+          <button type="button" class="btn btn-default navbar-btn" onclick="commandeEff()" >Commander</button>
+          </div>
         <% } %>
-        <div class="comm">
-          <script>
-            function commandeEff() {
-              document.getElementById("comm").innerHTML = "Commande envoyée !!";
-            }
-          </script>
-        <button type="button" class="btn btn-default navbar-btn" onclick="commandeEff()" >Commander</button>
-        </div>
         <section class="container">
           <h3 id="comm"></h3>
         </section>
