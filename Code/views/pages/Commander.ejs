@@ -48,31 +48,30 @@
                 <th> Prix </th>
                 <th> Commander </th>
               </tr>
-              <% for(var i=0; i<4; i++) {%>
+              <% for(var i = 0; i<commande.length; i++) {%>
                 <ul>
                   <tr>
-                    <td> Chimey Bleue <%= i %></td>
+                    <td><%=commande[i].Bières %></td>
                     <td>
-                       brune, 9 %, laisse un leger goût de caramel en bouche
+                       Type : <%=commande[i].Type%>; Degré : <%=commande[i].Degree%>; Brasserie : <%=commande[i].Brasserie%>
                     </td>
-                    <td> Au moine fou </td>
-                    <td>3€</td>
+                    <td> à venir </td>
+                    <td>à venir</td>
                     <td>
                       <label for="type">Nombre de bouteilles : </label>
-                      <input type="number" id="inputNbBiere" name="nombreBiere" placeholder="Nombre de Bouteilles" required>
+                      <input type="number" id="inputNbBiere<%=i%>" name="nombreBiere" placeholder="Nombre de Bouteilles" required>
                     </td>
                   </tr>
                 </ul>
               <%}%>
             </table>
 
-            <script>
-              function commandeEff() {
-                document.getElementById("comm").innerHTML = "Commande envoyée !!";
-              }
-            </script>
             <a role="button" class="btn btn-primary btn-block" href="./RechercheBieres.html">Ajouter une bière</a>
-            <button type="button" class="btn btn-default btn-block" onclick="commandeEff()" >Commander</button>
+            <% if(commande.length>0) { %>
+              <form action="/commander" method="post">
+                <button type="submit" class="btn btn-default btn-block">Commander</button>
+              </form>
+            <%}%>
 
           </div>
         <% } %>

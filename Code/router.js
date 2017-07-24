@@ -6,6 +6,8 @@ let User = require('./models/user');
 let Biere = require('./models/bieres');
 let Pdv = require('./models/pdv');
 
+let util = require('./util');
+
 let bodyParser = require("body-parser");
 // Un fonction speciale pour les routes sous express
 let router = express.Router();
@@ -15,6 +17,9 @@ let globalUser;
 //On vérifie si un utilisateur est loggé ou pas
 //On passe ce paramètre à toutes les pages pour activer certaines choses
 let isLog = false;
+
+//tableau contenant les bières à commander
+let commande = [];
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -111,24 +116,37 @@ router.get('/PDV.html', function(req, res) {
   }
 });
 router.get('/Commander.html', function(req, res) {
-  let biereId = req.query.id;
-  if(biereId != undefined){
-    console.log("id: " + biereId);
-    Biere.findOne({_id: biereId}, function(err, docs){
-      let biereTest = new Biere();
-      biereTest.Bières = docs.Bières;
-      console.log(biereTest.Bières);
-    });
-  }
 
   if(isLog) {
-    res.render('pages/Commander', {nom: globalUser.name,isLog:isLog}, function(err,html) {
-      if(err) {
-        console.log(err);
-        return res.status(500).send(err);
-      }
-      res.status(200).send(html);
-    });
+    let biereId = req.query.id;
+    if(biereId != undefined){
+      console.log("id: " + biereId);
+      Biere.findOne({_id: biereId}, function(err, docs){
+        if(!util.isIn(commande, docs)){
+          commande[commande.length] = docs;
+        }
+        console.log("nombre de bieres dans la commande : " + commande.length);
+        for(let i=0; i<commande.length; i++){
+          console.log("bière " + i + " = " + commande[i].Bières);
+        }
+        res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande}, function(err,html) {
+          if(err) {
+            console.log(err);
+            return res.status(500).send(err);
+          }
+          res.status(200).send(html);
+        });
+      });
+    }
+    else{
+      res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande}, function(err,html) {
+        if(err) {
+          console.log(err);
+          return res.status(500).send(err);
+        }
+        res.status(200).send(html);
+      });
+    }
   }else{
     res.render('pages/Commander', {isLog:isLog}, function(err,html) {
       if(err) {
@@ -579,6 +597,10 @@ router.post('/modifDonnees', function(req, res) {
   });
   res.status(200);
   return res.redirect('/outilAdmin.html');
+});
+
+router.post('/commander', function(req, res){
+  
 });
 
 //On exporte notre router vers index.js pour le donner
