@@ -20,6 +20,10 @@ let isLog = false;
 
 //tableau contenant les bières à commander
 let commande = [];
+let PDVCommande = [];
+let posTab;
+let first = true;
+let defaut;
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -98,6 +102,8 @@ router.get('/RechercheBieres.html', function(req, res) {
 });
 router.get('/PDV.html', function(req, res) {
   if(isLog) {
+    posTab = req.query.posTab;
+    console.log("posTab = " + posTab);
     res.render('pages/PDV', {nom: globalUser.name,isLog:isLog}, function(err,html) {
       if(err) {
         console.log(err);
@@ -116,20 +122,21 @@ router.get('/PDV.html', function(req, res) {
   }
 });
 router.get('/Commander.html', function(req, res) {
-
   if(isLog) {
     let biereId = req.query.id;
+    let pdvC = req.query.pdv;
     if(biereId != undefined){
       console.log("id: " + biereId);
       Biere.findOne({_id: biereId}, function(err, docs){
         if(!util.isIn(commande, docs)){
+          PDVCommande[commande.length] = defaut;
           commande[commande.length] = docs;
         }
         console.log("nombre de bieres dans la commande : " + commande.length);
         for(let i=0; i<commande.length; i++){
           console.log("bière " + i + " = " + commande[i].Bières);
         }
-        res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande}, function(err,html) {
+        res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, isPDV: false}, function(err,html) {
           if(err) {
             console.log(err);
             return res.status(500).send(err);
@@ -138,8 +145,32 @@ router.get('/Commander.html', function(req, res) {
         });
       });
     }
+    else if(posTab != undefined && pdvC != undefined){
+      if(first){
+        defaut = pdvC;
+        for(let i=0; i<commande.length; i++){
+          PDVCommande[i] = defaut;
+          first=false;
+        }
+      }
+      else {
+        PDVCommande[posTab] = pdvC;
+      }
+
+      for(let i=0; i<PDVCommande.length; i++){
+        console.log("PDVCommande " + i + " = " + PDVCommande[i]);
+      }
+      posTab = undefined;
+      res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, isPDV: false}, function(err,html) {
+        if(err) {
+          console.log(err);
+          return res.status(500).send(err);
+        }
+        res.status(200).send(html);
+      });
+    }
     else{
-      res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande}, function(err,html) {
+      res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, isPDV: false}, function(err,html) {
         if(err) {
           console.log(err);
           return res.status(500).send(err);
@@ -600,9 +631,47 @@ router.post('/modifDonnees', function(req, res) {
 });
 
 router.post('/commander', function(req, res){
-  
+  if(PDVCommande[0] == undefined){
+    res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, isPDV: true}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
+  }
+  else{
+    res.render('pages/RecapCommande', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
+  }
 });
 
+router.post('/clear', function(req, res){
+  PDVCommande = [];
+  commande = [];
+  res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, isPDV: false}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
+});
+
+router.post('/annuler', function(req, res){
+  res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, isPDV: false}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
+});
 //On exporte notre router vers index.js pour le donner
 //en parametre a server.js
 module.exports = router;
