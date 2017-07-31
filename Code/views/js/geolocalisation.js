@@ -122,6 +122,9 @@ if('geolocation' in navigator) {
     if (feature.properties.site)
       popupContent += "<br><a href='"+feature.properties.site+"' target='_blank'>"+feature.properties.site+"</a>";
 
+
+    popupContent += "<br><br><a href='./Commander.html?pdv="+ feature.properties.name +"'>Choisir ce point de vente pour commander</a>";
+
     layer.bindPopup(popupContent);
   }
 }

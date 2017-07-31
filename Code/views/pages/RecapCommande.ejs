@@ -30,15 +30,10 @@
           <div class="container">
             <div class="starter-template">
               <h1>Commander dès maintenant</h1>
+              <h2>Récapitulatif de votre commande</h2>
             </div>
           </div>
         </header>
-        <% if(!isLog){ %>
-          <h3 class="text-center">
-            Pour utiliser cette fonction vous devez être
-            <a id="lienConnexion" href='Login.html'>connecté</a>
-          </h3>
-        <% }else{ %>
           <div class="container">
             <table class="table table-striped table-hover table-bordered">
               <tr>
@@ -46,7 +41,10 @@
                 <th> Caractéristiques </th>
                 <th> Points de vente </th>
                 <th> Prix </th>
+                <th> Nombre de bouteilles </th>
+                <th> Prix total </th>
               </tr>
+              <% let prixTotal = 0 %>
               <% for(var i = 0; i<commande.length; i++) {%>
                 <ul>
                   <tr>
@@ -55,37 +53,29 @@
                        Type : <%=commande[i].Type%>; Degré : <%=commande[i].Degree%>; Brasserie : <%=commande[i].Brasserie%>
                     </td>
                     <td>
-                      <% if(PDVCommande[i] == undefined) {%>
-                        <a href='./PDV.html?posTab=<%=i%>'>Choisir</a>
-                      <%}else{%>
-                        <%=PDVCommande[i]%>
-                        <br><a href='./PDV.html?posTab=<%=i%>'>Changer</a>
-                      <%}%>
+                      <%=PDVCommande[i]%>
                     </td>
                     <td>à venir</td>
+                    <td>
+                      <label for="type">Nombre de bouteilles : </label>
+                      <input type="number" id="inputNbBiere<%=i%>" name="nombreBiere" placeholder="Nombre de Bouteilles" required>
+                    </td>
+                    <td></td>
                   </tr>
                 </ul>
               <%}%>
             </table>
 
-            <a role="button" class="btn btn-primary btn-block" href="./RechercheBieres.html">Ajouter une bière</a>
-            <% if(commande.length>0) { %>
-              <form action="/clear" method="post">
-                <button type="submit" class="btn btn-info btn-block">Remettre à zéro</button>
+            <h4>Prix total : <%=prixTotal%></h4>
+
+              <form action="/annuler" method="post">
+                <button type="submit" class="btn btn-primary btn-block">Annuler</button>
               </form>
-              <form action="/commander" method="post">
-                <button type="submit" class="btn btn-default btn-block">Commander</button>
+              <form action="/finalCommande" method="post">
+                <button type="submit" class="btn btn-default btn-block">Confirmer la commande</button>
               </form>
 
-            <%}%>
-            <%if(isPDV){%>
-              <h3>Veuillez choisir un point de ventre pour chaque bière</h3>
-            <%}%>
           </div>
-        <% } %>
-        <section class="container">
-          <h3 id="comm"></h3>
-        </section>
         <footer class="footer">
           <% include ../parties/footer %>
         </footer>
