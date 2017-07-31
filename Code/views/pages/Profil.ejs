@@ -22,10 +22,10 @@
             </div><!--/.nav-collapse -->
           </div>
         </nav>
-        <header>
+        <main>
           <div class="container-fluid">
             <div class="row">
-              <div class="col-sm-3 col-md-2 sidebar">
+              <header class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                   <li class="active"><a href="#">Aperçu <span class="sr-only">(current)</span></a></li>
                   <li><a href="/outilAdmin.html">Outils d'administration</a></li>
@@ -35,8 +35,8 @@
                   <li><a href="/deconnexion.html">Se déconnecter</a></li>
                   <li><a href="">Supprimer son compte</a></li>
                 </ul>
-              </div>
-              <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+              </header>
+              <section class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h1 class="page-header">Profil</h1>
                 <h2 class="sub-header">Vos coordonnées</h2>
                 <section class="row placeholders">
@@ -44,21 +44,21 @@
                     <h3>Coordonnées personnelles</h3>
                     <section class="row placeholder">
                       <div class="col-sm-6 texteProfil">
-                        Pseudonyme:</br>
-                        Nom: </br>
-                        Prénom:</br>
-                        Sexe:</br>
-                        Téléphone:</br>
-                        Adresse Mail:</br>
+                        Pseudonyme:<br>
+                        Nom: <br>
+                        Prénom:<br>
+                        Sexe:<br>
+                        Téléphone:<br>
+                        Adresse Mail:<br>
                       </div>
                       <div class="col-sm-6 donneeProfil">
                         <!-- A compléter -->
-                        <%=utilisateur.pseudo %></br>
-                        <%=utilisateur.name %></br>
-                        <%=utilisateur.prenom %></br>
-                        <%=utilisateur.sexe %></br>
-                        <%=utilisateur.tel %></br>
-                        <%=utilisateur.email %></br>
+                        <%=utilisateur.pseudo %><br>
+                        <%=utilisateur.name %><br>
+                        <%=utilisateur.prenom %><br>
+                        <%=utilisateur.sexe %><br>
+                        <%=utilisateur.tel %><br>
+                        <%=utilisateur.email %><br>
                       </div>
                     </section>
                   </div>
@@ -68,21 +68,21 @@
                     <h3>Facturation</h3>
                     <section class="row placeholder">
                       <div class="col-sm-6 texteProfil">
-                        Adresse facturation:</br>
-                        Code Postal:</br>
-                        Localité:</br>
-                        Pays:</br>
-                        Compte de facturation:</br>
-                        Solde disponible:</br>
+                        Adresse facturation:<br>
+                        Code Postal:<br>
+                        Localité:<br>
+                        Pays:<br>
+                        Compte de facturation:<br>
+                        Solde disponible:<br>
                       </div>
                       <div class="col-sm-6 donneeProfil">
                         <!-- A compléter -->
-                        <%=utilisateur.adress %></br>
-                        <%=utilisateur.postalCode %></br>
-                        <%=utilisateur.city %></br>
-                        <%=utilisateur.country %></br>
-                        <%=utilisateur.coordBank %></br>
-                        <%=utilisateur.balance %></br>
+                        <%=utilisateur.adress %><br>
+                        <%=utilisateur.postalCode %><br>
+                        <%=utilisateur.city %><br>
+                        <%=utilisateur.country %><br>
+                        <%=utilisateur.coordBank %><br>
+                        <%=utilisateur.balance %><br>
                       </div>
                     </section>
                   </div>
@@ -90,25 +90,25 @@
                     <h3>Livraison</h3>
                     <section class="row placeholder">
                       <div class="col-sm-6 texteProfil">
-                        Adresse livraison:</br>
-                        Code Postal:</br>
-                        Localité:</br>
-                        Pays:</br>
+                        Adresse livraison:<br>
+                        Code Postal:<br>
+                        Localité:<br>
+                        Pays:<br>
                       </div>
                       <div class="col-sm-6 donneeProfil">
                         <!-- A compléter -->
-                        <%=utilisateur.livrAdress %></br>
-                        <%=utilisateur.livrPostalCode %></br>
-                        <%=utilisateur.livrCity %></br>
-                        <%=utilisateur.livrCountry %></br>
+                        <%=utilisateur.livrAdress %><br>
+                        <%=utilisateur.livrPostalCode %><br>
+                        <%=utilisateur.livrCity %><br>
+                        <%=utilisateur.livrCountry %><br>
                       </div>
                     </section>
                   </div>
                 </section>
-              </div>
+              </section>
             </div>
           </div>
-        </header>
+        </main>
         <footer class="footer">
           <% include ../parties/footer %>
         </footer>
