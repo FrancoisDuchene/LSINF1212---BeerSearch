@@ -24,6 +24,7 @@ let PDVCommande = [];
 let posTab;
 let first = true;
 let defaut;
+let prixTotal = 0;
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -277,6 +278,16 @@ router.get('/profile.html', function(req, res) {
 router.get('/deconnexion.html', function(req, res) {
   console.log("Page déconnexion utilisateur");
   res.render('pages/deconnecter', {isLog:isLog}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
+});
+router.get('/supprimerCompte.html', function(req, res) {
+  console.log("Page déconnexion utilisateur");
+  res.render('pages/supprimerCompte', {isLog:isLog}, function(err,html) {
     if(err) {
       console.log(err);
       return res.status(500).send(err);
@@ -592,7 +603,7 @@ router.post('/deco', function(req, res) {
 });
 
 router.post('/modifDonnees', function(req, res) {
-  User.findOne({email:req.body.email}, function(err, modifUser) {
+  User.findOne({email:globalUser.email}, function(err, modifUser) {
     //On prend en compte les possibles erreurs de bdd
     if(err) {
       return res.status(500).send(err);
@@ -618,16 +629,39 @@ router.post('/modifDonnees', function(req, res) {
       modifUser.livrCity = req.body.cityLivr || modifUser.livrCity;
       modifUser.livrCountry = req.body.paysLivr || modifUser.livrCountry;
       // Save the updated document back to the database
-      modifUser.save(function (err, modifUser) {
-          if (err) {
+      globalUser.name = modifUser.name;
+      globalUser.prenom = modifUser.prenom;
+      globalUser.pseudo = modifUser.pseudo;
+      globalUser.sexe = modifUser.sexe;
+      globalUser.tel = modifUser.tel;
+      globalUser.email = modifUser.email;
+      globalUser.password = modifUser.password;
+      globalUser.adress = modifUser.adress;
+      globalUser.postalCode = modifUser.postalCode;
+      globalUser.city = modifUser.city;
+      globalUser.country = modifUser.country;
+      globalUser.coordBank = modifUser.coordBank;
+      globalUser.balance = modifUser.balance;
+      globalUser.livrAdress = modifUser.livrAdress;
+      globalUser.livrPostalCode = modifUser.livrPostalCode;
+      globalUser.livrCity = modifUser.livrCity;
+      globalUser.livrCountry = modifUser.livrCountry;
+      modifUser.save(function(err){
+        if(err){
+          res.status(500).send(err);
+        }
+        else{
+          res.render('pages/Profil', {utilisateur: globalUser}, function(err,html) {
+            if(err) {
+              console.log(err);
               return res.status(500).send(err);
-          }
-          return res.status(200).send(modifUser);
+            }
+            res.status(200).send(html);
+          });
+        }
       });
     }
   });
-  res.status(200);
-  return res.redirect('/outilAdmin.html');
 });
 
 router.post('/commander', function(req, res){
@@ -641,7 +675,7 @@ router.post('/commander', function(req, res){
     });
   }
   else{
-    res.render('pages/RecapCommande', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande}, function(err,html) {
+    res.render('pages/RecapCommande', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, balanceOk:true}, function(err,html) {
       if(err) {
         console.log(err);
         return res.status(500).send(err);
@@ -654,6 +688,8 @@ router.post('/commander', function(req, res){
 router.post('/clear', function(req, res){
   PDVCommande = [];
   commande = [];
+  first = true;
+  defaut = undefined;
   res.render('pages/Commander', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, isPDV: false}, function(err,html) {
     if(err) {
       console.log(err);
@@ -670,6 +706,85 @@ router.post('/annuler', function(req, res){
       return res.status(500).send(err);
     }
     res.status(200).send(html);
+  });
+});
+
+router.post('/finalCommande', function(req, res){
+  let nombreBiere = req.body.nombreBiere;
+  for(let i = 0; i<commande.length; i++){
+    prixTotal = prixTotal + ((1+((commande[i].Bières.length)/10) * 2+((PDVCommande[i].length)/10))*nombreBiere[i]);
+  }
+  console.log("prix total = " + prixTotal);
+
+  if(globalUser.balance-prixTotal<0){
+    prixTotal = 0;
+    res.render('pages/RecapCommande', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, balanceOk: false}, function(err,html) {
+      if(err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.status(200).send(html);
+    });
+  }
+  else{
+
+      res.render('pages/confirmCommande', {nom: globalUser.name,isLog:isLog, balance: globalUser.balance, prixTotal: prixTotal}, function(err,html) {
+        if(err) {
+          console.log(err);
+          return res.status(500).send(err);
+        }
+        res.status(200).send(html);
+      });
+  }
+
+});
+
+router.post('/annuler2', function(req, res){
+  res.render('pages/RecapCommande', {nom: globalUser.name,isLog:isLog, commande:commande, PDVCommande: PDVCommande, balanceOk: true}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
+});
+
+router.post('/confirmerCommande', function(req, res){
+  globalUser.balance = globalUser.balance-prixTotal;
+  User.update({email: globalUser.email}, {balance: globalUser.balance}, function(err, raw){
+    if(err) return handleError(err);
+    console.log("Réponse raw de mongo : " + raw);
+  });
+  prixTotal = 0;
+  commande = [];
+  PDVCommande = [];
+  first=true;
+  defaut=undefined;
+  res.render('pages/index', {nom: globalUser.name,isLog:isLog}, function(err,html) {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).send(html);
+  });
+});
+
+router.post('/supprimer',function(req, res){
+  User.deleteOne({email:globalUser.email},function(err){
+    if(err){
+      res.status(500).send(err);
+    }
+    else{
+      globalUser = undefined;
+      isLog=false;
+      res.render('pages/index', {isLog:isLog}, function(err,html) {
+        if(err) {
+          console.log(err);
+          return res.status(500).send(err);
+        }
+        res.status(200).send(html);
+      });
+    }
   });
 });
 //On exporte notre router vers index.js pour le donner

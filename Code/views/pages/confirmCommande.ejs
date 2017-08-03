@@ -29,56 +29,24 @@
         <header>
           <div class="container">
             <div class="starter-template">
-              <h1>Commander dès maintenant</h1>
-              <h2>Récapitulatif de votre commande</h2>
+              <h1>Confirmez votre commande</h1>
             </div>
           </div>
         </header>
           <div class="container">
-            <form action="/finalCommande" method="post">
-              <table class="table table-striped table-hover table-bordered">
-                <tr>
-                  <th> Bière </th>
-                  <th> Caractéristiques </th>
-                  <th> Points de vente </th>
-                  <th> Prix </th>
-                  <th> Nombre de bouteilles </th>
-                </tr>
-                <% let prixTotal = 0 %>
-                <% let prixBiere = [] %>
-                <% let nbBiere = [] %>
-                <% for(var i = 0; i<commande.length; i++) {%>
-                  <ul>
-                    <tr>
-                      <td><%=commande[i].Bières %></td>
-                      <td>
-                         Type : <%=commande[i].Type%>; Degré : <%=commande[i].Degree%>; Brasserie : <%=commande[i].Brasserie%>
-                      </td>
-                      <td>
-                        <%=PDVCommande[i]%>
-                      </td>
-                      <td>
-                        <%prixBiere[i] = (1+((commande[i].Bières.length)/10) * 2+((PDVCommande[i].length)/10))%>
-                        <%=prixBiere[i].toFixed(2)%>
-                      </td>
-                      <td>
-                        Nombre de bouteilles : <input type="number" id="inputNbBiere[]" name="nombreBiere[]" placeholder="Nombre de Bouteilles" required>
-                      </td>
-                    </tr>
-                  </ul>
-                <%}%>
-              </table>
+            <form action="/confirmerCommande" method="post">
+              <h4>
+                Votre ancien solde : <%=balance%>
+              </h4>
+              <h4>
+                Votre nouveau solde : <%=(balance - prixTotal)%>
+              </h4>
 
               <button type="submit" class="btn btn-default btn-block">Confirmer la commande</button>
             </form>
-            <form action="/annuler" method="post">
+            <form action="/annuler2" method="post">
               <button type="submit" class="btn btn-primary btn-block">Annuler</button>
             </form>
-
-            <%if(!balanceOk){%>
-              <h3>Vous n'avez pas assez sur votre solde pour commander ce nombre de bières</h3><br>
-              <h3>Veuillez saisir moins de bières ou réaprovisionner votre solde</h3>
-            <%}%>
 
           </div>
         <footer class="footer">

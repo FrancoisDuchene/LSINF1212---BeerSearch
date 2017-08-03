@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../parties/head %>
+        <meta name="keywords" content="Biere, Bière, rechercher, commander, alchool">
+        <meta name="author" content="François Duchêne">
+        <meta name="description" content="Catalogue complet de bières permettant de localiser des point de vente et de commander en ligne !">
+        <title>BeerSearch</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <% include ../parties/nav %>
+          </div>
+        </nav>
+        <header>
+          <div class="container">
+            <section class="starter-template">
+              <h1>Êtes-vous sûr de vouloir vous supprimer votre compte ?</h1>
+              <div class="row decobloc">
+                <div class="col-xs-12 col-sm-6">
+                  <form action="/supprimer" method="post">
+                    <button class="btn btn-default btn-success btn-lg" type="submit" value="Submit"><strong>Oui</strong></button>
+                  </form>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <button class="btn btn-default btn-danger btn-lg" type="button" onclick="location.href='./index.html'"><strong>Non</strong></button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </header>
+        <footer class="footer">
+          <% include ../parties/footer %>
+        </footer>
+        <% include ../parties/scripts %>
+    </body>
+</html>
