@@ -1,4 +1,4 @@
-# Projet LSINF1212 - BeerSearch
+﻿# Projet LSINF1212 - BeerSearch
 
 Il s'agit du dépôt pour le projet du cours *LSINF1212 - Projet d'approfondissement en informatique* donné par le prof. Gonzalez Montesinos Sebastian Andres.
 
@@ -27,7 +27,7 @@ Le fichier *session.js* relie la base de donnée au serveur.
 Le fichier *router.js* gère les pages html et comprend les fonctions `Get` et `Post`.
 
 Le dossier *db* reprend la base de donnée de notre application
-Le dossier *models* reprend deux schéma de donnée, indispensables pour l'interaction avec la base de donnée.
+Le dossier *models* reprend trois schémas de donnée, indispensables pour l'interaction avec la base de donnée.
 Le dossier *pages* reprend les différentes pages html ainsi que les ressources css et les scripts.
 Le dossier *views* reprend un `view` nécessaire au fonctionnement de la recherche de bières.
 
@@ -68,7 +68,22 @@ On utilise **MongoDB** pour gérer la base de donnée de notre application.
 Pour lancer la base de donnée il faut se placer dans le dossier Code et utiliser la commande `mongod --dbpath db`
 
 ### Lancement de l'application
-Voici la marche à suivre pour lancer notre application web:
+Avant de lancer l'application, assurez vous d'avoir installé au préalable mongodb, node.js ainsi que yarn sur votre ordinateur. La version de
+mongodb importe peu, mais nous vous recommandons la 3.4.6. 
+Quand aux versions nodejs et yarn, nous ne garantissons pas le succès de l'installation des dépendences si vous ne possédez pas les versions suivantes :
+yarn : v 0.27.5 => lien :https://yarnpkg.com/fr/
+node.js : v6 => lien :https://nodejs.org/en/
+
+Unr fois ces packages installés, allez dans le dossier "Code" du projet depuis un terminal. tapez la commande suivante : yarn
+cela installera les dépendances. il est possible(probable) que yarn vous demande de choisir une version spécifique de mongodb. prenez la version 2.2.26
+Ensuite, toujours depuis un terminal et le dossier code, tapez la commande : mongod --dbpath db
+si une erreur se produit, videz le dossier db puis réessayez.
+
+Ensuite, depuis un autre terminal, allez dans le dossier code, puis tapez la commande : node index.js
+
+lancez ensuite un naviguateur et allez à l'adresse : 'localhost:8080' Vous devriez voir la page d'accueil du site
+
+Voici la marche à suivre pour lancer notre application web lorsqu'une première connexion à été faite:
 
 * *Premièrement*: lancez la base de donnée grâce à la commande `mongod --dbpath db` à partir du dossier **Code/**.
 * *Deuxièmement*: lancez le serveur avec la commande `node index.js`
