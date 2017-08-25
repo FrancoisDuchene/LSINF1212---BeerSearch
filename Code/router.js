@@ -307,7 +307,7 @@ router.get('/outilAdmin.html', function(req, res) {
 });
 //Toutes les requetes POST
 
-//Une requete pour s'inscrire
+//Une requete pour se connecté
 router.post('/sendLogin', function(req, res) {
   let email = req.body.email;
   let password = req.body.password;
@@ -348,6 +348,7 @@ router.post('/sendLogin', function(req, res) {
   });
 });
 
+//requete pour s'inscrire
 router.post('/sendSignIn', function(req, res) {
   let name = req.body.name;
   let email = req.body.email;
@@ -356,8 +357,7 @@ router.post('/sendSignIn', function(req, res) {
   let country = req.body.country;
   let coordBank = req.body.coordBank;
   let balance = req.body.balance;
-  //TODO vérifier que l'adresse mail ne figure pas déjà dans la bdd pour éviter les conflits
-  //Il faut alors renvoyer un status(204) dans ce cas-là
+
   let newUser = new User();
   newUser.name = name;
   newUser.email = email;
@@ -589,6 +589,7 @@ router.post('/search', function(req, res){
   }
 });
 
+//requete pour se déconnecté
 router.post('/deco', function(req, res) {
   if(isLog) {
     isLog = false;
