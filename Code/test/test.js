@@ -1,8 +1,8 @@
 let expect = require('chai').expect;
-let Beer = require('../classeBeer');
-let User = require('../classeUser');
-let SellPlace = require('../classeSellPlace');
-let Element = require('../classeElement');
+let Beer = require('./classeBeer');
+let User = require('./classeUser');
+let SellPlace = require('./classeSellPlace');
+let Element = require('./classeElement');
 
 describe('Beer', () => {
   let beer;

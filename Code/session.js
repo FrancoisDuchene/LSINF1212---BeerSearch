@@ -6,7 +6,6 @@ const
   mongoose = require('mongoose'),
   User = require('./models/user');
   Biere = require('./models/bieres');
-  Pdv = require('./models/pdv');
 
 exports.configure = function configureExpressSession(app) {
 
@@ -22,12 +21,9 @@ exports.configure = function configureExpressSession(app) {
   app.use(passport.session());
   passport.use(User.createStrategy());
   passport.use(Biere.createStrategy());
-  passport.use(Pdv.createStrategy());
   passport.serializeUser(User.serializeUser());
   passport.serializeUser(Biere.serializeUser());
-  passport.serializeUser(Pdv.serializeUser());
   passport.deserializeUser(User.deserializeUser());
   passport.deserializeUser(Biere.deserializeUser());
-  passport.deserializeUser(Pdv.deserializeUser());
 
 };
