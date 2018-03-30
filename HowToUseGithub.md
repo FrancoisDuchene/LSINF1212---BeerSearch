@@ -1,4 +1,4 @@
-# Github for newbies - Comment utiliser git (et par extension github)
+# Github for newbies - Comment utiliser git (et par extension github) - Auteur: François Duchêne
 
 ## Comment commencer à contribuer ?
 
@@ -43,60 +43,102 @@ Plus d'informations : https://help.github.com/articles/set-up-git/
 
 Quand tout ça est fait, il faut cloner le dépôt (repository en anglais).
 
-Deux choix s'offrent encore à vous.
+Deux choix s'offrent alors encore à vous.
 
-Ou vous "forkez" le dépôt principal, c'est à dire vous créez une copie personnelle du dépôt principal sur laquelle vous effecturez les modifications avant de de l'envoyer sur le dépôt principal (celui qui est sous mon nom).
+* Soit vous "forkez" le dépôt principal, c'est à dire vous en créez une copie personnelle sur laquelle vous effecturez vos modifications avant de les envoyer sur le dépôt principal (celui qui est sous mon nom).
+* Soit vous envoyez vos modifications directemet sur le dépôt principal.
 
-Ou vous changez directement sur le dépôt principal mais alors je vous conseille fortement de faire attention avant d'envoyer ; en effet quand vous faîtes un fork, avant de pouvoir envoyer sur le dépôt principal vous devez faire ce que l'on appelle un *pull request*. En gros vous demandez au dépôt principal d'intégrer vos changements et dans ce cas-là, les autres contributeurs peuvent voir vos modifications et par exemple vérifier qu'il n'y a pas de bug.
-Comme dans ce cas-ci vous envoyez directement au dépôt, il n'y a pas forcément de contrôle sur les bugs que vous pourriez faire.
+#### Fork
 
-Tout d'abord si vous utilisez la *méthode n°1*, il faut que vous appuyez sur le bouton "fork" au dessus du dépôt. Vous avez alors créé une copie sur votre propre compte, rendez-vous y.
-Maintenant il faut que vous téléchargiez cette copie sur votre pc. Cliquez sur le bouton "Clone or download" **sur la page de votre fork**. Vous obtiendrez un lien web. Copier-collez.
+Dans cette solution, vous allez créé votre propre copie du dépot principal. Sur github, rendez-vous sur la page du dépôt et cliquez sur le bouton *fork* en haut à droite (il devrait être assez visible mais sinon c'est un petit dessin qui ressemble à une baguette de sourcier).
+Vous avez alors créé une copie sur votre propre compte, rendez-vous y.
+Maintenant il faut que vous téléchargiez cette copie sur votre pc. Cliquez sur le bouton "Clone or download" **sur la page de votre fork**. Vous obtiendrez un lien web. Copier-le.
 
-Si vous utilisez la *méthode n°2*, vous devez cliquer sur le bouton "Clone or download" **sur la page de du dépôt principal**.
+Ensuite retournez dans votre interpreteur de commande (ou interface graphique ça dépends de ce que vous utilisez). Déplacez-vous jusqu'au dossier ou voulez mettre le projet.
 
-Pour cela retournez dans votre interpreteur de commande (ou interface graphique ça dépends de ce que vous utilisez). Déplacez-vous jusqu'au dossier ou voulez mettre le projet.
-
-Tapez : `git clone https://github.com/VOTRE-PSEUDO/NOM-REPO`
+Tapez : `git clone https://github.com/VOTRE-PSEUDO/NOM-REPO` (ou alors faites juste `git clone ` + coller le lien)
 Enter et si vous avez tout bien fait vous avez cloné le repo !
 
-Maintenant pour pouvoir le synchroniser, il faut faire encore quelques commandes;
-- Ouvrez un terminal
-- Allez dans votre dossier
-- Sur la page internet du repo, allez sur le bouton "Clone or download" **sur la page de votre fork ou du dépôt selon la méthode** et copier-collez. 
-- Tapez : `git remote -v` Deux lignes s'affichent normalement.
-- Tapez : `git remote add upstream https://github.com/VOTRE-LIEN`
-- Pour être sûr faites : `git remote -v` Normalement vous en avez maintenant. 
+Maintenant pour pouvoir le synchroniser dans le futur, càd pour pouvoir envoyer vos modifications locales (sur votre pc) vers votre fork, il faut encore faire quelques commandes (si vous venez de cloner votre fork, sautez à l'étape 3.);
+
+1. Ouvrez un terminal
+2. Allez dans votre dossier
+3. Sur la page internet du **dépôt principal** (pas le fork), allez sur le bouton "Clone or download" et copier-le. 
+4. Tapez : `git remote -v`. `origin https://github.com/VOTRE-PSEUDO/NOM-REPO` s'affiche normalement deux fois.
+5. Tapez : `git remote add upstream https://github.com/VOTRE-LIEN`
+6. Pour être sûr faites : `git remote -v` Normalement vous en avez maintenant 4. 
+
+Les remotes sont des liens que vous pourrez utiliser lorsque vous voudrez synchroniser votre travail. On en reparlera plus en détail dans la partie *contribuer*.
+
+Les forks ont ça de différents avec le changement direct qu'au lieu de contribuer directement au dépôt principal, vous contriburez d'abord à votre fork, puis vous devrez faire une demande pour envoyer vos modifications sur le dépôt principal, c'est ce qu'on appel un *pull request*. C'est une solution qui semble plus complexe pour les petits projets mais qui est indispensable sur tous les gros projets (outre le fait qu'à part si vous connaissez l'admin du dépot, il vous sera impossible de contribuer directement au dépot, en effet il y a une procédure à suivre pour l'admin afin d'autoriser cela, j'en reparle dans la partie du changement direct).
+Cela permet notamment aux autres membres de voir les modifications faites et si il y a des bugs ou non.
+
+Plus d'infos : https://help.github.com/articles/fork-a-repo/
+
+#### Changement direct
+
+Dans cette solution, vous envverez directement vos modifications sur le dépot principal. La première chose à faire pour vous si vous voulez contribuer à un dépo de cette façon est de contacter l'admin du dépot. En effet, il doit *explicitement* mettre votre nom dans la liste des contributeurs du projet, ce qui vous donnera le privilège de directement envoyer vos modifications. Si vous êtes admin vous-même et que vous désirez l'autorisez pour quelqu'un, j'explique la procédure un peu plus bas.
+
+##### Vous êtes contributeur
+
+Vous allez devoir tout d'abord cloner le dépôt principal, pour cela cliquez sur le bouton "Clone or download" **sur la page de du dépôt principal**.
+
+Ensuite retournez dans votre interpreteur de commande (ou interface graphique ça dépends de ce que vous utilisez). Déplacez-vous jusqu'au dossier ou voulez mettre le projet.
+
+Tapez : `git clone https://github.com/VOTRE-PSEUDO/NOM-REPO` (ou alors faites juste `git clone ` + coller le lien)
+Enter et si vous avez tout bien fait vous avez cloné le repo !
+
+Maintenant pour pouvoir le synchroniser, il faut faire encore quelques commandes (si vous venez de cloner votre fork, sautez à l'étape 4.);
+
+1. Ouvrez un terminal
+2. Allez dans votre dossier
+3. Sur la page internet du repo, allez sur le bouton "Clone or download" **sur la page du dépôt** et copier-le. 
+4. Tapez : `git remote -v`. `origin https://github.com/PSEUDO-ADMIN/NOM-REPO` s'affiche normalement deux fois.
+5. Tapez : `git remote add upstream https://github.com/VOTRE-LIEN`
+6. Pour être sûr faites : `git remote -v` Normalement vous en avez 4 maintenant. 
+
+##### Vous êtes admin
+
+Voici la procédure si vous êtes admin :
+
+1. Rendez-vous dans les paramètres du dépôt (une icone en forme d'engrenage).
+2. Rendez-vous ensuite dans l'onglet *collaborators*.
+3. Vous devrez alors saisir votre mot de passe github.
+4. Ensuite dans la fenêtre principale vous devrez ajouter la personne pour laquelle vous aimeriez authorisé la modification directe en tapant son nom de profil github.
+
+Il n'y a normalement pas de limites de collaborateurs.
+
 Plus d'infos : https://help.github.com/articles/fork-a-repo/
 
 ## Contribuer
 
-Maintenant que vous avez une copie propre du repo sur votre ordinateur, vous pouvez commencer à contribuer.
-Le système de github consiste en un repo central (celui-ci) et des "fork" que vous aurez fait. Ces fork ne sont que des copies. 
-Le principe c'est que vous envoyez vos changements sur votre dépot perso, puis ensuite vous demandez à l'envoyer sur le dépôt central.
-Si vous êtes ce qu'on appelle un "collaborateur" (c'est d'office le cas si vous avez été invité sur un dépôt privé), vous pouvez directement envoyer sur le dépôt central.
+Normalement maintenant, soit vous avez un fork sur lequel envoyer vos données, soit vous êtes sur la liste blanche du dépôt principal et vous pouvez directement envoyer vos modifications.
 
-Maintenant le système de git. En gros ça se passe quasiment toujours comme ça :
-- Vous travaillez, vous changez le code
-- Vous trouvez que vous avez suffisement fait de modifications et vous voulez sauvegarder votre travail. Pour cela vous devez faire un "commit". C'est une sauvegarde de l'état actuel de votre dépôt local.
-Pour cela vous devez faire (dans votre dossier contenant le dépôt git) : `git commit -m "MESSAGE EXPLIQUANT VOS CHANGEMENTS"`
-- Maintenant vous avez fait une sauvegarde sur votre système. Mais ça reste local. Si vous voulez l'envoyer sur votre fork, vous devez faire `git push -u` .Il faudra certainement mettre votre mail et mot de passe github.
+Lorsque vous contriburez, cela se passera généralement de la manière suivante :
+
+- Vous travaillez, vous changez le code, vous écrivez, etc.
+- Vous trouvez que vous avez suffisament fait de modifications et vous voulez sauvegarder votre travail. Pour cela vous devez faire un "commit". C'est une sauvegarde de l'état actuel de votre dépôt local (pour rappel git est gestionnaire de version à la base, pas un logiciel client-serveur).
+    - Pour cela vous allez d'abord devoir dire quels fichiers feront partie de votre commit. Pour cela vous utilisez la commande `git add NOM-FICHIER`. Les expressions régulières sont acceptés, vous pouvez par exemple écrire `git add \*` pour directement ajouter tous vos fichiers ou `git add \*.java`  pour ajouter tous les fichiers contenant une extension `.java`.
+    - Ensuite, vous devez faire : `git commit -m "MESSAGE EXPLIQUANT VOS CHANGEMENTS"`
+- Maintenant vous avez fait une sauvegarde sur votre système. Mais ça reste local. Si vous êtes contributeur direct, écrivez `git push`. Si vous avez un fork, écrivez `git push origin master` (vous envoyez votre branche master sur le lien *origin*). Il faudra certainement mettre votre mail et mot de passe github.
 - Voilà vous avez envoyé du contenu en ligne sur votre repo !
 
-Maintenant pour l'envoyer sur le depo central. Sur votre "fork", cliquez sur pull request et normalement il vous proposera d'envoyer une demande de changement. 
+Maintenant si vous avez un *fork*, pour l'envoyer sur le depo central vous devez aller sur la page de votre fork. Il devrait indiqué de combien de commit vous êtes en avance sur branche principale (celle du dépôt principal) ainsi qu'un bouton *pull request*. Cliquez dessus et il vous sera alors possible d'écrire un message décrivant vos changements. Une fois cela fait vous n'aurez qu'à envoyer votre demande de pull request. Vous devrez alors attendre que l'admin accept votre demande.
 
 ### Synchronisez votre travail avec celui du groupe
 
 Pour mettre à jour votre dépot avec les modifications faites par le groupe si vous avez un **fork**, il faut suivre cette démarche :
+
 - Ouvrez un terminal et allez dans le dossier de votre projet
 - Tapez : `git fetch upstream`
 - Tapez : `git checkout master`
 - Tapez : `git merge upstream/master`
 
-Si vous envoyez directement vers le dépôt central (autrement dit vous avez utilisé **la méthode 1** du clonage), vous pouvez directement la commande `git pull` avec des paramètres si il y a besoin (git vous le dira)
+Si vous être contributeur direct, vous pouvez directement la commande `git pull` avec des paramètres si il y a besoin (git vous le dira)
 
 Normalement tout est bon. Si il y a des merge conflicts, god save ourself.
-Pour ça faites attention de pas modifier en même temps le même fichier qu'une autre personne parce que c'est un moyen d'en créer.
+Un *merge conflict* est un conflit entre la version de votre dépot local et celle du serveur principal. Cela intervient lorsque vous et un autre contributeur a modifié la même chose, git ne sait alors plus quelle version gardé, la votre ou celle du serveur ?
+Pour ça faites attention de pas modifier en même temps le même fichier qu'une autre personne parce que c'est un bon moyen d'en créer.
 
 #### Gérer les merge conflicts
 Si jamais ça arrive quand même, il va falloir d'abord corriger le conflit manuellement avant de pouvoir push. 
@@ -117,7 +159,7 @@ HEAD
 En gros il met en parallèle les différentes versions. Il faut manuellement en supprimer une (+ les >>>> ,====, HEAD et 465d465465464a6e46)
 Et ensuite vous pouvez `git commit -m "merge conflict resolved"` et `git push`.
 
-Si jamais vous n'avez pas de *fork* et que vous avez utilisé **la méthode 1** du clonage, vous pouvez directement utiliser la commande : `git pull`
+Si jamais vous êtes contributeur direct, vous pouvez directement utiliser la commande : `git pull`
 Si ça ne fonctionne pas, faites comme la méthode ci-dessus.
 
 Pour plus d'informations : https://help.github.com/articles/syncing-a-fork/
